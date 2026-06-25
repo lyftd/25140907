@@ -1,0 +1,486 @@
+{
+  "sha256": "9692e1c8f171270f18135b531979012f2a5ce46511b1d03b3a1e373dab78a595",
+  "file": "/Users/lyf/bj_master/semester_2/open_source_software/practice/final_project/logrotate",
+  "info": {
+    "arch": "arm",
+    "baddr": 32768,
+    "binsz": 38756,
+    "bintype": "elf",
+    "bits": 32,
+    "canary": false,
+    "injprot": false,
+    "class": "ELF32",
+    "compiled": "",
+    "compiler": "",
+    "flags": "0x5000002",
+    "abi": "eabi5",
+    "crypto": false,
+    "dbg_file": "",
+    "endian": "little",
+    "havecode": true,
+    "guid": "",
+    "intrp": "/lib/ld-uClibc.so.0",
+    "laddr": 0,
+    "lang": "c",
+    "linenum": false,
+    "lsyms": false,
+    "machine": "ARM",
+    "nx": true,
+    "os": "linux",
+    "cc": "",
+    "pic": false,
+    "relocs": false,
+    "relro": "no",
+    "rpath": "NONE",
+    "sanitize": false,
+    "static": false,
+    "stripped": true,
+    "uncaps": true,
+    "subsys": "linux",
+    "va": true,
+    "checksums": {}
+  },
+  "dangerous_imports": [
+    {
+      "name": "strcpy",
+      "plt": 38068,
+      "ordinal": 1,
+      "type": "FUNC"
+    },
+    {
+      "name": "fgets",
+      "plt": 38260,
+      "ordinal": 20,
+      "type": "FUNC"
+    },
+    {
+      "name": "memcpy",
+      "plt": 38320,
+      "ordinal": 25,
+      "type": "FUNC"
+    },
+    {
+      "name": "execl",
+      "plt": 38332,
+      "ordinal": 26,
+      "type": "FUNC"
+    },
+    {
+      "name": "poptParseArgvString",
+      "plt": 38440,
+      "ordinal": 35,
+      "type": "FUNC"
+    },
+    {
+      "name": "read",
+      "plt": 38668,
+      "ordinal": 58,
+      "type": "FUNC"
+    },
+    {
+      "name": "strncpy",
+      "plt": 38728,
+      "ordinal": 63,
+      "type": "FUNC"
+    },
+    {
+      "name": "sscanf",
+      "plt": 38788,
+      "ordinal": 68,
+      "type": "FUNC"
+    },
+    {
+      "name": "strncat",
+      "plt": 38812,
+      "ordinal": 70,
+      "type": "FUNC"
+    },
+    {
+      "name": "execlp",
+      "plt": 38824,
+      "ordinal": 71,
+      "type": "FUNC"
+    },
+    {
+      "name": "sprintf",
+      "plt": 38992,
+      "ordinal": 88,
+      "type": "FUNC"
+    },
+    {
+      "name": "execvp",
+      "plt": 39184,
+      "ordinal": 109,
+      "type": "FUNC"
+    }
+  ],
+  "important_strings": [
+    {
+      "vaddr": 30656,
+      "paddr": 30656,
+      "string": "error creating state file %s: %s\\n"
+    },
+    {
+      "vaddr": 30690,
+      "paddr": 30690,
+      "string": "logrotate state -- version 2\\n"
+    },
+    {
+      "vaddr": 30720,
+      "paddr": 30720,
+      "string": "error stat()ing state file %s: %s\\n"
+    },
+    {
+      "vaddr": 30755,
+      "paddr": 30755,
+      "string": "error opening state file %s: %s\\n"
+    },
+    {
+      "vaddr": 30818,
+      "paddr": 30818,
+      "string": "logrotate state -- version 1\\n"
+    },
+    {
+      "vaddr": 30848,
+      "paddr": 30848,
+      "string": "bad top line in state file %s\\n"
+    },
+    {
+      "vaddr": 30879,
+      "paddr": 30879,
+      "string": "line %d too long in state file %s\\n"
+    },
+    {
+      "vaddr": 30923,
+      "paddr": 30923,
+      "string": "bad line %d in state file %s\\n"
+    },
+    {
+      "vaddr": 30953,
+      "paddr": 30953,
+      "string": "bad year %d for file %s in state file %s\\n"
+    },
+    {
+      "vaddr": 30995,
+      "paddr": 30995,
+      "string": "bad month %d for file %s in state file %s\\n"
+    },
+    {
+      "vaddr": 31038,
+      "paddr": 31038,
+      "string": "bad day %d for file %s in state file %s\\n"
+    },
+    {
+      "vaddr": 31236,
+      "paddr": 31236,
+      "string": "failed to open %s for mailing: %s\\n"
+    },
+    {
+      "vaddr": 31271,
+      "paddr": 31271,
+      "string": "error opening pipe for uncompress: %s"
+    },
+    {
+      "vaddr": 31309,
+      "paddr": 31309,
+      "string": "mail command failed for %s\\n"
+    },
+    {
+      "vaddr": 31337,
+      "paddr": 31337,
+      "string": "uncompress command failed mailing %s\\n"
+    },
+    {
+      "vaddr": 31375,
+      "paddr": 31375,
+      "string": "running script with arg %s: \"%s\"\\n"
+    },
+    {
+      "vaddr": 31409,
+      "paddr": 31409,
+      "string": "/bin/sh"
+    },
+    {
+      "vaddr": 31420,
+      "paddr": 31420,
+      "string": "logrotate_script"
+    },
+    {
+      "vaddr": 31617,
+      "paddr": 31617,
+      "string": "compressing log with: %s\\n"
+    },
+    {
+      "vaddr": 31643,
+      "paddr": 31643,
+      "string": "unable to open %s for compression\\n"
+    },
+    {
+      "vaddr": 31678,
+      "paddr": 31678,
+      "string": "failed to compress log %s\\n"
+    },
+    {
+      "vaddr": 32250,
+      "paddr": 32250,
+      "string": "Date format %s is too long\\n"
+    },
+    {
+      "vaddr": 32525,
+      "paddr": 32525,
+      "string": "glob finding logs to compress failed\\n"
+    },
+    {
+      "vaddr": 33169,
+      "paddr": 33169,
+      "string": "olddir is %s,"
+    },
+    {
+      "vaddr": 33331,
+      "paddr": 33331,
+      "string": "old logs mailed to %s\\n"
+    },
+    {
+      "vaddr": 33376,
+      "paddr": 33376,
+      "string": "not running first action script, since no logs will be rotated\\n"
+    },
+    {
+      "vaddr": 33440,
+      "paddr": 33440,
+      "string": "running first action script\\n"
+    },
+    {
+      "vaddr": 33469,
+      "paddr": 33469,
+      "string": "error running first action script for %s\\n"
+    },
+    {
+      "vaddr": 33511,
+      "paddr": 33511,
+      "string": "not running prerotate script, since no logs will be rotated\\n"
+    },
+    {
+      "vaddr": 33572,
+      "paddr": 33572,
+      "string": "running prerotate script\\n"
+    },
+    {
+      "vaddr": 33598,
+      "paddr": 33598,
+      "string": "error running shared prerotate script for '%s'\\n"
+    },
+    {
+      "vaddr": 33646,
+      "paddr": 33646,
+      "string": "error running non-shared prerotate script for %s of '%s'\\n"
+    },
+    {
+      "vaddr": 33704,
+      "paddr": 33704,
+      "string": "not running postrotate script, since no logs were rotated\\n"
+    },
+    {
+      "vaddr": 33763,
+      "paddr": 33763,
+      "string": "running postrotate script\\n"
+    },
+    {
+      "vaddr": 33790,
+      "paddr": 33790,
+      "string": "error running shared postrotate script for '%s'\\n"
+    },
+    {
+      "vaddr": 33839,
+      "paddr": 33839,
+      "string": "error running non-shared postrotate script for %s of '%s'\\n"
+    },
+    {
+      "vaddr": 33898,
+      "paddr": 33898,
+      "string": "not running last action script, since no logs will be rotated\\n"
+    },
+    {
+      "vaddr": 33961,
+      "paddr": 33961,
+      "string": "running last action script\\n"
+    },
+    {
+      "vaddr": 33989,
+      "paddr": 33989,
+      "string": "error running last action script for %s\\n"
+    },
+    {
+      "vaddr": 34130,
+      "paddr": 34130,
+      "string": "Command to send mail (instead of `/bin/mail')"
+    },
+    {
+      "vaddr": 34184,
+      "paddr": 34184,
+      "string": "state"
+    },
+    {
+      "vaddr": 34190,
+      "paddr": 34190,
+      "string": "Path of state file"
+    },
+    {
+      "vaddr": 34209,
+      "paddr": 34209,
+      "string": "statefile"
+    },
+    {
+      "vaddr": 34591,
+      "paddr": 34591,
+      "string": "could not read state file, will not attempt to write into it\\n"
+    },
+    {
+      "vaddr": 34653,
+      "paddr": 34653,
+      "string": "/bin/mail"
+    },
+    {
+      "vaddr": 35415,
+      "paddr": 35415,
+      "string": "nocompress"
+    },
+    {
+      "vaddr": 35426,
+      "paddr": 35426,
+      "string": "nodelaycompress"
+    },
+    {
+      "vaddr": 35450,
+      "paddr": 35450,
+      "string": "nosharedscripts"
+    },
+    {
+      "vaddr": 35523,
+      "paddr": 35523,
+      "string": "dateformat"
+    },
+    {
+      "vaddr": 35534,
+      "paddr": 35534,
+      "string": "noolddir"
+    },
+    {
+      "vaddr": 35543,
+      "paddr": 35543,
+      "string": "mailfirst"
+    },
+    {
+      "vaddr": 35553,
+      "paddr": 35553,
+      "string": "maillast"
+    },
+    {
+      "vaddr": 35663,
+      "paddr": 35663,
+      "string": "%s:%d extra arguments for create\\n"
+    },
+    {
+      "vaddr": 35697,
+      "paddr": 35697,
+      "string": "nocreate"
+    },
+    {
+      "vaddr": 36059,
+      "paddr": 36059,
+      "string": "nomail"
+    },
+    {
+      "vaddr": 36192,
+      "paddr": 36192,
+      "string": "include"
+    },
+    {
+      "vaddr": 36214,
+      "paddr": 36214,
+      "string": "%s:%d include nesting too deep\\n"
+    },
+    {
+      "vaddr": 36246,
+      "paddr": 36246,
+      "string": "olddir is now %s\\n"
+    },
+    {
+      "vaddr": 36310,
+      "paddr": 36310,
+      "string": "%s:%d compression program %s is not an executable file\\n"
+    },
+    {
+      "vaddr": 36366,
+      "paddr": 36366,
+      "string": "uncompresscmd"
+    },
+    {
+      "vaddr": 36380,
+      "paddr": 36380,
+      "string": "uncompress"
+    },
+    {
+      "vaddr": 36391,
+      "paddr": 36391,
+      "string": "%s:%d uncompression program %s is not an executable file\\n"
+    },
+    {
+      "vaddr": 36449,
+      "paddr": 36449,
+      "string": "uncompress_prog is now %s\\n"
+    },
+    {
+      "vaddr": 36476,
+      "paddr": 36476,
+      "string": "compressoptions"
+    },
+    {
+      "vaddr": 36492,
+      "paddr": 36492,
+      "string": "%s:%d invalid compression options\\n"
+    },
+    {
+      "vaddr": 36527,
+      "paddr": 36527,
+      "string": "compress_options is now %s\\n"
+    },
+    {
+      "vaddr": 36555,
+      "paddr": 36555,
+      "string": "compressext"
+    },
+    {
+      "vaddr": 36567,
+      "paddr": 36567,
+      "string": "compress-ext"
+    },
+    {
+      "vaddr": 36580,
+      "paddr": 36580,
+      "string": "compress_ext is now %s\\n"
+    },
+    {
+      "vaddr": 36904,
+      "paddr": 36904,
+      "string": "%s:%d error verifying olddir path %s: %s\\n"
+    },
+    {
+      "vaddr": 36946,
+      "paddr": 36946,
+      "string": "%s:%d olddir %s and log file %s are on different devices\\n"
+    },
+    {
+      "vaddr": 37175,
+      "paddr": 37175,
+      "string": "endscript"
+    },
+    {
+      "vaddr": 37208,
+      "paddr": 37208,
+      "string": "%s:prerotate or postrotate without endscript\\n"
+    }
+  ],
+  "import_count": 108,
+  "string_count": 390
+}

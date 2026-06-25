@@ -1,0 +1,2200 @@
+            ; CALL XREFS from fcn.0000f168 @ 0xf1b4(x), 0xf44c(x)
+┌ 7396: fcn.0000d274 (int32_t arg1, int32_t arg2);
+│ `- args(r0, r1) vars(41:sp[0x4..0x404])
+│           0x0000d274      f04f2de9       push {r4, r5, r6, r7, r8, sb, sl, fp, lr}
+│           0x0000d278      0040a0e3       mov r4, 0
+│           0x0000d27c      20b08de2       add fp, sp, 0x20
+│           0x0000d280      c7df4de2       sub sp, sp, 0x31c
+│           0x0000d284      0080a0e1       mov r8, r0                  ; arg1
+│           0x0000d288      2020a0e3       mov r2, 0x20
+│           0x0000d28c      0190a0e1       mov sb, r1                  ; arg2
+│           0x0000d290      64004be2       sub r0, fp, 0x64            ; void *s
+│           0x0000d294      0410a0e1       mov r1, r4                  ; int c
+│           0x0000d298      2c400be5       str r4, [ptr]               ; 0x2c ; 44
+│           0x0000d29c      4df1ffeb       bl sym.imp.memset           ; void *memset(void *s, int c, size_t n)
+│           0x0000d2a0      0800a0e1       mov r0, r8
+│           0x0000d2a4      0410a0e1       mov r1, r4
+│           0x0000d2a8      53f1ffeb       bl sym.imp.open64
+│           0x0000d2ac      006050e2       subs r6, r0, 0
+│           0x0000d2b0      00630be5       str r6, [fildes]            ; 0x300 ; 768
+│       ┌─< 0x0000d2b4      3a0000ba       blt 0xd3a4
+│       │   0x0000d2b8      0110a0e3       mov r1, 1
+│       │   0x0000d2bc      b2f0ffeb       bl sym.imp.fcntl64
+│       │   0x0000d2c0      010070e3       cmn r0, 1
+│       │   0x0000d2c4      0020a0e1       mov r2, r0
+│       │   0x0000d2c8      841f9f05       ldreq r1, aav.0x0001087c    ; [0x10838:4]=0x253a7325 ; "%s:%d bad %s path %s │       │   ; "
+│       │   0x0000d2cc      0500a003       moveq r0, 5
+│      ┌──< 0x0000d2d0      1f00000a       beq 0xd354
+│      ││   0x0000d2d4      00031be5       ldr r0, [fildes]            ; 0x300 ; 768
+│      ││   0x0000d2d8      0210a0e3       mov r1, 2
+│      ││   0x0000d2dc      012082e3       orr r2, r2, 1
+│      ││   0x0000d2e0      a9f0ffeb       bl sym.imp.fcntl64
+│      ││   0x0000d2e4      010070e3       cmn r0, 1
+│     ┌───< 0x0000d2e8      1700000a       beq 0xd34c
+│     │││   0x0000d2ec      00031be5       ldr r0, [fildes]            ; 0x300 ; 768
+│     │││   0x0000d2f0      0d10a0e3       mov r1, 0xd
+│     │││   0x0000d2f4      64204be2       sub r2, fp, 0x64
+│     │││   0x0000d2f8      a3f0ffeb       bl sym.imp.fcntl64
+│     │││   0x0000d2fc      010070e3       cmn r0, 1
+│    ┌────< 0x0000d300      2200000a       beq 0xd390
+│    ││││   ; CODE XREF from fcn.0000d274 @ 0xd3a0(x)
+│   ┌─────> 0x0000d304      00031be5       ldr r0, [fildes]            ; 0x300 ; 768
+│   ╎││││   0x0000d308      571f4be2       sub r1, fp, 0x15c
+│   ╎││││   0x0000d30c      d4f0ffeb       bl sym.imp.fstat64
+│   ╎││││   0x0000d310      004050e2       subs r4, r0, 0
+│  ┌──────< 0x0000d314      1200001a       bne 0xd364
+│  │╎││││   0x0000d318      4c311be5       ldr r3, [var_14ch]          ; 0x14c ; 332
+│  │╎││││   0x0000d31c      0f3a03e2       and r3, r3, 0xf000
+│  │╎││││   0x0000d320      020953e3       cmp r3, segment.LOAD0       ; 0x8000
+│  │╎││││                                                              ; segment.ehdr
+│  │╎││││   0x0000d324      0200a013       movne r0, 2
+│  │╎││││   0x0000d328      281f9f15       ldrne r1, aav.0x000108ff    ; [0x108ff:4]=0x6f6e6749 ; "Ignoring %s because it's not a regular file.\n"
+│ ┌───────< 0x0000d32c      2500000a       beq 0xd3c8
+│ ││╎││││   ; CODE XREFS from fcn.0000d274 @ 0xd3fc(x), 0xe49c(x)
+│ ────────> 0x0000d330      0820a0e1       mov r2, r8
+│ ││╎││││   0x0000d334      71feffeb       bl fcn.0000cd00
+│ ││╎││││   0x0000d338      00031be5       ldr r0, [fildes]            ; 0x300 ; 768 ; int fildes
+│ ││╎││││   0x0000d33c      7cf1ffeb       bl sym.imp.close            ; int close(int fildes)
+│ ││╎││││   ; CODE XREFS from fcn.0000d274 @ 0xd360(x), 0xd444(x), 0xe1dc(x)
+│ ────────> 0x0000d340      0400a0e1       mov r0, r4
+│ ││╎││││   0x0000d344      20d04be2       sub sp, fp, 0x20
+│ ││╎││││   0x0000d348      f08fbde8       pop {r4, r5, r6, r7, r8, sb, sl, fp, pc}
+│ ││╎││││   ; CODE XREF from fcn.0000d274 @ 0xd2e8(x)
+│ ││╎│└───> 0x0000d34c      081f9fe5       ldr r1, aav.0x000108a3      ; [0x108a3:4]=0x6c756f43 ; "Could not set flags on file %s\n"
+│ ││╎│ ││   0x0000d350      0500a0e3       mov r0, 5
+│ ││╎│ ││   ; CODE XREF from fcn.0000d274 @ 0xd2d0(x)
+│ ││╎│ └──> 0x0000d354      0820a0e1       mov r2, r8
+│ ││╎│  │   0x0000d358      68feffeb       bl fcn.0000cd00
+│ ││╎│  │   ; CODE XREFS from fcn.0000d274 @ 0xd38c(x), 0xd3c4(x), 0xdd84(x), 0xe068(x)
+│ ────┌┌──> 0x0000d35c      0140a0e3       mov r4, 1
+│ ────────< 0x0000d360      f6ffffea       b 0xd340
+│ ││╎│╎╎│   ; CODE XREF from fcn.0000d274 @ 0xd314(x)
+│ │└──────> 0x0000d364      4ef1ffeb       bl sym.imp.__errno_location
+│ │ ╎│╎╎│   0x0000d368      000090e5       ldr r0, [r0]                ; 0x108a3 ; "Could not set flags on file %s\n" ; int errnum
+│ │ ╎│╎╎│   0x0000d36c      5ff0ffeb       bl sym.imp.strerror         ; char *strerror(int errnum)
+│ │ ╎│╎╎│   0x0000d370      e81e9fe5       ldr r1, aav.0x000108e7      ; [0x108e7:4]=0x61747366 ; "fstat of %s failed: %s\n"
+│ │ ╎│╎╎│   0x0000d374      0030a0e1       mov r3, r0
+│ │ ╎│╎╎│   0x0000d378      0500a0e3       mov r0, 5
+│ │ ╎│╎╎│   ; CODE XREF from fcn.0000d274 @ 0xd59c(x)
+│ │┌──────> 0x0000d37c      0820a0e1       mov r2, r8
+│ │╎╎│╎╎│   0x0000d380      5efeffeb       bl fcn.0000cd00
+│ │╎╎│╎╎│   ; CODE XREF from fcn.0000d274 @ 0xd8b4(x)
+│ ────────> 0x0000d384      00031be5       ldr r0, [fildes]            ; 0x108e7 ; "fstat of %s failed: %s\n" ; int fildes
+│ │╎╎│╎╎│   0x0000d388      69f1ffeb       bl sym.imp.close            ; int close(int fildes)
+│ ────────< 0x0000d38c      f2ffffea       b 0xd35c
+│ │╎╎│╎╎│   ; CODE XREF from fcn.0000d274 @ 0xd300(x)
+│ │╎╎└────> 0x0000d390      0500a0e3       mov r0, 5
+│ │╎╎ ╎╎│   0x0000d394      c81e9fe5       ldr r1, aav.0x000108c3      ; [0x108c3:4]=0x6c756f43 ; "Could not lock file %s for reading\n"
+│ │╎╎ ╎╎│   0x0000d398      0820a0e1       mov r2, r8
+│ │╎╎ ╎╎│   0x0000d39c      57feffeb       bl fcn.0000cd00
+│ │╎└─────< 0x0000d3a0      d7ffffea       b 0xd304
+│ │╎  ╎╎│   ; CODE XREF from fcn.0000d274 @ 0xd2b4(x)
+│ │╎  ╎╎└─> 0x0000d3a4      3ef1ffeb       bl sym.imp.__errno_location
+│ │╎  ╎╎    0x0000d3a8      000090e5       ldr r0, [r0]                ; 0x108c3 ; "Could not lock file %s for reading\n" ; int errnum
+│ │╎  ╎╎    0x0000d3ac      4ff0ffeb       bl sym.imp.strerror         ; char *strerror(int errnum)
+│ │╎  ╎╎    0x0000d3b0      b01e9fe5       ldr r1, aav.0x00010859      ; [0x10859:4]=0x6c696166 ; "failed to open config file %s: %s\n"
+│ │╎  ╎╎    0x0000d3b4      0820a0e1       mov r2, r8
+│ │╎  ╎╎    0x0000d3b8      0030a0e1       mov r3, r0
+│ │╎  ╎╎    0x0000d3bc      0500a0e3       mov r0, 5
+│ │╎  ╎╎    0x0000d3c0      4efeffeb       bl fcn.0000cd00
+│ ────────< 0x0000d3c4      e4ffffea       b 0xd35c
+│ │╎  ╎╎    ; CODE XREF from fcn.0000d274 @ 0xd32c(x)
+│ └───────> 0x0000d3c8      84f0ffeb       bl sym.imp.getuid           ; uid_t getuid(void)
+│  ╎  ╎╎    0x0000d3cc      19f1ffeb       bl sym.imp.getpwuid
+│  ╎  ╎╎    0x0000d3d0      000050e3       cmp r0, 0
+│  ╎  ╎╎┌─< 0x0000d3d4      6702000a       beq 0xdd78
+│  ╎  ╎╎│   0x0000d3d8      80f0ffeb       bl sym.imp.getuid           ; uid_t getuid(void)
+│  ╎  ╎╎│   0x0000d3dc      004050e2       subs r4, r0, 0
+│  ╎ ┌────< 0x0000d3e0      1d00001a       bne 0xd45c
+│  ╎ │╎╎│   0x0000d3e4      4c211be5       ldr r2, [var_14ch]          ; 0x10859 ; "failed to open config file %s: %s\n"
+│  ╎ │╎╎│   0x0000d3e8      5b3f00e3       movw r3, 0xf5b              ; '[\x0f'
+│  ╎ │╎╎│   0x0000d3ec      033002e0       and r3, r2, r3
+│  ╎ │╎╎│   0x0000d3f0      010c53e3       cmp r3, 0x100
+│  ╎ │╎╎│   0x0000d3f4      0200a013       movne r0, 2
+│  ╎ │╎╎│   0x0000d3f8      6c1e9f15       ldrne r1, aav.0x00010953    ; [0x10953:4]=0x6f6e6749 ; "Ignoring %s because of bad file mode.\n"
+│ ────────< 0x0000d3fc      cbffff1a       bne 0xd330
+│  ╎ │╎╎│   0x0000d400      680e9fe5       ldr r0, str.root            ; [0x1097a:4]=0x746f6f72 ; "root"
+│  ╎ │╎╎│   0x0000d404      0ef1ffeb       bl sym.imp.getpwnam
+│  ╎ │╎╎│   0x0000d408      004050e2       subs r4, r0, 0              ; 0x1097a ; "root"
+│  ╎┌─────< 0x0000d40c      2004000a       beq 0xe494
+│  ╎││╎╎│   0x0000d410      44311be5       ldr r3, [var_144h]          ; 0x1097a ; "root"
+│  ╎││╎╎│   0x0000d414      000053e3       cmp r3, 0
+│ ┌───────< 0x0000d418      0f00000a       beq 0xd45c
+│ │╎││╎╎│   0x0000d41c      082094e5       ldr r2, [r4, 8]
+│ │╎││╎╎│   0x0000d420      020053e1       cmp r3, r2
+│ ────────< 0x0000d424      0700000a       beq 0xd448
+│ │╎││╎╎│   ; CODE XREF from fcn.0000d274 @ 0xd458(x)
+│ ────────> 0x0000d428      441e9fe5       ldr r1, aav.0x000109bd      ; [0x109bd:4]=0x6f6e6749 ; "Ignoring %s because the file owner is wrong (should be root).\n"
+│ │╎││╎╎│   0x0000d42c      0200a0e3       mov r0, 2
+│ │╎││╎╎│   ; CODE XREF from fcn.0000d274 @ 0xd8e4(x)
+│ ────────> 0x0000d430      0820a0e1       mov r2, r8
+│ │╎││╎╎│   0x0000d434      0040a0e3       mov r4, 0
+│ │╎││╎╎│   0x0000d438      30feffeb       bl fcn.0000cd00
+│ │╎││╎╎│   0x0000d43c      00031be5       ldr r0, [fildes]            ; 0x109bd ; "Ignoring %s because the file owner is wrong (should be root).\n" ; int fildes
+│ │╎││╎╎│   0x0000d440      3bf1ffeb       bl sym.imp.close            ; int close(int fildes)
+│ ────────< 0x0000d444      bdffffea       b 0xd340
+│ │╎││╎╎│   ; CODE XREF from fcn.0000d274 @ 0xd424(x)
+│ ────────> 0x0000d448      200e9fe5       ldr r0, str.root            ; [0x1097a:4]=0x746f6f72 ; "root" ; const char *s1
+│ │╎││╎╎│   0x0000d44c      001094e5       ldr r1, [r4]                ; 0x1097a ; "root" ; const char *s2
+│ │╎││╎╎│   0x0000d450      f5f0ffeb       bl sym.imp.strcmp           ; int strcmp(const char *s1, const char *s2)
+│ │╎││╎╎│   0x0000d454      000050e3       cmp r0, 0
+│ ────────< 0x0000d458      f2ffff1a       bne 0xd428
+│ │╎││╎╎│   ; CODE XREFS from fcn.0000d274 @ 0xd3e0(x), 0xd418(x)
+│ └──└────> 0x0000d45c      143e9fe5       ldr r3, [0x0000e278]        ; [0xe278:4]=0xfffffef8
+│  ╎│ ╎╎│   0x0000d460      24004be2       sub r0, fp, 0x24
+│  ╎│ ╎╎│   0x0000d464      012b4be2       sub r2, fp, 0x400
+│  ╎│ ╎╎│   0x0000d468      d30080e1       ldrd r0, r1, [r0, r3]
+│  ╎│ ╎╎│   0x0000d46c      f40fc2e1       strd r0, r1, [r2, 0xf4]
+│  ╎│ ╎╎│   0x0000d470      011090e1       orrs r1, r0, r1
+│  ╎│┌────< 0x0000d474      1801000a       beq 0xd8dc
+│  ╎││╎╎│   0x0000d478      0c631be5       ldr r6, [var_30ch]          ; 0x30c ; 780
+│  ╎││╎╎│   0x0000d47c      0020a0e3       mov r2, 0
+│  ╎││╎╎│   0x0000d480      00731be5       ldr r7, [fildes]            ; 0x300 ; 768
+│  ╎││╎╎│   0x0000d484      0030a0e3       mov r3, 0
+│  ╎││╎╎│   0x0000d488      0000a0e3       mov r0, 0
+│  ╎││╎╎│   0x0000d48c      f820cde1       strd r2, r3, [var_8h]
+│  ╎││╎╎│   0x0000d490      0610a0e1       mov r1, r6
+│  ╎││╎╎│   0x0000d494      0120a0e3       mov r2, 1
+│  ╎││╎╎│   0x0000d498      023008e3       movw r3, 0x8002
+│  ╎││╎╎│   0x0000d49c      f0620be5       str r6, [length]            ; 0x2f0 ; 752
+│  ╎││╎╎│   0x0000d4a0      00708de5       str r7, [sp]                ; 0x178000
+│  ╎││╎╎│                                                              ; r13
+│  ╎││╎╎│   0x0000d4a4      eff0ffeb       bl sym.imp.mmap64
+│  ╎││╎╎│   0x0000d4a8      010070e3       cmn r0, 1
+│  ╎││╎╎│   0x0000d4ac      44000be5       str r0, [addr]              ; 0x44 ; 68
+│ ┌───────< 0x0000d4b0      3300000a       beq 0xd584
+│ │╎││╎╎│   0x0000d4b4      f0621be5       ldr r6, [length]            ; 0x2f0 ; 752
+│ │╎││╎╎│   0x0000d4b8      0b20a0e3       mov r2, 0xb
+│ │╎││╎╎│   0x0000d4bc      0070a0e3       mov r7, 0
+│ │╎││╎╎│   0x0000d4c0      0950a0e1       mov r5, sb
+│ │╎││╎╎│   0x0000d4c4      021086e2       add r1, r6, 2
+│ │╎││╎╎│   0x0000d4c8      01a0a0e3       mov sl, 1
+│ │╎││╎╎│   0x0000d4cc      7ff0ffeb       bl sym.imp.madvise
+│ │╎││╎╎│   0x0000d4d0      0200a0e3       mov r0, 2
+│ │╎││╎╎│   0x0000d4d4      a01d9fe5       ldr r1, aav.0x00010a3f      ; [0x10a3f:4]=0x64616572 ; "reading config file %s\n"
+│ │╎││╎╎│   0x0000d4d8      0820a0e1       mov r2, r8
+│ │╎││╎╎│   0x0000d4dc      07feffeb       bl fcn.0000cd00
+│ │╎││╎╎│   0x0000d4e0      44301be5       ldr r3, [addr]              ; 0x10a3f ; "reading config file %s\n"
+│ │╎││╎╎│   0x0000d4e4      10730be5       str r7, [var_310h]          ; 0x310 ; 784
+│ │╎││╎╎│   0x0000d4e8      0270a0e3       mov r7, 2
+│ │╎││╎╎│   0x0000d4ec      0060a0e3       mov r6, 0
+│ │╎││╎╎│   0x0000d4f0      f4620be5       str r6, [var_2f4h]          ; 0x2f4 ; 756
+│ │╎││╎╎│   0x0000d4f4      40300be5       str r3, [var_40h]           ; 0x40 ; 64
+│ │╎││╎╎│   0x0000d4f8      04630be5       str r6, [src]               ; 0x304 ; 772
+│ │╎││╎╎│   ; CODE XREF from fcn.0000d274 @ 0xd580(x)
+│ ────────> 0x0000d4fc      44c01be5       ldr ip, [addr]              ; 0x10a3f ; "reading config file %s\n"
+│ │╎││╎╎│   0x0000d500      010b4be2       sub r0, fp, 0x400
+│ │╎││╎╎│   0x0000d504      40101be5       ldr r1, [var_40h]           ; 0x10a3f ; "reading config file %s\n"
+│ │╎││╎╎│   0x0000d508      01106ce0       rsb r1, ip, r1
+│ │╎││╎╎│   0x0000d50c      0120a0e1       mov r2, r1
+│ │╎││╎╎│   0x0000d510      c13fa0e1       asr r3, r1, 0x1f
+│ │╎││╎╎│   0x0000d514      d40fc0e1       ldrd r0, r1, [r0, 0xf4]     ; 0x10a3f ; "reading config file %s\n"
+│ │╎││╎╎│   0x0000d518      000052e1       cmp r2, r0
+│ │╎││╎╎│   0x0000d51c      0110d3e0       sbcs r1, r3, r1
+│ ────────< 0x0000d520      d40000aa       bge 0xd878
+│ │╎││╎╎│   0x0000d524      000056e3       cmp r6, 0
+│ ────────< 0x0000d528      0100000a       beq 0xd534
+│ │╎││╎╎│   0x0000d52c      0600a0e1       mov r0, r6                  ; void *ptr
+│ │╎││╎╎│   0x0000d530      0bf1ffeb       bl sym.imp.free             ; void free(void *ptr)
+│ │╎││╎╎│   ; CODE XREF from fcn.0000d274 @ 0xd528(x)
+│ ────────> 0x0000d534      180057e3       cmp r7, 0x18
+│ ────────< 0x0000d538      a900000a       beq 0xd7e4
+│ ────────< 0x0000d53c      170000ca       bgt 0xd5a0
+│ │╎││╎╎│   0x0000d540      080057e3       cmp r7, 8
+│ ────────< 0x0000d544      a600000a       beq 0xd7e4
+│ │╎││╎╎│   0x0000d548      40301be5       ldr r3, [var_40h]           ; 0x10a3f ; "reading config file %s\n"
+│ ────────< 0x0000d54c      200000ca       bgt 0xd5d4
+│ │╎││╎╎│   0x0000d550      020057e3       cmp r7, 2
+│ ────────< 0x0000d554      8700000a       beq 0xd778
+│ │╎││╎╎│   0x0000d558      040057e3       cmp r7, 4
+│ ────────< 0x0000d55c      2000000a       beq 0xd5e4
+│ │╎││╎╎│   ; XREFS: CODE 0x0000d5b8  CODE 0x0000d5d0  CODE 0x0000d5e0  
+│ │╎││╎╎│   ; XREFS: CODE 0x0000d5f0  CODE 0x0000d600  CODE 0x0000d610  
+│ │╎││╎╎│   ; XREFS: CODE 0x0000d63c  CODE 0x0000d6e4  CODE 0x0000d774  
+│ │╎││╎╎│   ; XREFS: CODE 0x0000d7c4  CODE 0x0000d7e0  CODE 0x0000d828  
+│ │╎││╎╎│   ; XREFS: CODE 0x0000d864  CODE 0x0000d874  CODE 0x0000e144  
+│ ────────> 0x0000d560      40301be5       ldr r3, [var_40h]           ; 0x10a3f ; "reading config file %s\n"
+│ │╎││╎╎│   0x0000d564      0030d3e5       ldrb r3, [r3]               ; 0x10a3f ; "reading config file %s\n"
+│ │╎││╎╎│   0x0000d568      0a0053e3       cmp r3, 0xa
+│ │╎││╎╎│   0x0000d56c      01a08a02       addeq sl, sl, 1
+│ │╎││╎╎│   ; CODE XREFS from fcn.0000d274 @ 0xd790(x), 0xd800(x), 0xd8d8(x), 0xde74(x)
+│ ────────> 0x0000d570      0060a0e3       mov r6, 0
+│ │╎││╎╎│   ; XREFS: CODE 0x0000d654  CODE 0x0000d708  CODE 0x0000d8ec  
+│ │╎││╎╎│   ; XREFS: CODE 0x0000d904  CODE 0x0000dcd4  CODE 0x0000e500  
+│ │╎││╎╎│   ; XREFS: CODE 0x0000e51c  CODE 0x0000e5c8  CODE 0x0000e720  
+│ │╎││╎╎│   ; XREFS: CODE 0x0000e7c8  CODE 0x0000e974  CODE 0x0000e9e0  
+│ │╎││╎╎│   ; XREFS: CODE 0x0000ecd4  CODE 0x0000ed70  CODE 0x0000f054  
+│ │╎││╎╎│   ; XREFS: CODE 0x0000f0c0  CODE 0x0000f12c  
+│ ────────> 0x0000d574      40301be5       ldr r3, [var_40h]           ; 0x10a3f ; "reading config file %s\n"
+│ │╎││╎╎│   0x0000d578      013083e2       add r3, r3, 1
+│ │╎││╎╎│   0x0000d57c      40300be5       str r3, [var_40h]           ; 0x40 ; 64
+│ ────────< 0x0000d580      ddffffea       b 0xd4fc
+│ │╎││╎╎│   ; CODE XREF from fcn.0000d274 @ 0xd4b0(x)
+│ └───────> 0x0000d584      c6f0ffeb       bl sym.imp.__errno_location
+│  ╎││╎╎│   0x0000d588      000090e5       ldr r0, [r0]                ; 0x10a3f ; "reading config file %s\n" ; int errnum
+│  ╎││╎╎│   0x0000d58c      d7efffeb       bl sym.imp.strerror         ; char *strerror(int errnum)
+│  ╎││╎╎│   0x0000d590      e81c9fe5       ldr r1, aav.0x00010a1d      ; [0x10a1d:4]=0x6f727245 ; "Error mapping config file %s: %s\n"
+│  ╎││╎╎│   0x0000d594      0030a0e1       mov r3, r0
+│  ╎││╎╎│   0x0000d598      0500a0e3       mov r0, 5
+│  └──────< 0x0000d59c      76ffffea       b 0xd37c
+│   ││╎╎│   ; CODE XREF from fcn.0000d274 @ 0xd53c(x)
+│ ────────> 0x0000d5a0      300057e3       cmp r7, 0x30                ; '0'
+│  ┌──────< 0x0000d5a4      2500000a       beq 0xd640
+│ ┌───────< 0x0000d5a8      150000ca       bgt 0xd604
+│ ││││╎╎│   0x0000d5ac      200057e3       cmp r7, 0x20
+│ ────────< 0x0000d5b0      2200000a       beq 0xd640
+│ ││││╎╎│   0x0000d5b4      240057e3       cmp r7, 0x24                ; '$'
+│ ────────< 0x0000d5b8      e8ffff1a       bne 0xd560
+│ ││││╎╎│   0x0000d5bc      40301be5       ldr r3, [var_40h]           ; 0x10a1d ; "Error mapping config file %s: %s\n"
+│ ││││╎╎│   0x0000d5c0      0070d3e5       ldrb r7, [r3]               ; 0x10a1d ; "Error mapping config file %s: %s\n"
+│ ││││╎╎│   0x0000d5c4      0a0057e3       cmp r7, 0xa
+│ ││││╎╎│   0x0000d5c8      2470a013       movne r7, 0x24
+│ ││││╎╎│   0x0000d5cc      2070a003       moveq r7, 0x20
+│ ────────< 0x0000d5d0      e2ffffea       b 0xd560
+│ ││││╎╎│   ; CODE XREF from fcn.0000d274 @ 0xd54c(x)
+│ ────────> 0x0000d5d4      100057e3       cmp r7, 0x10
+│ ────────< 0x0000d5d8      4200000a       beq 0xd6e8
+│ ││││╎╎│   0x0000d5dc      140057e3       cmp r7, 0x14
+│ ────────< 0x0000d5e0      deffff1a       bne 0xd560
+│ ││││╎╎│   ; CODE XREF from fcn.0000d274 @ 0xd55c(x)
+│ ────────> 0x0000d5e4      40301be5       ldr r3, [var_40h]           ; 0x10a1d ; "Error mapping config file %s: %s\n"
+│ ││││╎╎│   0x0000d5e8      0030d3e5       ldrb r3, [r3]               ; 0x10a1d ; "Error mapping config file %s: %s\n"
+│ ││││╎╎│   0x0000d5ec      0a0053e3       cmp r3, 0xa
+│ ────────< 0x0000d5f0      daffff1a       bne 0xd560
+│ ││││╎╎│   0x0000d5f4      100017e3       tst r7, 0x10
+│ ││││╎╎│   0x0000d5f8      1070a013       movne r7, 0x10
+│ ││││╎╎│   0x0000d5fc      0270a003       moveq r7, 2
+│ ────────< 0x0000d600      d6ffffea       b 0xd560
+│ ││││╎╎│   ; CODE XREF from fcn.0000d274 @ 0xd5a8(x)
+│ └───────> 0x0000d604      340057e3       cmp r7, 0x34
+│ ┌───────< 0x0000d608      5400000a       beq 0xd760
+│ ││││╎╎│   0x0000d60c      400057e3       cmp r7, 0x40                ; '@'
+│ ────────< 0x0000d610      d2ffff1a       bne 0xd560
+│ ││││╎╎│   0x0000d614      090055e1       cmp r5, sb
+│ ────────< 0x0000d618      5704000a       beq 0xe77c
+│ ││││╎╎│   0x0000d61c      002095e5       ldr r2, [r5]                ; 0x10a1d ; "Error mapping config file %s: %s\n"
+│ ││││╎╎│   0x0000d620      0500a0e3       mov r0, 5
+│ ││││╎╎│   0x0000d624      583c9fe5       ldr r3, str.log_config      ; [0x1084e:4]=0x20676f6c ; "log config"
+│ ││││╎╎│   0x0000d628      1070a0e3       mov r7, 0x10
+│ ││││╎╎│   0x0000d62c      000052e3       cmp r2, 0
+│ ││││╎╎│   0x0000d630      501c9fe5       ldr r1, str.found_error_in__s__skipping ; [0x1111a:4]=0x6e756f66 ; "found error in %s, skipping │ ││││╎╎│   ; "
+│ ││││╎╎│   0x0000d634      0320a001       moveq r2, r3
+│ ││││╎╎│   0x0000d638      b0fdffeb       bl fcn.0000cd00
+│ ────────< 0x0000d63c      c7ffffea       b 0xd560
+│ ││││╎╎│   ; CODE XREFS from fcn.0000d274 @ 0xd5a4(x), 0xd5b0(x)
+│ ─└──────> 0x0000d640      40004be2       sub r0, fp, 0x40
+│ │ ││╎╎│   0x0000d644      44101be5       ldr r1, [addr]              ; 0x1111a ; "found error in %s, skipping │ │ ││╎╎│   ; "
+│ │ ││╎╎│   0x0000d648      f0221be5       ldr r2, [length]            ; 0x1111a ; "found error in %s, skipping │ │ ││╎╎│   ; "
+│ │ ││╎╎│   0x0000d64c      e1feffeb       bl fcn.0000d1d8
+│ │ ││╎╎│   0x0000d650      006050e2       subs r6, r0, 0
+│ ────────< 0x0000d654      c6ffff0a       beq 0xd574
+│ │ ││╎╎│   0x0000d658      2c1c9fe5       ldr r1, aav.0x00011137      ; [0x11137:4]=0x73646e65 ; "endscript" ; const char *s2
+│ │ ││╎╎│   0x0000d65c      72f0ffeb       bl sym.imp.strcmp           ; int strcmp(const char *s1, const char *s2)
+│ │ ││╎╎│   0x0000d660      000050e3       cmp r0, 0
+│ │┌──────< 0x0000d664      7200001a       bne 0xd834
+│ ││││╎╎│   0x0000d668      100017e3       tst r7, 0x10
+│ ││││╎╎│   0x0000d66c      1070a013       movne r7, 0x10
+│ ────────< 0x0000d670      1600001a       bne 0xd6d0
+│ ││││╎╎│   0x0000d674      40301be5       ldr r3, [var_40h]           ; 0x11137 ; "endscript"
+│ ││││╎╎│   0x0000d678      093043e2       sub r3, r3, 9
+│ ││││╎╎│   ; CODE XREF from fcn.0000d274 @ 0xd68c(x)
+│ ────────> 0x0000d67c      0340a0e1       mov r4, r3
+│ ││││╎╎│   0x0000d680      013043e2       sub r3, r3, 1
+│ ││││╎╎│   0x0000d684      0020d4e5       ldrb r2, [r4]               ; 0x11137 ; "endscript"
+│ ││││╎╎│   0x0000d688      0a0052e3       cmp r2, 0xa
+│ ────────< 0x0000d68c      faffff1a       bne 0xd67c
+│ ││││╎╎│   0x0000d690      04131be5       ldr r1, [src]               ; 0x11137 ; "endscript"
+│ ││││╎╎│   0x0000d694      014084e2       add r4, r4, 1
+│ ││││╎╎│   0x0000d698      044061e0       rsb r4, r1, r4
+│ ││││╎╎│   0x0000d69c      010084e2       add r0, r4, 1               ; size_t size
+│ ││││╎╎│   0x0000d6a0      d1efffeb       bl sym.imp.malloc           ;  void *malloc(size_t size)
+│ ││││╎╎│   0x0000d6a4      f4221be5       ldr r2, [var_2f4h]          ; 0x11137 ; "endscript"
+│ ││││╎╎│   0x0000d6a8      04131be5       ldr r1, [src]               ; 0x11137 ; "endscript" ; const char *src
+│ ││││╎╎│   0x0000d6ac      000082e5       str r0, [r2]
+│ ││││╎╎│   0x0000d6b0      0420a0e1       mov r2, r4
+│ ││││╎╎│   0x0000d6b4      23f0ffeb       bl sym.imp.strncpy          ; char *strncpy(char *dest, const char *src, size_t  n)
+│ ││││╎╎│   0x0000d6b8      f4321be5       ldr r3, [var_2f4h]          ; 0x11137 ; "endscript"
+│ ││││╎╎│   0x0000d6bc      002093e5       ldr r2, [r3]                ; 0x11137 ; "endscript"
+│ ││││╎╎│   0x0000d6c0      0030a0e3       mov r3, 0
+│ ││││╎╎│   0x0000d6c4      f4320be5       str r3, [var_2f4h]          ; 0x2f4 ; 756
+│ ││││╎╎│   0x0000d6c8      04330be5       str r3, [src]               ; 0x304 ; 772
+│ ││││╎╎│   0x0000d6cc      0430c2e7       strb r3, [r2, r4]
+│ ││││╎╎│   ; CODE XREF from fcn.0000d274 @ 0xd670(x)
+│ ────────> 0x0000d6d0      100017e3       tst r7, 0x10
+│ ││││╎╎│   0x0000d6d4      1070a013       movne r7, 0x10
+│ ││││╎╎│   0x0000d6d8      0270a003       moveq r7, 2
+│ ││││╎╎│   ; XREFS(21)
+│ ────────> 0x0000d6dc      0600a0e1       mov r0, r6
+│ ││││╎╎│   ; CODE XREF from fcn.0000d274 @ 0xe1f0(x)
+│ ────────> 0x0000d6e0      9ff0ffeb       bl sym.imp.free             ; void free(void *ptr)
+│ ────────< 0x0000d6e4      9dffffea       b 0xd560
+│ ││││╎╎│   ; CODE XREF from fcn.0000d274 @ 0xd5d8(x)
+│ ────────> 0x0000d6e8      0030d3e5       ldrb r3, [r3]               ; 0x11137 ; "endscript"
+│ ││││╎╎│   0x0000d6ec      7d0053e3       cmp r3, 0x7d                ; '}'
+│ ────────< 0x0000d6f0      5700000a       beq 0xd854
+│ ││││╎╎│   0x0000d6f4      40004be2       sub r0, fp, 0x40
+│ ││││╎╎│   0x0000d6f8      44101be5       ldr r1, [addr]              ; 0x11137 ; "endscript"
+│ ││││╎╎│   0x0000d6fc      f0221be5       ldr r2, [length]            ; 0x11137 ; "endscript"
+│ ││││╎╎│   0x0000d700      b4feffeb       bl fcn.0000d1d8
+│ ││││╎╎│   0x0000d704      006050e2       subs r6, r0, 0
+│ ────────< 0x0000d708      99ffff0a       beq 0xd574
+│ ││││╎╎│   0x0000d70c      b81c9fe5       ldr r1, str.postrotate      ; [0x10d04:4]=0x74736f70 ; "postrotate" ; const char *s2
+│ ││││╎╎│   0x0000d710      45f0ffeb       bl sym.imp.strcmp           ; int strcmp(const char *s1, const char *s2)
+│ ││││╎╎│   0x0000d714      000050e3       cmp r0, 0
+│ ────────< 0x0000d718      4300000a       beq 0xd82c
+│ ││││╎╎│   0x0000d71c      0600a0e1       mov r0, r6                  ; const char *s1
+│ ││││╎╎│   0x0000d720      9c1c9fe5       ldr r1, str.prerotate       ; [0x10cee:4]=0x72657270 ; "prerotate" ; const char *s2
+│ ││││╎╎│   0x0000d724      40f0ffeb       bl sym.imp.strcmp           ; int strcmp(const char *s1, const char *s2)
+│ ││││╎╎│   0x0000d728      000050e3       cmp r0, 0
+│ ────────< 0x0000d72c      3e00000a       beq 0xd82c
+│ ││││╎╎│   0x0000d730      0600a0e1       mov r0, r6                  ; const char *s1
+│ ││││╎╎│   0x0000d734      541b9fe5       ldr r1, aav.0x00011141      ; [0x11141:4]=0x73726966 ; "firstrotate" ; const char *s2
+│ ││││╎╎│   0x0000d738      3bf0ffeb       bl sym.imp.strcmp           ; int strcmp(const char *s1, const char *s2)
+│ ││││╎╎│   0x0000d73c      000050e3       cmp r0, 0
+│ ────────< 0x0000d740      3900000a       beq 0xd82c
+│ ││││╎╎│   0x0000d744      0600a0e1       mov r0, r6                  ; const char *s1
+│ ││││╎╎│   0x0000d748      441b9fe5       ldr r1, aav.0x0001114d      ; [0x1114d:4]=0x7473616c ; "lastrotate" ; const char *s2
+│ ││││╎╎│   0x0000d74c      36f0ffeb       bl sym.imp.strcmp           ; int strcmp(const char *s1, const char *s2)
+│ ││││╎╎│   0x0000d750      000050e3       cmp r0, 0
+│ ││││╎╎│   0x0000d754      1470a013       movne r7, 0x14
+│ ││││╎╎│   0x0000d758      3070a003       moveq r7, 0x30
+│ ────────< 0x0000d75c      deffffea       b 0xd6dc
+│ ││││╎╎│   ; CODE XREF from fcn.0000d274 @ 0xd608(x)
+│ └───────> 0x0000d760      40301be5       ldr r3, [var_40h]           ; 0x1114d ; "lastrotate"
+│  │││╎╎│   0x0000d764      0070d3e5       ldrb r7, [r3]               ; 0x1114d ; "lastrotate"
+│  │││╎╎│   0x0000d768      0a0057e3       cmp r7, 0xa
+│  │││╎╎│   0x0000d76c      3470a013       movne r7, 0x34
+│  │││╎╎│   0x0000d770      3070a003       moveq r7, 0x30
+│ ────────< 0x0000d774      79ffffea       b 0xd560
+│  │││╎╎│   ; CODE XREF from fcn.0000d274 @ 0xd554(x)
+│ ────────> 0x0000d778      c40c9fe5       ldr r0, obj.__ctype_b       ; [0x195e0:4]=0
+│  │││╎╎│                                                              ; loc._edata
+│  │││╎╎│   0x0000d77c      0030d3e5       ldrb r3, [r3]               ; 0x195e0
+│  │││╎╎│                                                              ; loc._edata
+│  │││╎╎│   0x0000d780      001090e5       ldr r1, [r0]                ; 0x195e0
+│  │││╎╎│                                                              ; loc._edata
+│  │││╎╎│   0x0000d784      8320a0e1       lsl r2, r3, 1
+│  │││╎╎│   0x0000d788      b22091e1       ldrh r2, [r1, r2]
+│  │││╎╎│   0x0000d78c      016c12e2       ands r6, r2, 0x100
+│ ────────< 0x0000d790      76ffff1a       bne 0xd570
+│  │││╎╎│   0x0000d794      230053e3       cmp r3, 0x23                ; '#'
+│ ┌───────< 0x0000d798      5200000a       beq 0xd8e8
+│ ││││╎╎│   0x0000d79c      040012e3       tst r2, 4
+│ ────────< 0x0000d7a0      5200001a       bne 0xd8f0
+│ ││││╎╎│   0x0000d7a4      2f0053e3       cmp r3, 0x2f                ; '/'
+│ ││││╎╎│   0x0000d7a8      22005313       cmpne r3, 0x22              ; '\"'
+│ ────────< 0x0000d7ac      4100000a       beq 0xd8b8
+│ ││││╎╎│   0x0000d7b0      270053e3       cmp r3, 0x27                ; '\''
+│ ────────< 0x0000d7b4      3f00000a       beq 0xd8b8
+│ ││││╎╎│   0x0000d7b8      7d0053e3       cmp r3, 0x7d                ; '}'
+│ ────────< 0x0000d7bc      1b02000a       beq 0xe030
+│ ││││╎╎│   0x0000d7c0      0a0053e3       cmp r3, 0xa
+│ ────────< 0x0000d7c4      65ffff0a       beq 0xd560
+│ ││││╎╎│   0x0000d7c8      0500a0e3       mov r0, 5
+│ ││││╎╎│   0x0000d7cc      c41a9fe5       ldr r1, str._s:_d_lines_must_begin_with_a_keyword_or_a_filename__possibly_in_double_quotes_ ; [0x1108c:4]=0x253a7325 ; "%s:%d lines must begin with a keyword or a filename (possibly in double quotes) │ ││││╎╎│   ; "
+│ ││││╎╎│   0x0000d7d0      0820a0e1       mov r2, r8
+│ ││││╎╎│   0x0000d7d4      0a30a0e1       mov r3, sl
+│ ││││╎╎│   0x0000d7d8      48fdffeb       bl fcn.0000cd00
+│ ││││╎╎│   0x0000d7dc      0470a0e3       mov r7, 4
+│ ────────< 0x0000d7e0      5effffea       b 0xd560
+│ ││││╎╎│   ; CODE XREFS from fcn.0000d274 @ 0xd538(x), 0xd544(x)
+│ ────────> 0x0000d7e4      40301be5       ldr r3, [var_40h]           ; 0x1108c ; "%s:%d lines must begin with a keyword or a filename (possibly in double quotes) │ ────────> ; "
+│ ││││╎╎│   0x0000d7e8      540c9fe5       ldr r0, obj.__ctype_b       ; [0x195e0:4]=0
+│ ││││╎╎│                                                              ; loc._edata
+│ ││││╎╎│   0x0000d7ec      0030d3e5       ldrb r3, [r3]               ; 0x195e0
+│ ││││╎╎│                                                              ; loc._edata
+│ ││││╎╎│   0x0000d7f0      001090e5       ldr r1, [r0]                ; 0x195e0
+│ ││││╎╎│                                                              ; loc._edata
+│ ││││╎╎│   0x0000d7f4      8320a0e1       lsl r2, r3, 1
+│ ││││╎╎│   0x0000d7f8      b22091e1       ldrh r2, [r1, r2]
+│ ││││╎╎│   0x0000d7fc      010c12e3       tst r2, 0x100
+│ ────────< 0x0000d800      5affff1a       bne 0xd570
+│ ││││╎╎│   0x0000d804      0a0053e3       cmp r3, 0xa
+│ ────────< 0x0000d808      1600000a       beq 0xd868
+│ ││││╎╎│   0x0000d80c      0500a0e3       mov r0, 5
+│ ││││╎╎│   0x0000d810      841a9fe5       ldr r1, aav.0x000110dd      ; [0x110dd:4]=0x253a7325 ; "%s:%d, unexpected text after }\n"
+│ ││││╎╎│   0x0000d814      0820a0e1       mov r2, r8
+│ ││││╎╎│   0x0000d818      0a30a0e1       mov r3, sl
+│ ││││╎╎│   0x0000d81c      107007e2       and r7, r7, 0x10
+│ ││││╎╎│   0x0000d820      36fdffeb       bl fcn.0000cd00
+│ ││││╎╎│   0x0000d824      047087e3       orr r7, r7, 4
+│ ────────< 0x0000d828      4cffffea       b 0xd560
+│ ││││╎╎│   ; CODE XREFS from fcn.0000d274 @ 0xd718(x), 0xd72c(x), 0xd740(x)
+│ ────────> 0x0000d82c      3070a0e3       mov r7, 0x30                ; '0'
+│ ────────< 0x0000d830      a9ffffea       b 0xd6dc
+│ ││││╎╎│   ; CODE XREF from fcn.0000d274 @ 0xd664(x)
+│ │└──────> 0x0000d834      40301be5       ldr r3, [var_40h]           ; 0x110dd ; "%s:%d, unexpected text after }\n"
+│ │ ││╎╎│   0x0000d838      107007e2       and r7, r7, 0x10
+│ │ ││╎╎│   0x0000d83c      0030d3e5       ldrb r3, [r3]               ; 0x110dd ; "%s:%d, unexpected text after }\n"
+│ │ ││╎╎│   0x0000d840      0a0053e3       cmp r3, 0xa
+│ │ ││╎╎│   0x0000d844      2430a013       movne r3, 0x24
+│ │ ││╎╎│   0x0000d848      2030a003       moveq r3, 0x20
+│ │ ││╎╎│   0x0000d84c      077083e1       orr r7, r3, r7
+│ ────────< 0x0000d850      a1ffffea       b 0xd6dc
+│ │ ││╎╎│   ; CODE XREF from fcn.0000d274 @ 0xd6f0(x)
+│ ────────> 0x0000d854      0100a0e3       mov r0, 1
+│ │ ││╎╎│   0x0000d858      0950a0e1       mov r5, sb
+│ │ ││╎╎│   0x0000d85c      a3fdffeb       bl fcn.0000cef0
+│ │ ││╎╎│   0x0000d860      0270a0e3       mov r7, 2
+│ ────────< 0x0000d864      3dffffea       b 0xd560
+│ │ ││╎╎│   ; CODE XREF from fcn.0000d274 @ 0xd808(x)
+│ ────────> 0x0000d868      100017e3       tst r7, 0x10
+│ │ ││╎╎│   0x0000d86c      0270a003       moveq r7, 2
+│ │ ││╎╎│   0x0000d870      1070a013       movne r7, 0x10
+│ ────────< 0x0000d874      39ffffea       b 0xd560
+│ │ ││╎╎│   ; CODE XREF from fcn.0000d274 @ 0xd520(x)
+│ ────────> 0x0000d878      04731be5       ldr r7, [src]               ; 0x110dd ; "%s:%d, unexpected text after }\n"
+│ │ ││╎╎│   0x0000d87c      0c00a0e1       mov r0, ip
+│ │ ││╎╎│   0x0000d880      000057e3       cmp r7, 0
+│ │┌──────< 0x0000d884      4f02000a       beq 0xe1c8
+│ ││││╎╎│   0x0000d888      0500a0e3       mov r0, 5
+│ ││││╎╎│   0x0000d88c      0c1a9fe5       ldr r1, str._s:prerotate_or_postrotate_without_endscript ; [0x11158:4]=0x703a7325 ; "%s:prerotate or postrotate without endscript │ ││││╎╎│   ; "
+│ ││││╎╎│   0x0000d890      0820a0e1       mov r2, r8
+│ ││││╎╎│   0x0000d894      19fdffeb       bl fcn.0000cd00
+│ ││││╎╎│   0x0000d898      000056e3       cmp r6, 0
+│ ────────< 0x0000d89c      0100000a       beq 0xd8a8
+│ ││││╎╎│   ; CODE XREFS from fcn.0000d274 @ 0xe5c0(x), 0xe80c(x), 0xedbc(x), 0xee04(x)
+│ ────────> 0x0000d8a0      0600a0e1       mov r0, r6
+│ ││││╎╎│   ; CODE XREFS from fcn.0000d274 @ 0xe490(x), 0xe6a4(x)
+│ ────────> 0x0000d8a4      2ef0ffeb       bl sym.imp.free             ; void free(void *ptr)
+│ ││││╎╎│   ; CODE XREFS from fcn.0000d274 @ 0xd89c(x), 0xddb8(x), 0xe230(x), 0xe4f0(x)
+│ ────────> 0x0000d8a8      44001be5       ldr r0, [addr]              ; 0x11158 ; "%s:prerotate or postrotate without endscript │ ────────> ; "                                                        ; void*addr
+│ ││││╎╎│   0x0000d8ac      f0121be5       ldr r1, [length]            ; 0x11158 ; "%s:prerotate or postrotate without endscript │ ││││╎╎│   ; "                                                        ; size_t length
+│ ││││╎╎│   0x0000d8b0      1defffeb       bl sym.imp.munmap           ; int munmap(void*addr, size_t length)
+│ ────────< 0x0000d8b4      b2feffea       b 0xd384
+│ ││││╎╎│   ; CODE XREFS from fcn.0000d274 @ 0xd7ac(x), 0xd7b4(x)
+│ ────────> 0x0000d8b8      090055e1       cmp r5, sb
+│ ────────< 0x0000d8bc      3101000a       beq 0xdd88
+│ ││││╎╎│   0x0000d8c0      0500a0e3       mov r0, 5
+│ ││││╎╎│   0x0000d8c4      d8199fe5       ldr r1, str._s:_d_unexpected_log_filename ; [0x10f28:4]=0x253a7325 ; "%s:%d unexpected log filename │ ││││╎╎│   ; "
+│ ││││╎╎│   0x0000d8c8      0820a0e1       mov r2, r8
+│ ││││╎╎│   0x0000d8cc      0a30a0e1       mov r3, sl
+│ ││││╎╎│   0x0000d8d0      0afdffeb       bl fcn.0000cd00
+│ ││││╎╎│   0x0000d8d4      4070a0e3       mov r7, 0x40                ; '@'
+│ ────────< 0x0000d8d8      24ffffea       b 0xd570
+│ ││││╎╎│   ; CODE XREF from fcn.0000d274 @ 0xd474(x)
+│ │││└────> 0x0000d8dc      0200a0e3       mov r0, 2
+│ │││ ╎╎│   0x0000d8e0      c0199fe5       ldr r1, str.Ignoring__s_because_its_empty. ; [0x109fc:4]=0x6f6e6749 ; "Ignoring %s because it's empty. │ │││ ╎╎│   ; "
+│ ────────< 0x0000d8e4      d1feffea       b 0xd430
+│ │││ ╎╎│   ; CODE XREF from fcn.0000d274 @ 0xd798(x)
+│ └───────> 0x0000d8e8      0470a0e3       mov r7, 4
+│ ────────< 0x0000d8ec      20ffffea       b 0xd574
+│  ││ ╎╎│   ; CODE XREF from fcn.0000d274 @ 0xd7a0(x)
+│ ────────> 0x0000d8f0      40004be2       sub r0, fp, 0x40
+│  ││ ╎╎│   0x0000d8f4      44101be5       ldr r1, [addr]              ; 0x109fc ; "Ignoring %s because it's empty. │  ││ ╎╎│   ; "
+│  ││ ╎╎│   0x0000d8f8      f0221be5       ldr r2, [length]            ; 0x109fc ; "Ignoring %s because it's empty. │  ││ ╎╎│   ; "
+│  ││ ╎╎│   0x0000d8fc      35feffeb       bl fcn.0000d1d8
+│  ││ ╎╎│   0x0000d900      006050e2       subs r6, r0, 0
+│ ────────< 0x0000d904      1affff0a       beq 0xd574
+│  ││ ╎╎│   0x0000d908      041b9fe5       ldr r1, str.compress        ; [0x10e1e:4]=0x706d6f63 ; "compress" ; const char *s2
+│  ││ ╎╎│   0x0000d90c      c6efffeb       bl sym.imp.strcmp           ; int strcmp(const char *s1, const char *s2)
+│  ││ ╎╎│   0x0000d910      000050e3       cmp r0, 0
+│  ││ ╎╎│   0x0000d914      64309505       ldreq r3, [r5, 0x64]        ; 0x10e1e ; "compress"
+│  ││ ╎╎│   0x0000d918      01308303       orreq r3, r3, 1
+│  ││┌────< 0x0000d91c      1301000a       beq 0xdd70
+│  │││╎╎│   0x0000d920      0600a0e1       mov r0, r6                  ; const char *s1
+│  │││╎╎│   0x0000d924      80199fe5       ldr r1, aav.0x00010a57      ; [0x10a57:4]=0x6f636f6e ; "nocompress" ; const char *s2
+│  │││╎╎│   0x0000d928      bfefffeb       bl sym.imp.strcmp           ; int strcmp(const char *s1, const char *s2)
+│  │││╎╎│   0x0000d92c      000050e3       cmp r0, 0
+│ ┌───────< 0x0000d930      1002000a       beq 0xe178
+│ ││││╎╎│   0x0000d934      0600a0e1       mov r0, r6                  ; const char *s1
+│ ││││╎╎│   0x0000d938      70199fe5       ldr r1, str.delaycompress   ; [0x10a64:4]=0x616c6564 ; "delaycompress" ; const char *s2
+│ ││││╎╎│   0x0000d93c      baefffeb       bl sym.imp.strcmp           ; int strcmp(const char *s1, const char *s2)
+│ ││││╎╎│   0x0000d940      000050e3       cmp r0, 0
+│ ││││╎╎│   0x0000d944      64309505       ldreq r3, [r5, 0x64]        ; 0x10a64 ; "delaycompress"
+│ ││││╎╎│   0x0000d948      08308303       orreq r3, r3, 8
+│ ────────< 0x0000d94c      0701000a       beq 0xdd70
+│ ││││╎╎│   0x0000d950      0600a0e1       mov r0, r6                  ; const char *s1
+│ ││││╎╎│   0x0000d954      58199fe5       ldr r1, str.nodelaycompress ; [0x10a62:4]=0x65646f6e ; "nodelaycompress" ; const char *s2
+│ ││││╎╎│   0x0000d958      b3efffeb       bl sym.imp.strcmp           ; int strcmp(const char *s1, const char *s2)
+│ ││││╎╎│   0x0000d95c      000050e3       cmp r0, 0
+│ ││││╎╎│   0x0000d960      64309505       ldreq r3, [r5, 0x64]        ; 0x10a62 ; "nodelaycompress"
+│ ││││╎╎│   0x0000d964      0830c303       biceq r3, r3, 8
+│ ────────< 0x0000d968      0001000a       beq 0xdd70
+│ ││││╎╎│   0x0000d96c      0600a0e1       mov r0, r6                  ; const char *s1
+│ ││││╎╎│   0x0000d970      40199fe5       ldr r1, str.shred           ; [0x10a74:4]=0x65726873 ; "shred" ; const char *s2
+│ ││││╎╎│   0x0000d974      acefffeb       bl sym.imp.strcmp           ; int strcmp(const char *s1, const char *s2)
+│ ││││╎╎│   0x0000d978      000050e3       cmp r0, 0
+│ ││││╎╎│   0x0000d97c      64309505       ldreq r3, [r5, 0x64]        ; 0x10a74 ; "shred"
+│ ││││╎╎│   0x0000d980      013b8303       orreq r3, r3, 0x400
+│ ────────< 0x0000d984      f900000a       beq 0xdd70
+│ ││││╎╎│   0x0000d988      0600a0e1       mov r0, r6                  ; const char *s1
+│ ││││╎╎│   0x0000d98c      28199fe5       ldr r1, str.noshred         ; [0x10a72:4]=0x68736f6e ; "noshred" ; const char *s2
+│ ││││╎╎│   0x0000d990      a5efffeb       bl sym.imp.strcmp           ; int strcmp(const char *s1, const char *s2)
+│ ││││╎╎│   0x0000d994      000050e3       cmp r0, 0
+│ ││││╎╎│   0x0000d998      64309505       ldreq r3, [r5, 0x64]        ; 0x10a72 ; "noshred"
+│ ││││╎╎│   0x0000d99c      013bc303       biceq r3, r3, 0x400
+│ ────────< 0x0000d9a0      f200000a       beq 0xdd70
+│ ││││╎╎│   0x0000d9a4      0600a0e1       mov r0, r6                  ; const char *s1
+│ ││││╎╎│   0x0000d9a8      10199fe5       ldr r1, str.sharedscripts   ; [0x10a7c:4]=0x72616873 ; "sharedscripts" ; const char *s2
+│ ││││╎╎│   0x0000d9ac      9eefffeb       bl sym.imp.strcmp           ; int strcmp(const char *s1, const char *s2)
+│ ││││╎╎│   0x0000d9b0      000050e3       cmp r0, 0
+│ ││││╎╎│   0x0000d9b4      64309505       ldreq r3, [r5, 0x64]        ; 0x10a7c ; "sharedscripts"
+│ ││││╎╎│   0x0000d9b8      80308303       orreq r3, r3, 0x80
+│ ────────< 0x0000d9bc      eb00000a       beq 0xdd70
+│ ││││╎╎│   0x0000d9c0      0600a0e1       mov r0, r6                  ; const char *s1
+│ ││││╎╎│   0x0000d9c4      f8189fe5       ldr r1, str.nosharedscripts ; [0x10a7a:4]=0x68736f6e ; "nosharedscripts" ; const char *s2
+│ ││││╎╎│   0x0000d9c8      97efffeb       bl sym.imp.strcmp           ; int strcmp(const char *s1, const char *s2)
+│ ││││╎╎│   0x0000d9cc      000050e3       cmp r0, 0
+│ ││││╎╎│   0x0000d9d0      64309505       ldreq r3, [r5, 0x64]        ; 0x10a7a ; "nosharedscripts"
+│ ││││╎╎│   0x0000d9d4      8030c303       biceq r3, r3, 0x80
+│ ────────< 0x0000d9d8      e400000a       beq 0xdd70
+│ ││││╎╎│   0x0000d9dc      0600a0e1       mov r0, r6                  ; const char *s1
+│ ││││╎╎│   0x0000d9e0      e0189fe5       ldr r1, str.copytruncate    ; [0x10a8c:4]=0x79706f63 ; "copytruncate" ; const char *s2
+│ ││││╎╎│   0x0000d9e4      90efffeb       bl sym.imp.strcmp           ; int strcmp(const char *s1, const char *s2)
+│ ││││╎╎│   0x0000d9e8      000050e3       cmp r0, 0
+│ ││││╎╎│   0x0000d9ec      64309505       ldreq r3, [r5, 0x64]        ; 0x10a8c ; "copytruncate"
+│ ││││╎╎│   0x0000d9f0      10308303       orreq r3, r3, 0x10
+│ ────────< 0x0000d9f4      dd00000a       beq 0xdd70
+│ ││││╎╎│   0x0000d9f8      0600a0e1       mov r0, r6                  ; const char *s1
+│ ││││╎╎│   0x0000d9fc      c8189fe5       ldr r1, str.nocopytruncate  ; [0x10a8a:4]=0x6f636f6e ; "nocopytruncate" ; const char *s2
+│ ││││╎╎│   0x0000da00      89efffeb       bl sym.imp.strcmp           ; int strcmp(const char *s1, const char *s2)
+│ ││││╎╎│   0x0000da04      000050e3       cmp r0, 0
+│ ││││╎╎│   0x0000da08      64309505       ldreq r3, [r5, 0x64]        ; 0x10a8a ; "nocopytruncate"
+│ ││││╎╎│   0x0000da0c      1030c303       biceq r3, r3, 0x10
+│ ────────< 0x0000da10      d600000a       beq 0xdd70
+│ ││││╎╎│   0x0000da14      0600a0e1       mov r0, r6                  ; const char *s1
+│ ││││╎╎│   0x0000da18      b0189fe5       ldr r1, aav.0x00010a9b      ; [0x10a9b:4]=0x79706f63 ; "copy" ; const char *s2
+│ ││││╎╎│   0x0000da1c      82efffeb       bl sym.imp.strcmp           ; int strcmp(const char *s1, const char *s2)
+│ ││││╎╎│   0x0000da20      000050e3       cmp r0, 0
+│ ││││╎╎│   0x0000da24      64309505       ldreq r3, [r5, 0x64]        ; 0x10a9b ; "copy"
+│ ││││╎╎│   0x0000da28      013c8303       orreq r3, r3, 0x100
+│ ────────< 0x0000da2c      cf00000a       beq 0xdd70
+│ ││││╎╎│   0x0000da30      0600a0e1       mov r0, r6                  ; const char *s1
+│ ││││╎╎│   0x0000da34      98189fe5       ldr r1, aav.0x00010a99      ; [0x10a99:4]=0x6f636f6e ; "nocopy" ; const char *s2
+│ ││││╎╎│   0x0000da38      7befffeb       bl sym.imp.strcmp           ; int strcmp(const char *s1, const char *s2)
+│ ││││╎╎│   0x0000da3c      000050e3       cmp r0, 0
+│ ││││╎╎│   0x0000da40      64309505       ldreq r3, [r5, 0x64]        ; 0x10a99 ; "nocopy"
+│ ││││╎╎│   0x0000da44      013cc303       biceq r3, r3, 0x100
+│ ────────< 0x0000da48      c800000a       beq 0xdd70
+│ ││││╎╎│   0x0000da4c      0600a0e1       mov r0, r6                  ; const char *s1
+│ ││││╎╎│   0x0000da50      80189fe5       ldr r1, aav.0x00010aa3      ; [0x10aa3:4]=0x6d656669 ; "ifempty" ; const char *s2
+│ ││││╎╎│   0x0000da54      74efffeb       bl sym.imp.strcmp           ; int strcmp(const char *s1, const char *s2)
+│ ││││╎╎│   0x0000da58      000050e3       cmp r0, 0
+│ ││││╎╎│   0x0000da5c      64309505       ldreq r3, [r5, 0x64]        ; 0x10aa3 ; "ifempty"
+│ ││││╎╎│   0x0000da60      04308303       orreq r3, r3, 4
+│ ────────< 0x0000da64      c100000a       beq 0xdd70
+│ ││││╎╎│   0x0000da68      0600a0e1       mov r0, r6                  ; const char *s1
+│ ││││╎╎│   0x0000da6c      68189fe5       ldr r1, str.notifempty      ; [0x10aa0:4]=0x69746f6e ; "notifempty" ; const char *s2
+│ ││││╎╎│   0x0000da70      6defffeb       bl sym.imp.strcmp           ; int strcmp(const char *s1, const char *s2)
+│ ││││╎╎│   0x0000da74      000050e3       cmp r0, 0
+│ ││││╎╎│   0x0000da78      64309505       ldreq r3, [r5, 0x64]        ; 0x10aa0 ; "notifempty"
+│ ││││╎╎│   0x0000da7c      0430c303       biceq r3, r3, 4
+│ ────────< 0x0000da80      ba00000a       beq 0xdd70
+│ ││││╎╎│   0x0000da84      0600a0e1       mov r0, r6                  ; const char *s1
+│ ││││╎╎│   0x0000da88      50189fe5       ldr r1, aav.0x00010aad      ; [0x10aad:4]=0x65746164 ; "dateext" ; const char *s2
+│ ││││╎╎│   0x0000da8c      66efffeb       bl sym.imp.strcmp           ; int strcmp(const char *s1, const char *s2)
+│ ││││╎╎│   0x0000da90      000050e3       cmp r0, 0
+│ ││││╎╎│   0x0000da94      64309505       ldreq r3, [r5, 0x64]        ; 0x10aad ; "dateext"
+│ ││││╎╎│   0x0000da98      023c8303       orreq r3, r3, 0x200
+│ ────────< 0x0000da9c      b300000a       beq 0xdd70
+│ ││││╎╎│   0x0000daa0      0600a0e1       mov r0, r6                  ; const char *s1
+│ ││││╎╎│   0x0000daa4      38189fe5       ldr r1, aav.0x00010aab      ; [0x10aab:4]=0x61646f6e ; "nodateext" ; const char *s2
+│ ││││╎╎│   0x0000daa8      5fefffeb       bl sym.imp.strcmp           ; int strcmp(const char *s1, const char *s2)
+│ ││││╎╎│   0x0000daac      000050e3       cmp r0, 0
+│ ││││╎╎│   0x0000dab0      64309505       ldreq r3, [r5, 0x64]        ; 0x10aab ; "nodateext"
+│ ││││╎╎│   0x0000dab4      023cc303       biceq r3, r3, 0x200
+│ ────────< 0x0000dab8      ac00000a       beq 0xdd70
+│ ││││╎╎│   0x0000dabc      0600a0e1       mov r0, r6                  ; const char *s1
+│ ││││╎╎│   0x0000dac0      20189fe5       ldr r1, aav.0x00010ab5      ; [0x10ab5:4]=0x65746164 ; "dateyesterday" ; const char *s2
+│ ││││╎╎│   0x0000dac4      58efffeb       bl sym.imp.strcmp           ; int strcmp(const char *s1, const char *s2)
+│ ││││╎╎│   0x0000dac8      000050e3       cmp r0, 0
+│ ││││╎╎│   0x0000dacc      64309505       ldreq r3, [r5, 0x64]        ; 0x10ab5 ; "dateyesterday"
+│ ││││╎╎│   0x0000dad0      013a8303       orreq r3, r3, 0x1000
+│ ────────< 0x0000dad4      a500000a       beq 0xdd70
+│ ││││╎╎│   0x0000dad8      0600a0e1       mov r0, r6                  ; const char *s1
+│ ││││╎╎│   0x0000dadc      08189fe5       ldr r1, aav.0x00010ac3      ; [0x10ac3:4]=0x65746164 ; "dateformat" ; const char *s2
+│ ││││╎╎│   0x0000dae0      51efffeb       bl sym.imp.strcmp           ; int strcmp(const char *s1, const char *s2)
+│ ││││╎╎│   0x0000dae4      004050e2       subs r4, r0, 0
+│ ────────< 0x0000dae8      0203000a       beq 0xe6f8
+│ ││││╎╎│   0x0000daec      0600a0e1       mov r0, r6                  ; const char *s1
+│ ││││╎╎│   0x0000daf0      f8179fe5       ldr r1, str.noolddir        ; [0x10ace:4]=0x6c6f6f6e ; "noolddir" ; const char *s2
+│ ││││╎╎│   0x0000daf4      4cefffeb       bl sym.imp.strcmp           ; int strcmp(const char *s1, const char *s2)
+│ ││││╎╎│   0x0000daf8      000050e3       cmp r0, 0
+│ ││││╎╎│   0x0000dafc      0c008505       streq r0, [r5, 0xc]
+│ ────────< 0x0000db00      f5feff0a       beq 0xd6dc
+│ ││││╎╎│   0x0000db04      0600a0e1       mov r0, r6                  ; const char *s1
+│ ││││╎╎│   0x0000db08      e4179fe5       ldr r1, aav.0x00010ad7      ; [0x10ad7:4]=0x6c69616d ; "mailfirst" ; const char *s2
+│ ││││╎╎│   0x0000db0c      46efffeb       bl sym.imp.strcmp           ; int strcmp(const char *s1, const char *s2)
+│ ││││╎╎│   0x0000db10      000050e3       cmp r0, 0
+│ ││││╎╎│   0x0000db14      64309505       ldreq r3, [r5, 0x64]        ; 0x10ad7 ; "mailfirst"
+│ ││││╎╎│   0x0000db18      40308303       orreq r3, r3, 0x40
+│ ────────< 0x0000db1c      9300000a       beq 0xdd70
+│ ││││╎╎│   0x0000db20      0600a0e1       mov r0, r6                  ; const char *s1
+│ ││││╎╎│   0x0000db24      cc179fe5       ldr r1, aav.0x00010ae1      ; [0x10ae1:4]=0x6c69616d ; "maillast" ; const char *s2
+│ ││││╎╎│   0x0000db28      3fefffeb       bl sym.imp.strcmp           ; int strcmp(const char *s1, const char *s2)
+│ ││││╎╎│   0x0000db2c      000050e3       cmp r0, 0
+│ ││││╎╎│   0x0000db30      64309505       ldreq r3, [r5, 0x64]        ; 0x10ae1 ; "maillast"
+│ ││││╎╎│   0x0000db34      4030c303       biceq r3, r3, 0x40
+│ ────────< 0x0000db38      8c00000a       beq 0xdd70
+│ ││││╎╎│   0x0000db3c      0600a0e1       mov r0, r6                  ; const char *s1
+│ ││││╎╎│   0x0000db40      b4179fe5       ldr r1, str.su              ; [0x10aea:4]=0x25007573 ; "su" ; const char *s2
+│ ││││╎╎│   0x0000db44      38efffeb       bl sym.imp.strcmp           ; int strcmp(const char *s1, const char *s2)
+│ ││││╎╎│   0x0000db48      000050e3       cmp r0, 0
+│ ││││╎╎│   0x0000db4c      0600a0e1       mov r0, r6
+│ ────────< 0x0000db50      5900000a       beq 0xdcbc
+│ ││││╎╎│   0x0000db54      a4179fe5       ldr r1, aav.0x00010b73      ; [0x10b73:4]=0x61657263 ; "create" ; const char *s2
+│ ││││╎╎│   0x0000db58      33efffeb       bl sym.imp.strcmp           ; int strcmp(const char *s1, const char *s2)
+│ ││││╎╎│   0x0000db5c      000050e3       cmp r0, 0
+│ ││││╎╎│   0x0000db60      0600a0e1       mov r0, r6
+│ ────────< 0x0000db64      6602000a       beq 0xe504
+│ ││││╎╎│   0x0000db68      94179fe5       ldr r1, aav.0x00010b71      ; [0x10b71:4]=0x72636f6e ; "nocreate" ; const char *s2
+│ ││││╎╎│   0x0000db6c      2eefffeb       bl sym.imp.strcmp           ; int strcmp(const char *s1, const char *s2)
+│ ││││╎╎│   0x0000db70      000050e3       cmp r0, 0
+│ ││││╎╎│   0x0000db74      64309505       ldreq r3, [r5, 0x64]        ; 0x10b71 ; "nocreate"
+│ ││││╎╎│   0x0000db78      0230c303       biceq r3, r3, 2
+│ ────────< 0x0000db7c      7b00000a       beq 0xdd70
+│ ││││╎╎│   0x0000db80      0600a0e1       mov r0, r6                  ; const char *s1
+│ ││││╎╎│   0x0000db84      7c179fe5       ldr r1, aav.0x00010b7d      ; [0x10b7d:4]=0x657a6973 ; "size" ; const char *s2
+│ ││││╎╎│   0x0000db88      27efffeb       bl sym.imp.strcmp           ; int strcmp(const char *s1, const char *s2)
+│ ││││╎╎│   0x0000db8c      000050e3       cmp r0, 0
+│ ────────< 0x0000db90      0900000a       beq 0xdbbc
+│ ││││╎╎│   0x0000db94      0600a0e1       mov r0, r6                  ; const char *s1
+│ ││││╎╎│   0x0000db98      6c179fe5       ldr r1, str.minsize         ; [0x10b7a:4]=0x736e696d ; "minsize" ; const char *s2
+│ ││││╎╎│   0x0000db9c      22efffeb       bl sym.imp.strcmp           ; int strcmp(const char *s1, const char *s2)
+│ ││││╎╎│   0x0000dba0      000050e3       cmp r0, 0
+│ ────────< 0x0000dba4      0400000a       beq 0xdbbc
+│ ││││╎╎│   0x0000dba8      0600a0e1       mov r0, r6                  ; const char *s1
+│ ││││╎╎│   0x0000dbac      d4179fe5       ldr r1, str.maxsize         ; [0x10b82:4]=0x7378616d ; "maxsize" ; const char *s2
+│ ││││╎╎│   0x0000dbb0      1defffeb       bl sym.imp.strcmp           ; int strcmp(const char *s1, const char *s2)
+│ ││││╎╎│   0x0000dbb4      000050e3       cmp r0, 0
+│ ────────< 0x0000dbb8      a402001a       bne 0xe650
+│ ││││╎╎│   ; CODE XREFS from fcn.0000d274 @ 0xdb90(x), 0xdba4(x)
+│ ────────> 0x0000dbbc      f0021be5       ldr r0, [length]            ; 0x10b82 ; "maxsize"
+│ ││││╎╎│   0x0000dbc0      44304be2       sub r3, fp, 0x44
+│ ││││╎╎│   0x0000dbc4      0a10a0e1       mov r1, sl
+│ ││││╎╎│   0x0000dbc8      00308de5       str r3, [sp]                ; 0x178000
+│ ││││╎╎│                                                              ; r13
+│ ││││╎╎│   0x0000dbcc      0620a0e1       mov r2, r6
+│ ││││╎╎│   0x0000dbd0      40304be2       sub r3, fp, 0x40
+│ ││││╎╎│   0x0000dbd4      04008de5       str r0, [var_4h]
+│ ││││╎╎│   0x0000dbd8      0800a0e1       mov r0, r8
+│ ││││╎╎│   0x0000dbdc      8eefffeb       bl fcn.00009a1c
+│ ││││╎╎│   0x0000dbe0      004050e2       subs r4, r0, 0
+│ ────────< 0x0000dbe4      4202000a       beq 0xe4f4
+│ ││││╎╎│   0x0000dbe8      39efffeb       bl sym.imp.strlen           ; size_t strlen(const char *s)
+│ ││││╎╎│   0x0000dbec      013040e2       sub r3, r0, 1
+│ ││││╎╎│   0x0000dbf0      0320d4e7       ldrb r2, [r4, r3]           ; 0x10b82 ; "maxsize"
+│ ││││╎╎│   0x0000dbf4      6b0052e3       cmp r2, 0x6b                ; 'k'
+│ ││││╎╎│   0x0000dbf8      0020a003       moveq r2, 0
+│ ││││╎╎│   0x0000dbfc      0320c407       strbeq r2, [r4, r3]
+│ ││││╎╎│   0x0000dc00      013ba003       moveq r3, 0x400
+│ ────────< 0x0000dc04      1000000a       beq 0xdc4c
+│ ││││╎╎│   0x0000dc08      4d0052e3       cmp r2, 0x4d                ; 'M'
+│ ││││╎╎│   0x0000dc0c      0020a003       moveq r2, 0
+│ ││││╎╎│   0x0000dc10      0320c407       strbeq r2, [r4, r3]
+│ ││││╎╎│   0x0000dc14      0136a003       moveq r3, 0x100000
+│ ────────< 0x0000dc18      0b00000a       beq 0xdc4c
+│ ││││╎╎│   0x0000dc1c      470052e3       cmp r2, 0x47                ; 'G'
+│ ││││╎╎│   0x0000dc20      0020a003       moveq r2, 0
+│ ││││╎╎│   0x0000dc24      0320c407       strbeq r2, [r4, r3]
+│ ││││╎╎│   0x0000dc28      0131a003       moveq r3, 0x40000000
+│ ────────< 0x0000dc2c      0600000a       beq 0xdc4c
+│ ││││╎╎│   0x0000dc30      0c089fe5       ldr r0, obj.__ctype_b       ; [0x195e0:4]=0
+│ ││││╎╎│                                                              ; loc._edata
+│ ││││╎╎│   0x0000dc34      8220a0e1       lsl r2, r2, 1
+│ ││││╎╎│   0x0000dc38      001090e5       ldr r1, [r0]                ; 0x195e0
+│ ││││╎╎│                                                              ; loc._edata
+│ ││││╎╎│   0x0000dc3c      b22091e1       ldrh r2, [r1, r2]
+│ ││││╎╎│   0x0000dc40      080012e3       tst r2, 8
+│ ││││╎╎│   0x0000dc44      0130a013       movne r3, 1
+│ ────────< 0x0000dc48      5f02000a       beq 0xe5cc
+│ ││││╎╎│   ; CODE XREFS from fcn.0000d274 @ 0xdc04(x), 0xdc18(x), 0xdc2c(x)
+│ ────────> 0x0000dc4c      0020a0e3       mov r2, 0
+│ ││││╎╎│   0x0000dc50      0400a0e1       mov r0, r4                  ; const char *str
+│ ││││╎╎│   0x0000dc54      3c104be2       sub r1, fp, 0x3c            ; char * *endptr
+│ ││││╎╎│   0x0000dc58      2c330be5       str r3, [var_32ch]          ; 0x32c ; 812
+│ ││││╎╎│   0x0000dc5c      74eeffeb       bl sym.imp.strtoul          ; long strtoul(const char *str, char * *endptr, int base)
+│ ││││╎╎│   0x0000dc60      3c201be5       ldr r2, [endptr]            ; 0x3c ; 60
+│ ││││╎╎│   0x0000dc64      2c331be5       ldr r3, [var_32ch]          ; 0x32c ; 812
+│ ││││╎╎│   0x0000dc68      0020d2e5       ldrb r2, [r2]
+│ ││││╎╎│   0x0000dc6c      000052e3       cmp r2, 0
+│ ││││╎╎│   0x0000dc70      fc220be5       str r2, [var_2fch]          ; 0x2fc ; 764
+│ ────────< 0x0000dc74      b702001a       bne 0xe758
+│ ││││╎╎│   0x0000dc78      900303e0       mul r3, r0, r3
+│ ││││╎╎│   0x0000dc7c      84169fe5       ldr r1, aav.0x00010b7d      ; [0x10b7d:4]=0x657a6973 ; "size" ; const char *s2
+│ ││││╎╎│   0x0000dc80      0600a0e1       mov r0, r6                  ; const char *s1
+│ ││││╎╎│   0x0000dc84      0420a0e3       mov r2, 4
+│ ││││╎╎│   0x0000dc88      2c330be5       str r3, [var_32ch]          ; 0x32c ; 812
+│ ││││╎╎│   0x0000dc8c      aaeeffeb       bl sym.imp.strncmp          ; int strncmp(const char *s1, const char *s2, size_t n)
+│ ││││╎╎│   0x0000dc90      2c331be5       ldr r3, [var_32ch]          ; 0x10b7d ; "size"
+│ ││││╎╎│   0x0000dc94      000050e3       cmp r0, 0
+│ ────────< 0x0000dc98      a102001a       bne 0xe724
+│ ││││╎╎│   0x0000dc9c      0420a0e3       mov r2, 4
+│ ││││╎╎│   0x0000dca0      183085e5       str r3, [r5, 0x18]
+│ ││││╎╎│   0x0000dca4      102085e5       str r2, [r5, 0x10]
+│ ││││╎╎│   0x0000dca8      1c0085e5       str r0, [r5, 0x1c]
+│ ││││╎╎│   ; CODE XREF from fcn.0000d274 @ 0xe754(x)
+│ ────────> 0x0000dcac      0600a0e1       mov r0, r6                  ; void *ptr
+│ ││││╎╎│   0x0000dcb0      2befffeb       bl sym.imp.free             ; void free(void *ptr)
+│ ││││╎╎│   ; CODE XREF from fcn.0000d274 @ 0xecf4(x)
+│ ────────> 0x0000dcb4      0460a0e1       mov r6, r4
+│ ────────< 0x0000dcb8      87feffea       b 0xd6dc
+│ ││││╎╎│   ; CODE XREF from fcn.0000d274 @ 0xdb50(x)
+│ ────────> 0x0000dcbc      28efffeb       bl sym.imp.free             ; void free(void *ptr)
+│ ││││╎╎│   0x0000dcc0      40004be2       sub r0, fp, 0x40
+│ ││││╎╎│   0x0000dcc4      44101be5       ldr r1, [addr]              ; 0x10b7d ; "size"
+│ ││││╎╎│   0x0000dcc8      f0221be5       ldr r2, [length]            ; 0x10b7d ; "size"
+│ ││││╎╎│   0x0000dccc      30efffeb       bl fcn.00009994
+│ ││││╎╎│   0x0000dcd0      006050e2       subs r6, r0, 0
+│ ────────< 0x0000dcd4      26feff0a       beq 0xd574
+│ ││││╎╎│   0x0000dcd8      bbcf4be2       sub ip, fp, 0x2ec
+│ ││││╎╎│   0x0000dcdc      25304be2       sub r3, fp, 0x25
+│ ││││╎╎│   0x0000dce0      28169fe5       ldr r1, aav.0x00010b41      ; [0x10b41:4]=0x30303225 ; "%200s %200s%c" ; const char *format
+│ ││││╎╎│   0x0000dce4      00308de5       str r3, [sp]                ; 0x178000
+│ ││││╎╎│                                                              ; r13
+│ ││││╎╎│   0x0000dce8      0c20a0e1       mov r2, ip
+│ ││││╎╎│   0x0000dcec      893f4be2       sub r3, fp, 0x224
+│ ││││╎╎│   0x0000dcf0      28c30be5       str ip, [var_328h]          ; 0x328 ; 808
+│ ││││╎╎│   0x0000dcf4      a2eeffeb       bl sym.imp.sscanf           ; int sscanf(const char *s, const char *format,   ...)
+│ ││││╎╎│   0x0000dcf8      28c31be5       ldr ip, [var_328h]          ; 0x10b41 ; "%200s %200s%c"
+│ ││││╎╎│   0x0000dcfc      030050e3       cmp r0, 3
+│ ││││╎╎│   0x0000dd00      0040a0e1       mov r4, r0
+│ ││││╎╎│   0x0000dd04      08169f05       ldreq r1, aav.0x00010aed    ; [0x10b41:4]=0x30303225 ; "%200s %200s%c"
+│ ││││╎╎│   0x0000dd08      0500a003       moveq r0, 5
+│ ────────< 0x0000dd0c      2702000a       beq 0xe5b0
+│ ││││╎╎│   0x0000dd10      000054e3       cmp r4, 0
+│ ────────< 0x0000dd14      130000da       ble 0xdd68
+│ ││││╎╎│   0x0000dd18      0c00a0e1       mov r0, ip
+│ ││││╎╎│   0x0000dd1c      28c30be5       str ip, [var_328h]          ; 0x328 ; 808
+│ ││││╎╎│   0x0000dd20      c7eeffeb       bl sym.imp.getpwnam
+│ ││││╎╎│   0x0000dd24      28c31be5       ldr ip, [var_328h]          ; 0x10b41 ; "%200s %200s%c"
+│ ││││╎╎│   0x0000dd28      000050e3       cmp r0, 0
+│ ────────< 0x0000dd2c      3b02000a       beq 0xe620
+│ ││││╎╎│   0x0000dd30      083090e5       ldr r3, [r0, 8]             ; 0x10b41 ; "%200s %200s%c"
+│ ││││╎╎│   0x0000dd34      783085e5       str r3, [r5, 0x78]
+│ ││││╎╎│   0x0000dd38      2eeeffeb       bl sym.imp.endpwent
+│ ││││╎╎│   0x0000dd3c      010054e3       cmp r4, 1
+│ ────────< 0x0000dd40      0800000a       beq 0xdd68
+│ ││││╎╎│   0x0000dd44      890f4be2       sub r0, fp, 0x224
+│ ││││╎╎│   0x0000dd48      dbeeffeb       bl sym.imp.getgrnam
+│ ││││╎╎│   0x0000dd4c      000050e3       cmp r0, 0
+│ ││││╎╎│   0x0000dd50      891f4b02       subeq r1, fp, 0x224
+│ ││││╎╎│   0x0000dd54      00108d05       streq r1, [sp]
+│ ────────< 0x0000dd58      3902000a       beq 0xe644
+│ ││││╎╎│   0x0000dd5c      083090e5       ldr r3, [r0, 8]             ; 0x10b41 ; "%200s %200s%c"
+│ ││││╎╎│   0x0000dd60      7c3085e5       str r3, [r5, 0x7c]
+│ ││││╎╎│   0x0000dd64      5feeffeb       bl sym.imp.endgrent
+│ ││││╎╎│   ; CODE XREFS from fcn.0000d274 @ 0xdd14(x), 0xdd40(x)
+│ ────────> 0x0000dd68      643095e5       ldr r3, [r5, 0x64]          ; 0x10b41 ; "%200s %200s%c"
+│ ││││╎╎│   0x0000dd6c      023b83e3       orr r3, r3, 0x800
+│ ││││╎╎│   ; XREFS(23)
+│ ───└────> 0x0000dd70      643085e5       str r3, [r5, 0x64]
+│ ────────< 0x0000dd74      58feffea       b 0xd6dc
+│ │││ ╎╎│   ; CODE XREF from fcn.0000d274 @ 0xd3d4(x)
+│ │││ ╎╎└─> 0x0000dd78      0500a0e3       mov r0, 5
+│ │││ ╎╎    0x0000dd7c      94159fe5       ldr r1, aav.0x0001092d      ; [0x1092d:4]=0x72676f4c ; "Logrotate UID is not in passwd file.\n"
+│ │││ ╎╎    0x0000dd80      defbffeb       bl fcn.0000cd00
+│ │││ └───< 0x0000dd84      74fdffea       b 0xd35c
+│ │││  ╎    ; CODE XREF from fcn.0000d274 @ 0xd8bc(x)
+│ ────────> 0x0000dd88      543095e5       ldr r3, [r5, 0x54]          ; 0x1092d ; "Logrotate UID is not in passwd file.\n"
+│ │││  ╎    0x0000dd8c      000053e3       cmp r3, 0
+│ │││  ╎┌─< 0x0000dd90      c901000a       beq 0xe4bc
+│ │││  ╎│   ; CODE XREF from fcn.0000d274 @ 0xe4c8(x)
+│ │││ ┌───> 0x0000dd94      583095e5       ldr r3, [r5, 0x58]          ; 0x1092d ; "Logrotate UID is not in passwd file.\n"
+│ │││ ╎╎│   0x0000dd98      000053e3       cmp r3, 0
+│ │││┌────< 0x0000dd9c      c201000a       beq 0xe4ac
+│ ││││╎╎│   ; CODE XREF from fcn.0000d274 @ 0xe4b8(x)
+│ ────────> 0x0000dda0      5c3095e5       ldr r3, [r5, 0x5c]          ; 0x1092d ; "Logrotate UID is not in passwd file.\n"
+│ ││││╎╎│   0x0000dda4      000053e3       cmp r3, 0
+│ ────────< 0x0000dda8      c701000a       beq 0xe4cc
+│ ││││╎╎│   ; CODE XREF from fcn.0000d274 @ 0xe4d8(x)
+│ ────────> 0x0000ddac      9000a0e3       mov r0, 0x90                ; size_t size
+│ ││││╎╎│   0x0000ddb0      0deeffeb       bl sym.imp.malloc           ;  void *malloc(size_t size)
+│ ││││╎╎│   0x0000ddb4      005050e2       subs r5, r0, 0
+│ ────────< 0x0000ddb8      bafeff0a       beq 0xd8a8
+│ ││││╎╎│   0x0000ddbc      58659fe5       ldr r6, [0x0000e31c]        ; [0xe31c:4]=0x1968c
+│ ││││╎╎│   0x0000ddc0      0910a0e1       mov r1, sb
+│ ││││╎╎│   0x0000ddc4      6afcffeb       bl fcn.0000cf74
+│ ││││╎╎│   0x0000ddc8      0030a0e3       mov r3, 0
+│ ││││╎╎│   0x0000ddcc      883085e5       str r3, [r5, 0x88]
+│ ││││╎╎│   0x0000ddd0      043096e5       ldr r3, [r6, 4]
+│ ││││╎╎│   0x0000ddd4      14730be5       str r7, [var_314h]          ; 0x314 ; 788
+│ ││││╎╎│   0x0000ddd8      8c3085e5       str r3, [r5, 0x8c]
+│ ││││╎╎│   0x0000dddc      005083e5       str r5, [r3]
+│ ││││╎╎│   0x0000dde0      883085e2       add r3, r5, 0x88
+│ ││││╎╎│   0x0000dde4      043086e5       str r3, [r6, 4]
+│ ││││╎╎│   0x0000dde8      30359fe5       ldr r3, [0x0000e320]        ; [0xe320:4]=0x1966c
+│ ││││╎╎│   0x0000ddec      40e01be5       ldr lr, [var_40h]           ; 0x40 ; 64
+│ ││││╎╎│   0x0000ddf0      44101be5       ldr r1, [addr]              ; 0x44 ; 68
+│ ││││╎╎│   0x0000ddf4      002093e5       ldr r2, [r3]
+│ ││││╎╎│   0x0000ddf8      18130be5       str r1, [var_318h]          ; 0x318 ; 792
+│ ││││╎╎│   0x0000ddfc      012082e2       add r2, r2, 1
+│ ││││╎╎│   0x0000de00      002083e5       str r2, [r3]
+│ ││││╎╎│   0x0000de04      0e30a0e1       mov r3, lr
+│ ────────< 0x0000de08      040000ea       b 0xde20
+│ ││││╎╎│   ; CODE XREF from fcn.0000d274 @ 0xde54(x)
+│ ────────> 0x0000de0c      0120d3e4       ldrb r2, [r3], 1
+│ ││││╎╎│   0x0000de10      7b0052e3       cmp r2, 0x7b                ; '{'
+│ ────────< 0x0000de14      0f00000a       beq 0xde58
+│ ││││╎╎│   0x0000de18      000052e3       cmp r2, 0
+│ ────────< 0x0000de1c      0d00000a       beq 0xde58
+│ ││││╎╎│   ; CODE XREF from fcn.0000d274 @ 0xde08(x)
+│ ────────> 0x0000de20      18731be5       ldr r7, [var_318h]          ; 0x318 ; 792
+│ ││││╎╎│   0x0000de24      026c4be2       sub r6, fp, 0x200
+│ ││││╎╎│   0x0000de28      0340a0e1       mov r4, r3
+│ ││││╎╎│   0x0000de2c      03c0a0e1       mov ip, r3
+│ ││││╎╎│   0x0000de30      032067e0       rsb r2, r7, r3
+│ ││││╎╎│   0x0000de34      fc220be5       str r2, [var_2fch]          ; 0x2fc ; 764
+│ ││││╎╎│   0x0000de38      c20fa0e1       asr r0, r2, 0x1f
+│ ││││╎╎│   0x0000de3c      f8020be5       str r0, [var_2f8h]          ; 0x2f8 ; 760
+│ ││││╎╎│   0x0000de40      010b4be2       sub r0, fp, 0x400
+│ ││││╎╎│   0x0000de44      dc6f46e1       ldrd r6, r7, [r6, -0xfc]
+│ ││││╎╎│   0x0000de48      d40fc0e1       ldrd r0, r1, [r0, 0xf4]
+│ ││││╎╎│   0x0000de4c      000056e1       cmp r6, r0
+│ ││││╎╎│   0x0000de50      0110d7e0       sbcs r1, r7, r1
+│ ────────< 0x0000de54      ecffffba       blt 0xde0c
+│ ││││╎╎│   ; CODE XREFS from fcn.0000d274 @ 0xde14(x), 0xde1c(x)
+│ ────────> 0x0000de58      012b4be2       sub r2, fp, 0x400
+│ ││││╎╎│   0x0000de5c      020c4be2       sub r0, fp, 0x200
+│ ││││╎╎│   0x0000de60      14731be5       ldr r7, [var_314h]          ; 0x314 ; 788
+│ ││││╎╎│   0x0000de64      d42fc2e1       ldrd r2, r3, [r2, 0xf4]
+│ ││││╎╎│   0x0000de68      dc0f40e1       ldrd r0, r1, [r0, -0xfc]
+│ ││││╎╎│   0x0000de6c      000052e1       cmp r2, r0
+│ ││││╎╎│   0x0000de70      0110d3e0       sbcs r1, r3, r1
+│ ────────< 0x0000de74      bdfdffba       blt 0xd570
+│ ││││╎╎│   0x0000de78      0c106ee0       rsb r1, lr, ip              ; int n
+│ ││││╎╎│   0x0000de7c      0e00a0e1       mov r0, lr                  ; const char *src
+│ ││││╎╎│   0x0000de80      bffcffeb       bl sym.imp.strndup          ; char *strndup(const char *src, int n)
+│ ││││╎╎│   0x0000de84      30104be2       sub r1, fp, 0x30
+│ ││││╎╎│   0x0000de88      34204be2       sub r2, fp, 0x34
+│ ││││╎╎│   0x0000de8c      40400be5       str r4, [var_40h]           ; 0x40 ; 64
+│ ││││╎╎│   0x0000de90      14030be5       str r0, [var_314h]          ; 0x314 ; 788
+│ ││││╎╎│   0x0000de94      e3edffeb       bl sym.imp.poptParseArgvString
+│ ││││╎╎│   0x0000de98      000050e3       cmp r0, 0
+│ ────────< 0x0000de9c      fa01001a       bne 0xe68c
+│ ││││╎╎│   0x0000dea0      30301be5       ldr r3, [var_30h]           ; 0x30 ; 48
+│ ││││╎╎│   0x0000dea4      000053e3       cmp r3, 0
+│ ────────< 0x0000dea8      380200da       ble 0xe790
+│ ││││╎╎│   0x0000deac      040085e5       str r0, [r5, 4]
+│ ││││╎╎│   0x0000deb0      080085e5       str r0, [r5, 8]
+│ ││││╎╎│   0x0000deb4      fc020be5       str r0, [var_2fch]          ; 0x2fc ; 764
+│ ││││╎╎│   0x0000deb8      20730be5       str r7, [fp, -0x320]        ; 800
+│ ────────< 0x0000debc      050000ea       b 0xded8
+│ ││││╎╎│   ; CODE XREF from fcn.0000d274 @ 0xdf38(x)
+│ ────────> 0x0000dec0      646095e5       ldr r6, [r5, 0x64]
+│ ││││╎╎│   0x0000dec4      206016e2       ands r6, r6, 0x20
+│ ────────< 0x0000dec8      ad00000a       beq 0xe184
+│ ││││╎╎│   ; CODE XREF from fcn.0000d274 @ 0xe02c(x)
+│ ────────> 0x0000decc      fc621be5       ldr r6, [var_2fch]          ; 0x2fc ; 764
+│ ││││╎╎│   0x0000ded0      016086e2       add r6, r6, 1
+│ ││││╎╎│   0x0000ded4      fc620be5       str r6, [var_2fch]          ; 0x2fc ; 764
+│ ││││╎╎│   ; CODE XREF from fcn.0000d274 @ 0xdebc(x)
+│ ────────> 0x0000ded8      10731be5       ldr r7, [var_310h]          ; 0x310 ; 784
+│ ││││╎╎│   0x0000dedc      30201be5       ldr r2, [var_30h]           ; 0x30 ; 48
+│ ││││╎╎│   0x0000dee0      fc621be5       ldr r6, [var_2fch]          ; 0x2fc ; 764
+│ ││││╎╎│   0x0000dee4      013027e2       eor r3, r7, 1
+│ ││││╎╎│   0x0000dee8      020056e1       cmp r6, r2
+│ ││││╎╎│   0x0000deec      0030a0a3       movge r3, 0
+│ ││││╎╎│   0x0000def0      013003b2       andlt r3, r3, 1
+│ ││││╎╎│   0x0000def4      000053e3       cmp r3, 0
+│ ────────< 0x0000def8      b800000a       beq 0xe1e0
+│ ││││╎╎│   0x0000defc      2c001be5       ldr r0, [ptr]               ; 0x2c ; 44
+│ ││││╎╎│   0x0000df00      000050e3       cmp r0, 0
+│ ────────< 0x0000df04      0200000a       beq 0xdf14
+│ ││││╎╎│   0x0000df08      95eeffeb       bl sym.imp.free             ; void free(void *ptr)
+│ ││││╎╎│   0x0000df0c      0010a0e3       mov r1, 0
+│ ││││╎╎│   0x0000df10      2c100be5       str r1, [ptr]               ; 0x2c ; 44
+│ ││││╎╎│   ; CODE XREF from fcn.0000d274 @ 0xdf04(x)
+│ ────────> 0x0000df14      fc621be5       ldr r6, [var_2fch]          ; 0x2fc ; 764
+│ ││││╎╎│   0x0000df18      1010a0e3       mov r1, 0x10
+│ ││││╎╎│   0x0000df1c      34301be5       ldr r3, [var_34h]           ; elf_phdr
+│ ││││╎╎│                                                              ; 0x34
+│ ││││╎╎│   0x0000df20      fc239fe5       ldr r2, aav.0x0000ce28      ; [0xce28:4]=0xe59f3008
+│ ││││╎╎│   0x0000df24      0641a0e1       lsl r4, r6, 2
+│ ││││╎╎│   0x0000df28      060193e7       ldr r0, [r3, r6, lsl 2]     ; 0xce28
+│ ││││╎╎│                                                              ; aav.0x0000ce28
+│ ││││╎╎│   0x0000df2c      88304be2       sub r3, fp, 0x88
+│ ││││╎╎│   0x0000df30      82eeffeb       bl sym.imp.glob64
+│ ││││╎╎│   0x0000df34      020050e3       cmp r0, 2
+│ ────────< 0x0000df38      e0ffff0a       beq 0xdec0
+│ ││││╎╎│   ; CODE XREF from fcn.0000d274 @ 0xe1c4(x)
+│ ────────> 0x0000df3c      081095e5       ldr r1, [r5, 8]             ; 0xce28
+│ ││││╎╎│                                                              ; aav.0x0000ce28
+│ ││││╎╎│   0x0000df40      0040a0e3       mov r4, 0
+│ ││││╎╎│   0x0000df44      88301be5       ldr r3, [size]              ; 0xce28
+│ ││││╎╎│                                                              ; aav.0x0000ce28
+│ ││││╎╎│   0x0000df48      040095e5       ldr r0, [r5, 4]             ; 0xce28
+│ ││││╎╎│                                                              ; aav.0x0000ce28 ; void *ptr
+│ ││││╎╎│   0x0000df4c      031081e0       add r1, r1, r3
+│ ││││╎╎│   0x0000df50      0111a0e1       lsl r1, r1, 2               ; size_t size
+│ ││││╎╎│   0x0000df54      01eeffeb       bl sym.imp.realloc          ; void *realloc(void *ptr, size_t size)
+│ ││││╎╎│   0x0000df58      1ca30be5       str sl, [fp, -0x31c]        ; 796
+│ ││││╎╎│   0x0000df5c      08a0a0e1       mov sl, r8
+│ ││││╎╎│   0x0000df60      040085e5       str r0, [r5, 4]
+│ ││││╎╎│   ; CODE XREF from fcn.0000d274 @ 0xe174(x)
+│ ────────> 0x0000df64      88301be5       ldr r3, [size]              ; 0xce28
+│ ││││╎╎│                                                              ; aav.0x0000ce28
+│ ││││╎╎│   0x0000df68      030054e1       cmp r4, r3
+│ ────────< 0x0000df6c      4b01002a       bhs 0xe4a0
+│ ││││╎╎│   0x0000df70      84301be5       ldr r3, [var_84h]           ; 0xce28
+│ ││││╎╎│                                                              ; aav.0x0000ce28
+│ ││││╎╎│   0x0000df74      571f4be2       sub r1, fp, 0x15c
+│ ││││╎╎│   0x0000df78      0421a0e1       lsl r2, r4, 2
+│ ││││╎╎│   0x0000df7c      18230be5       str r2, [var_318h]          ; 0x318 ; 792
+│ ││││╎╎│   0x0000df80      040193e7       ldr r0, [r3, r4, lsl 2]     ; 0xce28
+│ ││││╎╎│                                                              ; aav.0x0000ce28
+│ ││││╎╎│   0x0000df84      01eeffeb       bl sym.imp.lstat64
+│ ││││╎╎│   0x0000df88      000050e3       cmp r0, 0
+│ ────────< 0x0000df8c      0300001a       bne 0xdfa0
+│ ││││╎╎│   0x0000df90      4c311be5       ldr r3, [var_14ch]          ; 0xce28
+│ ││││╎╎│                                                              ; aav.0x0000ce28
+│ ││││╎╎│   0x0000df94      0f3a03e2       and r3, r3, 0xf000
+│ ││││╎╎│   0x0000df98      010953e3       cmp r3, 0x4000
+│ ────────< 0x0000df9c      7300000a       beq 0xe170
+│ ││││╎╎│   ; CODE XREF from fcn.0000d274 @ 0xdf8c(x)
+│ ────────> 0x0000dfa0      74339fe5       ldr r3, [0x0000e31c]        ; [0xe31c:4]=0x1968c
+│ ││││╎╎│   0x0000dfa4      0470a0e1       mov r7, r4
+│ ││││╎╎│   0x0000dfa8      006093e5       ldr r6, [r3]
+│ ││││╎╎│   ; CODE XREF from fcn.0000d274 @ 0xdff4(x)
+│ ────────> 0x0000dfac      000056e3       cmp r6, 0
+│ ────────< 0x0000dfb0      6400000a       beq 0xe148
+│ ││││╎╎│   0x0000dfb4      0040a0e3       mov r4, 0
+│ ────────< 0x0000dfb8      090000ea       b 0xdfe4
+│ ││││╎╎│   ; CODE XREF from fcn.0000d274 @ 0xdfec(x)
+│ ────────> 0x0000dfbc      84301be5       ldr r3, [var_84h]           ; 0x84 ; 132
+│ ││││╎╎│   0x0000dfc0      18231be5       ldr r2, [var_318h]          ; 0x318 ; 792
+│ ││││╎╎│   0x0000dfc4      028093e7       ldr r8, [r3, r2]
+│ ││││╎╎│   0x0000dfc8      043096e5       ldr r3, [r6, 4]
+│ ││││╎╎│   0x0000dfcc      0810a0e1       mov r1, r8                  ; const char *s2
+│ ││││╎╎│   0x0000dfd0      040193e7       ldr r0, [r3, r4, lsl 2]     ; const char *s1
+│ ││││╎╎│   0x0000dfd4      14eeffeb       bl sym.imp.strcmp           ; int strcmp(const char *s1, const char *s2)
+│ ││││╎╎│   0x0000dfd8      000050e3       cmp r0, 0
+│ ────────< 0x0000dfdc      0500000a       beq 0xdff8
+│ ││││╎╎│   0x0000dfe0      014084e2       add r4, r4, 1
+│ ││││╎╎│   ; CODE XREF from fcn.0000d274 @ 0xdfb8(x)
+│ ────────> 0x0000dfe4      083096e5       ldr r3, [r6, 8]
+│ ││││╎╎│   0x0000dfe8      030054e1       cmp r4, r3
+│ ────────< 0x0000dfec      f2ffffba       blt 0xdfbc
+│ ││││╎╎│   0x0000dff0      886096e5       ldr r6, [r6, 0x88]
+│ ────────< 0x0000dff4      ecffffea       b 0xdfac
+│ ││││╎╎│   ; CODE XREF from fcn.0000d274 @ 0xdfdc(x)
+│ ────────> 0x0000dff8      0830a0e1       mov r3, r8
+│ ││││╎╎│   0x0000dffc      0a80a0e1       mov r8, sl
+│ ││││╎╎│   0x0000e000      1ca31be5       ldr sl, [fp, -0x31c]        ; 796
+│ ││││╎╎│   0x0000e004      0500a0e3       mov r0, 5
+│ ││││╎╎│   0x0000e008      00308de5       str r3, [sp]                ; 0x178000
+│ ││││╎╎│                                                              ; r13
+│ ││││╎╎│   0x0000e00c      0820a0e1       mov r2, r8
+│ ││││╎╎│   0x0000e010      10139fe5       ldr r1, str._s:_d_duplicate_log_entry_for__s ; [0x10fc6:4]=0x253a7325 ; "%s:%d duplicate log entry for %s │ ││││╎╎│   ; "
+│ ││││╎╎│   0x0000e014      0160a0e3       mov r6, 1
+│ ││││╎╎│   0x0000e018      0a30a0e1       mov r3, sl
+│ ││││╎╎│   0x0000e01c      37fbffeb       bl fcn.0000cd00
+│ ││││╎╎│   0x0000e020      10630be5       str r6, [var_310h]          ; 0x310 ; 784
+│ ││││╎╎│   ; CODE XREF from fcn.0000d274 @ 0xe4a8(x)
+│ ────────> 0x0000e024      88004be2       sub r0, fp, 0x88
+│ ││││╎╎│   0x0000e028      26eeffeb       bl sym.imp.globfree64
+│ ────────< 0x0000e02c      a6ffffea       b 0xdecc
+│ ││││╎╎│   ; CODE XREF from fcn.0000d274 @ 0xd7bc(x)
+│ ────────> 0x0000e030      090055e1       cmp r5, sb
+│ ────────< 0x0000e034      2801000a       beq 0xe4dc
+│ ││││╎╎│   0x0000e038      2c201be5       ldr r2, [ptr]               ; 0x10fc6 ; "%s:%d duplicate log entry for %s │ ││││╎╎│   ; "
+│ ││││╎╎│   0x0000e03c      000052e3       cmp r2, 0
+│ ────────< 0x0000e040      0900000a       beq 0xe06c
+│ ││││╎╎│   0x0000e044      643095e5       ldr r3, [r5, 0x64]          ; 0x10fc6 ; "%s:%d duplicate log entry for %s │ ││││╎╎│   ; "
+│ ││││╎╎│   0x0000e048      200013e3       tst r3, 0x20
+│ ────────< 0x0000e04c      6800000a       beq 0xe1f4
+│ ││││╎╎│   ; CODE XREF from fcn.0000d274 @ 0xe200(x)
+│ ────────> 0x0000e050      2c001be5       ldr r0, [ptr]               ; 0x10fc6 ; "%s:%d duplicate log entry for %s │ ────────> ; "                                                        ; void *ptr
+│ ││││╎╎│   0x0000e054      42eeffeb       bl sym.imp.free             ; void free(void *ptr)
+│ ││││╎╎│   0x0000e058      0030a0e3       mov r3, 0
+│ ││││╎╎│   0x0000e05c      2c300be5       str r3, [ptr]               ; 0x2c ; 44
+│ ││││╎╎│   0x0000e060      643095e5       ldr r3, [r5, 0x64]          ; 0x10fc6 ; "%s:%d duplicate log entry for %s │ ││││╎╎│   ; "
+│ ││││╎╎│   0x0000e064      200013e3       tst r3, 0x20
+│ ││││╎└──< 0x0000e068      bbfcff0a       beq 0xd35c
+│ ││││╎ │   ; CODE XREF from fcn.0000d274 @ 0xe040(x)
+│ ────────> 0x0000e06c      0c3095e5       ldr r3, [r5, 0xc]           ; 0x10fc6 ; "%s:%d duplicate log entry for %s │ ────────> ; "
+│ ││││╎ │   0x0000e070      000053e3       cmp r3, 0
+│ ││││╎ │   0x0000e074      0060a013       movne r6, 0
+│ ││││╎┌──< 0x0000e078      2c00001a       bne 0xe130
+│ ────────< 0x0000e07c      2e0000ea       b 0xe13c
+│ ││││╎││   ; CODE XREF from fcn.0000d274 @ 0xe138(x)
+│ ────────> 0x0000e080      043095e5       ldr r3, [r5, 4]             ; 0x10fc6 ; "%s:%d duplicate log entry for %s │ ────────> ; "
+│ ││││╎││   0x0000e084      0671a0e1       lsl r7, r6, 2
+│ ││││╎││   0x0000e088      fc720be5       str r7, [var_2fch]          ; 0x2fc ; 764
+│ ││││╎││   0x0000e08c      060193e7       ldr r0, [r3, r6, lsl 2]     ; 0x10fc6 ; "%s:%d duplicate log entry for %s │ ││││╎││   ; "
+│ ││││╎││   0x0000e090      990500eb       bl fcn.0000f6fc
+│ ││││╎││   0x0000e094      f4104be2       sub r1, fp, 0xf4
+│ ││││╎││   0x0000e098      0040a0e1       mov r4, r0
+│ ││││╎││   0x0000e09c      19edffeb       bl sym.imp.stat64
+│ ││││╎││   0x0000e0a0      000050e3       cmp r0, 0
+│ ────────< 0x0000e0a4      ee00001a       bne 0xe464
+│ ││││╎││   0x0000e0a8      0400a0e1       mov r0, r4                  ; const char *s
+│ ││││╎││   0x0000e0ac      08eeffeb       bl sym.imp.strlen           ; size_t strlen(const char *s)
+│ ││││╎││   0x0000e0b0      0070a0e1       mov r7, r0
+│ ││││╎││   0x0000e0b4      0c0095e5       ldr r0, [r5, 0xc]           ; 0x10fc6 ; "%s:%d duplicate log entry for %s │ ││││╎││   ; "                                                        ; const char *s
+│ ││││╎││   0x0000e0b8      05eeffeb       bl sym.imp.strlen           ; size_t strlen(const char *s)
+│ ││││╎││   0x0000e0bc      0420a0e1       mov r2, r4
+│ ││││╎││   0x0000e0c0      64129fe5       ldr r1, str._s__s           ; [0xfdf4:4]=0x252f7325 ; "%s/%s" ; const char *format
+│ ││││╎││   0x0000e0c4      0c3095e5       ldr r3, [r5, 0xc]           ; 0xfdf4 ; "%s/%s"
+│ ││││╎││   0x0000e0c8      007087e0       add r7, r7, r0
+│ ││││╎││   0x0000e0cc      107087e2       add r7, r7, 0x10
+│ ││││╎││   0x0000e0d0      0770c7e3       bic r7, r7, 7
+│ ││││╎││   0x0000e0d4      07d04de0       sub sp, sp, r7
+│ ││││╎││   0x0000e0d8      10708de2       add r7, sp, 0x10
+│ ││││╎││   0x0000e0dc      0700a0e1       mov r0, r7                  ; char *s
+│ ││││╎││   0x0000e0e0      daedffeb       bl sym.imp.sprintf          ; int sprintf(char *s, const char *format, ...)
+│ ││││╎││   0x0000e0e4      0400a0e1       mov r0, r4                  ; void *ptr
+│ ││││╎││   0x0000e0e8      1deeffeb       bl sym.imp.free             ; void free(void *ptr)
+│ ││││╎││   0x0000e0ec      0c4095e5       ldr r4, [r5, 0xc]           ; 0xfdf4 ; "%s/%s"
+│ ││││╎││   0x0000e0f0      571f4be2       sub r1, fp, 0x15c
+│ ││││╎││   0x0000e0f4      0030d4e5       ldrb r3, [r4]               ; 0xfdf4 ; "%s/%s"
+│ ││││╎││   0x0000e0f8      2f0053e3       cmp r3, 0x2f                ; '/'
+│ ││││╎││   0x0000e0fc      0740a011       movne r4, r7
+│ ││││╎││   0x0000e100      0400a0e1       mov r0, r4
+│ ││││╎││   0x0000e104      ffecffeb       bl sym.imp.stat64
+│ ││││╎││   0x0000e108      000050e3       cmp r0, 0
+│ ────────< 0x0000e10c      4800001a       bne 0xe234
+│ ││││╎││   0x0000e110      18329fe5       ldr r3, [0x0000e330]        ; [0xe330:4]=0xfffffec8
+│ ││││╎││   0x0000e114      24004be2       sub r0, fp, 0x24
+│ ││││╎││   0x0000e118      d02083e1       ldrd r2, r3, [r3, r0]
+│ ││││╎││   0x0000e11c      d40f4be1       ldrd r0, r1, [var_f4h]
+│ ││││╎││   0x0000e120      010053e1       cmp r3, r1
+│ ││││╎││   0x0000e124      00005201       cmpeq r2, r0
+│ ────────< 0x0000e128      3500001a       bne 0xe204
+│ ││││╎││   0x0000e12c      016086e2       add r6, r6, 1
+│ ││││╎││   ; CODE XREF from fcn.0000d274 @ 0xe078(x)
+│ ││││╎└──> 0x0000e130      083095e5       ldr r3, [r5, 8]
+│ ││││╎ │   0x0000e134      030056e1       cmp r6, r3
+│ ────────< 0x0000e138      d0ffffba       blt 0xe080
+│ ││││╎ │   ; CODE XREF from fcn.0000d274 @ 0xe07c(x)
+│ ────────> 0x0000e13c      0950a0e1       mov r5, sb
+│ ││││╎ │   0x0000e140      0870a0e3       mov r7, 8
+│ ────────< 0x0000e144      05fdffea       b 0xd560
+│ ││││╎ │   ; CODE XREF from fcn.0000d274 @ 0xdfb0(x)
+│ ────────> 0x0000e148      84301be5       ldr r3, [var_84h]           ; 0x84 ; 132
+│ ││││╎ │   0x0000e14c      0740a0e1       mov r4, r7
+│ ││││╎ │   0x0000e150      18231be5       ldr r2, [var_318h]          ; 0x318 ; 792
+│ ││││╎ │   0x0000e154      c00095e9       ldmib r5, {r6, r7}
+│ ││││╎ │   0x0000e158      020093e7       ldr r0, [r3, r2]            ; const char *src
+│ ││││╎ │   0x0000e15c      97edffeb       bl sym.imp.strdup           ; char *strdup(const char *src)
+│ ││││╎ │   0x0000e160      070186e7       str r0, [r6, r7, lsl 2]
+│ ││││╎ │   0x0000e164      083095e5       ldr r3, [r5, 8]
+│ ││││╎ │   0x0000e168      013083e2       add r3, r3, 1
+│ ││││╎ │   0x0000e16c      083085e5       str r3, [r5, 8]
+│ ││││╎ │   ; CODE XREF from fcn.0000d274 @ 0xdf9c(x)
+│ ────────> 0x0000e170      014084e2       add r4, r4, 1
+│ ────────< 0x0000e174      7affffea       b 0xdf64
+│ ││││╎ │   ; CODE XREF from fcn.0000d274 @ 0xd930(x)
+│ └───────> 0x0000e178      643095e5       ldr r3, [r5, 0x64]
+│  │││╎ │   0x0000e17c      0130c3e3       bic r3, r3, 1
+│ ────────< 0x0000e180      fafeffea       b 0xdd70
+│  │││╎ │   ; CODE XREF from fcn.0000d274 @ 0xdec8(x)
+│ ────────> 0x0000e184      b4729fe5       ldr r7, [0x0000e440]        ; [0xe440:4]=0x1967c
+│  │││╎ │   0x0000e188      34301be5       ldr r3, [var_34h]           ; elf_phdr
+│  │││╎ │                                                              ; 0x34
+│  │││╎ │   0x0000e18c      000097e5       ldr r0, [r7]                ; int errnum
+│  │││╎ │   0x0000e190      044093e7       ldr r4, [r3, r4]
+│  │││╎ │   0x0000e194      d5ecffeb       bl sym.imp.strerror         ; char *strerror(int errnum)
+│  │││╎ │   0x0000e198      94119fe5       ldr r1, str._s:_d_glob_failed_for__s:__s ; [0x10fa8:4]=0x253a7325 ; "%s:%d glob failed for %s: %s │  │││╎ │   ; "
+│  │││╎ │   0x0000e19c      0820a0e1       mov r2, r8
+│  │││╎ │   0x0000e1a0      0a30a0e1       mov r3, sl
+│  │││╎ │   0x0000e1a4      00408de5       str r4, [sp]
+│  │││╎ │   0x0000e1a8      04008de5       str r0, [var_0h_2]
+│  │││╎ │   0x0000e1ac      2c004be2       sub r0, fp, 0x2c            ; int32_t arg1
+│  │││╎ │   0x0000e1b0      d2fbffeb       bl sym.imp.asprintf
+│  │││╎ │   0x0000e1b4      010070e3       cmn r0, 1
+│  │││╎ │   0x0000e1b8      0000a0e3       mov r0, 0
+│  │││╎ │   0x0000e1bc      2c600b05       streq r6, [ptr]             ; 0x2c ; 44
+│  │││╎ │   0x0000e1c0      88000be5       str r0, [size]              ; 0x88 ; 136
+│ ────────< 0x0000e1c4      5cffffea       b 0xdf3c
+│  │││╎ │   ; CODE XREF from fcn.0000d274 @ 0xd884(x)
+│  └──────> 0x0000e1c8      f0121be5       ldr r1, [length]            ; 0x10fa8 ; "%s:%d glob failed for %s: %s │  └──────> ; "                                                        ; size_t length
+│   ││╎ │   0x0000e1cc      d6ecffeb       bl sym.imp.munmap           ; int munmap(void*addr, size_t length)
+│   ││╎ │   0x0000e1d0      00031be5       ldr r0, [fildes]            ; 0x10fa8 ; "%s:%d glob failed for %s: %s │   ││╎ │   ; "                                                        ; int fildes
+│   ││╎ │   0x0000e1d4      d6edffeb       bl sym.imp.close            ; int close(int fildes)
+│   ││╎ │   0x0000e1d8      04431be5       ldr r4, [src]               ; 0x10fa8 ; "%s:%d glob failed for %s: %s │   ││╎ │   ; "
+│ ────────< 0x0000e1dc      57fcffea       b 0xd340
+│   ││╎ │   ; CODE XREF from fcn.0000d274 @ 0xdef8(x)
+│ ────────> 0x0000e1e0      14631be5       ldr r6, [var_314h]          ; 0x10fa8 ; "%s:%d glob failed for %s: %s │ ────────> ; "
+│   ││╎ │   0x0000e1e4      20731be5       ldr r7, [fp, -0x320]        ; 0x10fa8 ; "%s:%d glob failed for %s: %s │   ││╎ │   ; "
+│   ││╎ │   0x0000e1e8      34001be5       ldr r0, [var_34h]           ; elf_phdr
+│   ││╎ │                                                              ; 0x34
+│   ││╎ │   0x0000e1ec      006085e5       str r6, [r5]
+│ ────────< 0x0000e1f0      3afdffea       b 0xd6e0
+│   ││╎ │   ; CODE XREF from fcn.0000d274 @ 0xe04c(x)
+│ ────────> 0x0000e1f4      0500a0e3       mov r0, 5
+│   ││╎ │   0x0000e1f8      38119fe5       ldr r1, str._s              ; [0xfa4a:4]=0x6d007325 ; "%s"
+│   ││╎ │   0x0000e1fc      bffaffeb       bl fcn.0000cd00
+│ ────────< 0x0000e200      92ffffea       b 0xe050
+│   ││╎ │   ; CODE XREF from fcn.0000d274 @ 0xe128(x)
+│ ────────> 0x0000e204      0c3095e5       ldr r3, [r5, 0xc]           ; 0xfa4a ; "%s"
+│   ││╎ │   0x0000e208      0500a0e3       mov r0, 5
+│   ││╎ │   0x0000e20c      fc621be5       ldr r6, [var_2fch]          ; 0xfa4a ; "%s"
+│   ││╎ │   0x0000e210      24119fe5       ldr r1, str._s:_d_olddir__s_and_log_file__s_are_on_different_devices ; [0x11052:4]=0x253a7325 ; "%s:%d olddir %s and log file %s are on different devices │   ││╎ │   ; "
+│   ││╎ │   0x0000e214      00308de5       str r3, [sp]
+│   ││╎ │   0x0000e218      043095e5       ldr r3, [r5, 4]             ; 0x11052 ; "%s:%d olddir %s and log file %s are on different devices │   ││╎ │   ; "
+│   ││╎ │   0x0000e21c      063093e7       ldr r3, [r3, r6]            ; 0x11052 ; "%s:%d olddir %s and log file %s are on different devices │   ││╎ │   ; "
+│   ││╎ │   0x0000e220      04308de5       str r3, [var_8h]
+│   ││╎ │   ; CODE XREF from fcn.0000d274 @ 0xe250(x)
+│   ││╎┌──> 0x0000e224      0820a0e1       mov r2, r8
+│   ││╎╎│   0x0000e228      0a30a0e1       mov r3, sl
+│   ││╎╎│   0x0000e22c      b3faffeb       bl fcn.0000cd00
+│ ────────< 0x0000e230      9cfdffea       b 0xd8a8
+│   ││╎╎│   ; CODE XREF from fcn.0000d274 @ 0xe10c(x)
+│ ────────> 0x0000e234      9aedffeb       bl sym.imp.__errno_location
+│   ││╎╎│   0x0000e238      000090e5       ldr r0, [r0]                ; 0x11052 ; "%s:%d olddir %s and log file %s are on different devices │   ││╎╎│   ; "                                                        ; int errnum
+│   ││╎╎│   0x0000e23c      abecffeb       bl sym.imp.strerror         ; char *strerror(int errnum)
+│   ││╎╎│   0x0000e240      00408de5       str r4, [sp]
+│   ││╎╎│   0x0000e244      f4109fe5       ldr r1, str._s:_d_error_verifying_olddir_path__s:__s ; [0x11028:4]=0x253a7325 ; "%s:%d error verifying olddir path %s: %s │   ││╎╎│   ; "
+│   ││╎╎│   0x0000e248      04008de5       str r0, [var_8h]
+│   ││╎╎│   0x0000e24c      0500a0e3       mov r0, 5
+│   ││╎└──< 0x0000e250      f3ffffea       b 0xe224
+    ││╎ │   ; DATA XREF from fcn.0000d274 @ 0xd2c8(r)
+..
+    ││╎ │   ; DATA XREF from fcn.0000d274 @ 0xd328(r)
+    ││╎ │   ; DATA XREF from fcn.0000d274 @ 0xd34c(r)
+    ││╎ │   ; DATA XREF from fcn.0000d274 @ 0xd370(r)
+    ││╎ │   ; DATA XREF from fcn.0000d274 @ 0xd394(r)
+    ││╎ │   ; DATA XREF from fcn.0000d274 @ 0xd3b0(r)
+    ││╎ │   ; DATA XREF from fcn.0000d274 @ 0xd3f8(r)
+    ││╎ │   ; DATA XREFS from fcn.0000d274 @ 0xd400(r), 0xd448(r)
+    ││╎ │   ; DATA XREF from fcn.0000d274 @ 0xd428(r)
+    ││╎ │   ; DATA XREF from fcn.0000d274 @ 0xd45c(r)
+    ││╎ │   ; DATA XREF from fcn.0000d274 @ 0xd4d4(r)
+    ││╎ │   ; DATA XREF from fcn.0000d274 @ 0xd590(r)
+    ││╎ │   ; DATA XREF from fcn.0000d274 @ 0xd624(r)
+    ││╎ │   ; DATA XREF from fcn.0000d274 @ 0xd630(r)
+    ││╎ │   ; DATA XREF from fcn.0000d274 @ 0xd658(r)
+    ││╎ │   ; DATA XREF from fcn.0000d274 @ 0xd734(r)
+    ││╎ │   ; DATA XREF from fcn.0000d274 @ 0xd748(r)
+    ││╎ │   ; DATA XREF from fcn.0000d274 @ 0xd7cc(r)
+    ││╎ │   ; DATA XREF from fcn.0000d274 @ 0xd810(r)
+    ││╎ │   ; DATA XREF from fcn.0000d274 @ 0xd88c(r)
+    ││╎ │   ; DATA XREF from fcn.0000d274 @ 0xd8c4(r)
+    ││╎ │   ; DATA XREF from fcn.0000d274 @ 0xd8e0(r)
+    ││╎ │   ; DATA XREF from fcn.0000d274 @ 0xd924(r)
+    ││╎ │   ; DATA XREFS from fcn.0000d274 @ 0xd938(r), 0xd944(r)
+    ││╎ │   ; DATA XREFS from fcn.0000d274 @ 0xd954(r), 0xd960(r)
+    ││╎ │   ; DATA XREFS from fcn.0000d274 @ 0xd970(r), 0xd97c(r)
+    ││╎ │   ; DATA XREFS from fcn.0000d274 @ 0xd98c(r), 0xd998(r)
+    ││╎ │   ; DATA XREFS from fcn.0000d274 @ 0xd9a8(r), 0xd9b4(r)
+    ││╎ │   ; DATA XREFS from fcn.0000d274 @ 0xd9c4(r), 0xd9d0(r)
+    ││╎ │   ; DATA XREFS from fcn.0000d274 @ 0xd9e0(r), 0xd9ec(r)
+    ││╎ │   ; DATA XREFS from fcn.0000d274 @ 0xd9fc(r), 0xda08(r)
+    ││╎ │   ; DATA XREFS from fcn.0000d274 @ 0xda18(r), 0xda24(r)
+    ││╎ │   ; DATA XREFS from fcn.0000d274 @ 0xda34(r), 0xda40(r)
+    ││╎ │   ; DATA XREFS from fcn.0000d274 @ 0xda50(r), 0xda5c(r)
+    ││╎ │   ; DATA XREFS from fcn.0000d274 @ 0xda6c(r), 0xda78(r)
+    ││╎ │   ; DATA XREFS from fcn.0000d274 @ 0xda88(r), 0xda94(r)
+    ││╎ │   ; DATA XREFS from fcn.0000d274 @ 0xdaa4(r), 0xdab0(r)
+    ││╎ │   ; DATA XREFS from fcn.0000d274 @ 0xdac0(r), 0xdacc(r)
+    ││╎ │   ; DATA XREF from fcn.0000d274 @ 0xdadc(r)
+    ││╎ │   ; DATA XREF from fcn.0000d274 @ 0xdaf0(r)
+    ││╎ │   ; DATA XREFS from fcn.0000d274 @ 0xdb08(r), 0xdb14(r)
+    ││╎ │   ; DATA XREFS from fcn.0000d274 @ 0xdb24(r), 0xdb30(r)
+    ││╎ │   ; DATA XREF from fcn.0000d274 @ 0xdb40(r)
+    ││╎ │   ; DATA XREF from fcn.0000d274 @ 0xdb54(r)
+    ││╎ │   ; DATA XREFS from fcn.0000d274 @ 0xdb68(r), 0xdb74(r)
+    ││╎ │   ; DATA XREFS from fcn.0000d274 @ 0xdb84(r), 0xdc7c(r)
+    ││╎ │   ; DATA XREF from fcn.0000d274 @ 0xdb98(r)
+    ││╎ │   ; DATA XREF from fcn.0000d274 @ 0xdce0(r)
+    ││╎ │   ; DATA XREF from fcn.0000d274 @ 0xdd04(r)
+    ││╎ │   ; DATA XREF from fcn.0000d274 @ 0xdd7c(r)
+    ││╎ │   ; DATA XREFS from fcn.0000d274 @ 0xddbc(r), 0xdfa0(r)
+    ││╎ │   ; DATA XREF from fcn.0000d274 @ 0xdde8(r)
+    ││╎ │   ; DATA XREF from fcn.0000d274 @ 0xdf20(r)
+    ││╎ │   ; DATA XREF from fcn.0000d274 @ 0xe010(r)
+    ││╎ │   ; DATA XREF from fcn.0000d274 @ 0xe0c0(r)
+    ││╎ │   ; DATA XREF from fcn.0000d274 @ 0xe110(r)
+    ││╎ │   ; DATA XREF from fcn.0000d274 @ 0xe198(r)
+    ││╎ │   ; DATA XREF from fcn.0000d274 @ 0xe1f8(r)
+    ││╎ │   ; DATA XREF from fcn.0000d274 @ 0xe210(r)
+    ││╎ │   ; XREFS: DATA 0x0000e244  DATA 0x0000e29c  DATA 0x0000e2f4  
+    ││╎ │   ; XREFS: DATA 0x0000e3a4  DATA 0x0000e3b8  DATA 0x0000e3fc  
+    ││╎ │   ; XREFS: DATA 0x0000e418  DATA 0x0000e42c  
+    ││╎ │   ; DATA XREF from fcn.0000d274 @ 0xe470(r)
+    ││╎ │   ; DATA XREF from fcn.0000d274 @ 0xe498(r)
+    ││╎ │   ; DATA XREF from fcn.0000d274 @ 0xe4ac(r)
+    ││╎ │   ; DATA XREF from fcn.0000d274 @ 0xe4bc(r)
+    ││╎ │   ; DATA XREF from fcn.0000d274 @ 0xe4cc(r)
+    ││╎ │   ; DATA XREF from fcn.0000d274 @ 0xe4e0(r)
+    ││╎ │   ; DATA XREF from fcn.0000d274 @ 0xe53c(r)
+    ││╎ │   ; DATA XREF from fcn.0000d274 @ 0xe5a8(r)
+    ││╎ │   ; DATA XREF from fcn.0000d274 @ 0xe5e0(r)
+    ││╎ │   ; DATA XREF from fcn.0000d274 @ 0xe620(r)
+    ││╎ │   ; DATA XREF from fcn.0000d274 @ 0xe648(r)
+    ││╎ │   ; DATA XREF from fcn.0000d274 @ 0xe654(r)
+    ││╎ │   ; DATA XREF from fcn.0000d274 @ 0xe668(r)
+    ││╎ │   ; DATA XREF from fcn.0000d274 @ 0xe68c(r)
+    ││╎ │   ; DATA XREF from fcn.0000d274 @ 0xe6ac(r)
+    ││╎ │   ; DATA XREF from fcn.0000d274 @ 0xe6c4(r)
+    ││╎ │   ; DATA XREF from fcn.0000d274 @ 0xe6dc(r)
+    ││╎ │   ; DATA XREFS from fcn.0000d274 @ 0xdbac(r), 0xe728(r)
+    ││╎ │   ; DATA XREF from fcn.0000d274 @ 0xe75c(r)
+    ││╎ │   ; DATA XREF from fcn.0000d274 @ 0xe77c(r)
+    ││╎ │   ; DATA XREF from fcn.0000d274 @ 0xe784(r)
+    ││╎ │   ; DATA XREF from fcn.0000d274 @ 0xe788(r)
+    ││╎ │   ; DATA XREF from fcn.0000d274 @ 0xe794(r)
+    ││╎ │   ; DATA XREF from fcn.0000d274 @ 0xe7b4(r)
+    ││╎ │   ; DATA XREF from fcn.0000d274 @ 0xe7f8(r)
+    ││╎ │   ; DATA XREF from fcn.0000d274 @ 0xe814(r)
+    ││╎ │   ; DATA XREF from fcn.0000d274 @ 0xe828(r)
+    ││╎ │   ; DATA XREF from fcn.0000d274 @ 0xe83c(r)
+    ││╎ │   ; DATA XREF from fcn.0000d274 @ 0xe850(r)
+    ││╎ │   ; DATA XREF from fcn.0000d274 @ 0xe878(r)
+    ││╎ │   ; DATA XREFS from fcn.0000d274 @ 0xe88c(r), 0xe898(r)
+    ││╎ │   ; DATA XREFS from fcn.0000d274 @ 0xe8a8(r), 0xe8b4(r)
+    ││╎ │   ; DATA XREFS from fcn.0000d274 @ 0xd720(r), 0xe8c4(r)
+    ││╎ │   ; DATA XREF from fcn.0000d274 @ 0xe8d8(r)
+    ││╎ │   ; DATA XREFS from fcn.0000d274 @ 0xd70c(r), 0xe8ec(r)
+    ││╎ │   ; DATA XREF from fcn.0000d274 @ 0xe900(r)
+    ││╎ │   ; DATA XREF from fcn.0000d274 @ 0xe934(r)
+    ││╎ │   ; DATA XREF from fcn.0000d274 @ 0xe960(r)
+    ││╎ │   ; DATA XREF from fcn.0000d274 @ 0xe9a8(r)
+    ││╎ │   ; DATA XREFS from fcn.0000d274 @ 0xe914(r), 0xe9cc(r)
+    ││╎ │   ; DATA XREF from fcn.0000d274 @ 0xea54(r)
+    ││╎ │   ; DATA XREF from fcn.0000d274 @ 0xea68(r)
+    ││╎ │   ; DATA XREF from fcn.0000d274 @ 0xea7c(r)
+    ││╎ │   ; DATA XREFS from fcn.0000d274 @ 0xea90(r), 0xead8(r)
+    ││╎ │   ; DATA XREF from fcn.0000d274 @ 0xeb00(r)
+    ││╎ │   ; DATA XREF from fcn.0000d274 @ 0xeb20(r)
+    ││╎ │   ; DATA XREF from fcn.0000d274 @ 0xeb4c(r)
+    ││╎ │   ; DATA XREF from fcn.0000d274 @ 0xeb6c(r)
+    ││╎ │   ; DATA XREF from fcn.0000d274 @ 0xeb84(r)
+    ││╎ │   ; DATA XREF from fcn.0000d274 @ 0xeba4(r)
+    ││╎ │   ; DATA XREF from fcn.0000d274 @ 0xebf4(r)
+    ││╎ │   ; DATA XREF from fcn.0000d274 @ 0xec20(r)
+    ││╎ │   ; DATA XREFS from fcn.0000d274 @ 0xd908(r), 0xd914(r), 0xec54(r)
+    ││╎ │   ; DATA XREF from fcn.0000d274 @ 0xec80(r)
+    ││╎ │   ; DATA XREF from fcn.0000d274 @ 0xec90(r)
+    ││╎ │   ; DATA XREF from fcn.0000d274 @ 0xeca0(r)
+    ││╎ │   ; DATA XREF from fcn.0000d274 @ 0xecc0(r)
+    ││╎ │   ; DATA XREF from fcn.0000d274 @ 0xece8(r)
+    ││╎ │   ; DATA XREFS from fcn.0000d274 @ 0xea40(r), 0xed1c(r)
+    ││╎ │   ; DATA XREF from fcn.0000d274 @ 0xed34(r)
+    ││╎ │   ; DATA XREFS from fcn.0000d274 @ 0xea2c(r), 0xed5c(r)
+    ││╎ │   ; DATA XREF from fcn.0000d274 @ 0xed7c(r)
+    ││╎ │   ; DATA XREF from fcn.0000d274 @ 0xedec(r)
+    ││╎ │   ; DATA XREFS from fcn.0000d274 @ 0xe184(r), 0xed74(r), 0xee08(r), 0xee2c(r)
+    ││╎ │   ; XREFS: DATA 0x0000d778  DATA 0x0000d7e8  DATA 0x0000dc30  
+    ││╎ │   ; XREFS: DATA 0x0000e9f0  DATA 0x0000ee50  DATA 0x0000eef4  
+    ││╎ │   ; XREFS: DATA 0x0000effc  
+    ││╎ │   ; DATA XREFS from fcn.0000d274 @ 0xe864(r), 0xefe8(r), 0xf02c(r)
+    ││╎ │   ; DATA XREF from fcn.0000d274 @ 0xf034(r)
+    ││╎ │   ; DATA XREF from fcn.0000d274 @ 0xf060(r)
+    ││╎ │   ; DATA XREF from fcn.0000d274 @ 0xf0ac(r)
+    ││╎ │   ; DATA XREF from fcn.0000d274 @ 0xf0f4(r)
+    ││╎ │   ; DATA XREF from fcn.0000d274 @ 0xf118(r)
+    ││╎ │   ; DATA XREF from fcn.0000d274 @ 0xf160(r)
+│   ││╎ │   ; CODE XREF from fcn.0000d274 @ 0xe0a4(x)
+│ ────────> 0x0000e464      0eedffeb       bl sym.imp.__errno_location
+│   ││╎ │   0x0000e468      000090e5       ldr r0, [r0]                ; 0x11028 ; "%s:%d error verifying olddir path %s: %s │   ││╎ │   ; "                                                        ; int errnum
+│   ││╎ │   0x0000e46c      1fecffeb       bl sym.imp.strerror         ; char *strerror(int errnum)
+│   ││╎ │   0x0000e470      34111fe5       ldr r1, str._s:_d_error_verifying_log_file_path__s:__s ; [0x10ffc:4]=0x253a7325 ; "%s:%d error verifying log file path %s: %s │   ││╎ │   ; "
+│   ││╎ │   0x0000e474      0820a0e1       mov r2, r8
+│   ││╎ │   0x0000e478      0a30a0e1       mov r3, sl
+│   ││╎ │   0x0000e47c      00408de5       str r4, [sp]
+│   ││╎ │   0x0000e480      04008de5       str r0, [var_8h]
+│   ││╎ │   0x0000e484      0500a0e3       mov r0, 5
+│   ││╎ │   0x0000e488      1cfaffeb       bl fcn.0000cd00
+│   ││╎ │   0x0000e48c      0400a0e1       mov r0, r4
+│ ────────< 0x0000e490      03fdffea       b 0xd8a4
+│   ││╎ │   ; CODE XREF from fcn.0000d274 @ 0xd40c(x)
+│   └─────> 0x0000e494      0200a0e3       mov r0, 2
+│    │╎ │   0x0000e498      58111fe5       ldr r1, aav.0x0001097f      ; [0x1097f:4]=0x6f6e6749 ; "Ignoring %s because there's no password entry for the owner.\n"
+│ ────────< 0x0000e49c      a3fbffea       b 0xd330
+│    │╎ │   ; CODE XREF from fcn.0000d274 @ 0xdf6c(x)
+│ ────────> 0x0000e4a0      0a80a0e1       mov r8, sl
+│    │╎ │   0x0000e4a4      1ca31be5       ldr sl, [fp, -0x31c]        ; 0x1097f ; "Ignoring %s because there's no password entry for the owner.\n"
+│ ────────< 0x0000e4a8      ddfeffea       b 0xe024
+│    │╎ │   ; CODE XREF from fcn.0000d274 @ 0xdd9c(x)
+│    └────> 0x0000e4ac      68011fe5       ldr r0, aav.0x00010f51      ; [0x10f51:4]=0x6e69622f ; "/bin/gunzip" ; const char *src
+│     ╎ │   0x0000e4b0      c2ecffeb       bl sym.imp.strdup           ; char *strdup(const char *src)
+│     ╎ │   0x0000e4b4      580085e5       str r0, [r5, 0x58]
+│ ────────< 0x0000e4b8      38feffea       b 0xdda0
+│     ╎ │   ; CODE XREF from fcn.0000d274 @ 0xdd90(x)
+│     ╎ └─> 0x0000e4bc      74011fe5       ldr r0, aav.0x00010f47      ; [0x10f47:4]=0x6e69622f ; "/bin/gzip" ; const char *src
+│     ╎     0x0000e4c0      beecffeb       bl sym.imp.strdup           ; char *strdup(const char *src)
+│     ╎     0x0000e4c4      540085e5       str r0, [r5, 0x54]
+│     └───< 0x0000e4c8      31feffea       b 0xdd94
+│           ; CODE XREF from fcn.0000d274 @ 0xdda8(x)
+│ ────────> 0x0000e4cc      80011fe5       ldr r0, aav.0x00010f5d      ; [0x10f5d:4]=0x7a672e ; ".gz" ; const char *src
+│           0x0000e4d0      baecffeb       bl sym.imp.strdup           ; char *strdup(const char *src)
+│           0x0000e4d4      5c0085e5       str r0, [r5, 0x5c]
+│ ────────< 0x0000e4d8      33feffea       b 0xddac
+│           ; CODE XREF from fcn.0000d274 @ 0xe034(x)
+│ ────────> 0x0000e4dc      0500a0e3       mov r0, 5
+│           0x0000e4e0      90111fe5       ldr r1, str._s:_d_unexpected_ ; [0x10fe8:4]=0x253a7325 ; "%s:%d unexpected } │           ; "
+│           0x0000e4e4      0820a0e1       mov r2, r8
+│           0x0000e4e8      0a30a0e1       mov r3, sl
+│           0x0000e4ec      03faffeb       bl fcn.0000cd00
+│ ────────< 0x0000e4f0      ecfcffea       b 0xd8a8
+│           ; CODE XREF from fcn.0000d274 @ 0xdbe4(x)
+│ ────────> 0x0000e4f4      0600a0e1       mov r0, r6                  ; void *ptr
+│           0x0000e4f8      0460a0e1       mov r6, r4
+│           0x0000e4fc      18edffeb       bl sym.imp.free             ; void free(void *ptr)
+│ ────────< 0x0000e500      1bfcffea       b 0xd574
+│           ; CODE XREF from fcn.0000d274 @ 0xdb64(x)
+│ ────────> 0x0000e504      16edffeb       bl sym.imp.free             ; void free(void *ptr)
+│           0x0000e508      40004be2       sub r0, fp, 0x40
+│           0x0000e50c      44101be5       ldr r1, [addr]              ; 0x10fe8 ; "%s:%d unexpected } │           ; "
+│           0x0000e510      f0221be5       ldr r2, [length]            ; 0x10fe8 ; "%s:%d unexpected } │           ; "
+│           0x0000e514      1eedffeb       bl fcn.00009994
+│           0x0000e518      006050e2       subs r6, r0, 0
+│ ────────< 0x0000e51c      14fcff0a       beq 0xd574
+│           0x0000e520      bbcf4be2       sub ip, fp, 0x2ec
+│           0x0000e524      892f4be2       sub r2, fp, 0x224
+│           0x0000e528      25304be2       sub r3, fp, 0x25
+│           0x0000e52c      00208de5       str r2, [sp]
+│           0x0000e530      04308de5       str r3, [var_4h]
+│           0x0000e534      38204be2       sub r2, fp, 0x38
+│           0x0000e538      0c30a0e1       mov r3, ip
+│           0x0000e53c      e8111fe5       ldr r1, str._o__200s__200s_c ; [0x10b3e:4]=0x25206f25 ; "%o %200s %200s%c" ; const char *format
+│           0x0000e540      28c30be5       str ip, [var_328h]          ; 0x328 ; 808
+│           0x0000e544      8eecffeb       bl sym.imp.sscanf           ; int sscanf(const char *s, const char *format,   ...)
+│           0x0000e548      28c31be5       ldr ip, [var_328h]          ; 0x10b3e ; "%o %200s %200s%c"
+│           0x0000e54c      040050e3       cmp r0, 4
+│           0x0000e550      0040a0e1       mov r4, r0
+│       ┌─< 0x0000e554      1300000a       beq 0xe5a8
+│       │   0x0000e558      000050e3       cmp r0, 0
+│      ┌──< 0x0000e55c      0e0000da       ble 0xe59c
+│      ││   0x0000e560      38301be5       ldr r3, [var_38h]           ; 0x10b3e ; "%o %200s %200s%c"
+│      ││   0x0000e564      010050e3       cmp r0, 1
+│      ││   0x0000e568      6c3085e5       str r3, [r5, 0x6c]
+│     ┌───< 0x0000e56c      0a00000a       beq 0xe59c
+│     │││   0x0000e570      0c00a0e1       mov r0, ip
+│     │││   0x0000e574      28c30be5       str ip, [var_328h]          ; 0x328 ; 808
+│     │││   0x0000e578      b1ecffeb       bl sym.imp.getpwnam
+│     │││   0x0000e57c      28c31be5       ldr ip, [var_328h]          ; 0x10b3e ; "%o %200s %200s%c"
+│     │││   0x0000e580      000050e3       cmp r0, 0
+│    ┌────< 0x0000e584      2500000a       beq 0xe620
+│    ││││   0x0000e588      083090e5       ldr r3, [r0, 8]             ; 0x10b3e ; "%o %200s %200s%c"
+│    ││││   0x0000e58c      703085e5       str r3, [r5, 0x70]
+│    ││││   0x0000e590      18ecffeb       bl sym.imp.endpwent
+│    ││││   0x0000e594      020054e3       cmp r4, 2
+│   ┌─────< 0x0000e598      1800001a       bne 0xe600
+│   │││││   ; CODE XREFS from fcn.0000d274 @ 0xe55c(x), 0xe56c(x), 0xe61c(x)
+│  ┌──└└──> 0x0000e59c      643095e5       ldr r3, [r5, 0x64]          ; 0x10b3e ; "%o %200s %200s%c"
+│  ╎││  │   0x0000e5a0      023083e3       orr r3, r3, 2
+│ ────────< 0x0000e5a4      f1fdffea       b 0xdd70
+│  ╎││  │   ; CODE XREF from fcn.0000d274 @ 0xe554(x)
+│  ╎││  └─> 0x0000e5a8      50121fe5       ldr r1, aav.0x00010b4f      ; [0x10b4f:4]=0x253a7325 ; "%s:%d extra arguments for create\n"
+│  ╎││      0x0000e5ac      0500a0e3       mov r0, 5
+│  ╎││      ; CODE XREF from fcn.0000d274 @ 0xdd0c(x)
+│ ────────> 0x0000e5b0      0820a0e1       mov r2, r8
+│  ╎││      0x0000e5b4      0a30a0e1       mov r3, sl
+│  ╎││      0x0000e5b8      d0f9ffeb       bl fcn.0000cd00
+│  ╎││      ; XREFS: CODE 0x0000e5fc  CODE 0x0000e638  CODE 0x0000eae4  
+│  ╎││      ; XREFS: CODE 0x0000eb18  CODE 0x0000eb74  CODE 0x0000ec04  
+│  ╎││      ; XREFS: CODE 0x0000ec64  CODE 0x0000ed40  CODE 0x0000f058  
+│ ┌───┌┌┌─> 0x0000e5bc      090055e1       cmp r5, sb
+│ ────────< 0x0000e5c0      b6fcff0a       beq 0xd8a0
+│ ╎╎││╎╎╎   ; CODE XREF from fcn.0000d274 @ 0xe944(x)
+│ ────────> 0x0000e5c4      4070a0e3       mov r7, 0x40                ; '@'
+│ ────────< 0x0000e5c8      e9fbffea       b 0xd574
+│ ╎╎││╎╎╎   ; CODE XREF from fcn.0000d274 @ 0xdc48(x)
+│ ────────> 0x0000e5cc      0600a0e1       mov r0, r6                  ; void *ptr
+│ ╎╎││╎╎╎   0x0000e5d0      2c330be5       str r3, [var_32ch]          ; 0x32c ; 812
+│ ╎╎││╎╎╎   0x0000e5d4      e2ecffeb       bl sym.imp.free             ; void free(void *ptr)
+│ ╎╎││╎╎╎   0x0000e5d8      2c331be5       ldr r3, [var_32ch]          ; 0x10b4f ; "%s:%d extra arguments for create\n"
+│ ╎╎││╎╎╎   0x0000e5dc      0500a0e3       mov r0, 5
+│ ╎╎││╎╎╎   0x0000e5e0      84121fe5       ldr r1, str._s:_d_unknown_unit__c ; [0x10b8a:4]=0x253a7325 ; "%s:%d unknown unit '%c' │ ╎╎││╎╎╎   ; "
+│ ╎╎││╎╎╎   0x0000e5e4      0820a0e1       mov r2, r8
+│ ╎╎││╎╎╎   0x0000e5e8      0330d4e7       ldrb r3, [r4, r3]           ; 0x10b8a ; "%s:%d unknown unit '%c' │ ╎╎││╎╎╎   ; "
+│ ╎╎││╎╎╎   0x0000e5ec      00308de5       str r3, [sp]
+│ ╎╎││╎╎╎   0x0000e5f0      0a30a0e1       mov r3, sl
+│ ╎╎││╎╎╎   0x0000e5f4      c1f9ffeb       bl fcn.0000cd00
+│ ╎╎││╎╎╎   ; CODE XREF from fcn.0000d274 @ 0xe778(x)
+│ ────────> 0x0000e5f8      0460a0e1       mov r6, r4
+│ ────────< 0x0000e5fc      eeffffea       b 0xe5bc
+│ ╎╎││╎╎╎   ; CODE XREF from fcn.0000d274 @ 0xe598(x)
+│ ╎╎└─────> 0x0000e600      890f4be2       sub r0, fp, 0x224
+│ ╎╎ │╎╎╎   0x0000e604      acecffeb       bl sym.imp.getgrnam
+│ ╎╎ │╎╎╎   0x0000e608      000050e3       cmp r0, 0
+│ ╎╎┌─────< 0x0000e60c      0a00000a       beq 0xe63c
+│ ╎╎││╎╎╎   0x0000e610      083090e5       ldr r3, [r0, 8]             ; 0x10b8a ; "%s:%d unknown unit '%c' │ ╎╎││╎╎╎   ; "
+│ ╎╎││╎╎╎   0x0000e614      743085e5       str r3, [r5, 0x74]
+│ ╎╎││╎╎╎   0x0000e618      32ecffeb       bl sym.imp.endgrent
+│ ╎└──────< 0x0000e61c      deffffea       b 0xe59c
+│ ╎ ││╎╎╎   ; CODE XREFS from fcn.0000d274 @ 0xdd2c(x), 0xe584(x)
+│ ───└────> 0x0000e620      c0121fe5       ldr r1, aav.0x00010b0b      ; [0x10b0b:4]=0x253a7325 ; "%s:%d unknown user '%s'\n"
+│ ╎ │ ╎╎╎   0x0000e624      0500a0e3       mov r0, 5
+│ ╎ │ ╎╎╎   0x0000e628      00c08de5       str ip, [sp]
+│ ╎ │ ╎╎╎   ; XREFS: CODE 0x0000e64c  CODE 0x0000e9ac  CODE 0x0000ec28  
+│ ╎ │ ╎╎╎   ; XREFS: CODE 0x0000ec88  CODE 0x0000f0fc  CODE 0x0000f164  
+│ ─┌─┌────> 0x0000e62c      0820a0e1       mov r2, r8
+│ ╎╎│╎╎╎╎   0x0000e630      0a30a0e1       mov r3, sl
+│ ╎╎│╎╎╎╎   0x0000e634      b1f9ffeb       bl fcn.0000cd00
+│ ────────< 0x0000e638      dfffffea       b 0xe5bc
+│ ╎╎│╎╎╎╎   ; CODE XREF from fcn.0000d274 @ 0xe60c(x)
+│ ╎╎└─────> 0x0000e63c      893f4be2       sub r3, fp, 0x224
+│ ╎╎ ╎╎╎╎   0x0000e640      00308de5       str r3, [sp]
+│ ╎╎ ╎╎╎╎   ; CODE XREF from fcn.0000d274 @ 0xdd58(x)
+│ ────────> 0x0000e644      0500a0e3       mov r0, 5
+│ ╎╎ ╎╎╎╎   0x0000e648      e4121fe5       ldr r1, str._s:_d_unknown_group__s ; [0x10b24:4]=0x253a7325 ; "%s:%d unknown group '%s' │ ╎╎ ╎╎╎╎   ; "
+│ ────────< 0x0000e64c      f6ffffea       b 0xe62c
+│ ╎╎ ╎╎╎╎   ; CODE XREF from fcn.0000d274 @ 0xdbb8(x)
+│ ────────> 0x0000e650      0600a0e1       mov r0, r6                  ; const char *s1
+│ ╎╎ ╎╎╎╎   0x0000e654      ec121fe5       ldr r1, str.shredcycles     ; [0x10bb8:4]=0x65726873 ; "shredcycles" ; const char *s2
+│ ╎╎ ╎╎╎╎   0x0000e658      73ecffeb       bl sym.imp.strcmp           ; int strcmp(const char *s1, const char *s2)
+│ ╎╎ ╎╎╎╎   0x0000e65c      004050e2       subs r4, r0, 0
+│ ╎╎ ╎╎╎╎   0x0000e660      0600a0e1       mov r0, r6
+│ ╎╎┌─────< 0x0000e664      4c00000a       beq 0xe79c
+│ ╎╎│╎╎╎╎   0x0000e668      fc121fe5       ldr r1, str.daily           ; [0x10bee:4]=0x6c696164 ; "daily" ; const char *s2
+│ ╎╎│╎╎╎╎   0x0000e66c      6eecffeb       bl sym.imp.strcmp           ; int strcmp(const char *s1, const char *s2)
+│ ╎╎│╎╎╎╎   0x0000e670      000050e3       cmp r0, 0
+│ ────────< 0x0000e674      0b00001a       bne 0xe6a8
+│ ╎╎│╎╎╎╎   0x0000e678      0120a0e3       mov r2, 1
+│ ╎╎│╎╎╎╎   0x0000e67c      0030a0e3       mov r3, 0
+│ ╎╎│╎╎╎╎   0x0000e680      100085e5       str r0, [r5, 0x10]
+│ ╎╎│╎╎╎╎   0x0000e684      f821c5e1       strd r2, r3, [r5, 0x18]
+│ ────────< 0x0000e688      13fcffea       b 0xd6dc
+│ ╎╎│╎╎╎╎   ; CODE XREF from fcn.0000d274 @ 0xde9c(x)
+│ ────────> 0x0000e68c      1c131fe5       ldr r1, aav.0x00010f61      ; [0x10f61:4]=0x253a7325 ; "%s:%d error parsing filename\n"
+│ ╎╎│╎╎╎╎   0x0000e690      0500a0e3       mov r0, 5
+│ ╎╎│╎╎╎╎   ; CODE XREF from fcn.0000d274 @ 0xe798(x)
+│ ────────> 0x0000e694      0820a0e1       mov r2, r8
+│ ╎╎│╎╎╎╎   0x0000e698      0a30a0e1       mov r3, sl
+│ ╎╎│╎╎╎╎   0x0000e69c      97f9ffeb       bl fcn.0000cd00
+│ ╎╎│╎╎╎╎   0x0000e6a0      14031be5       ldr r0, [var_314h]          ; 0x10f61 ; "%s:%d error parsing filename\n"
+│ ────────< 0x0000e6a4      7efcffea       b 0xd8a4
+│ ╎╎│╎╎╎╎   ; CODE XREF from fcn.0000d274 @ 0xe674(x)
+│ ────────> 0x0000e6a8      0600a0e1       mov r0, r6                  ; const char *s1
+│ ╎╎│╎╎╎╎   0x0000e6ac      38131fe5       ldr r1, str.monthly         ; [0x10bf4:4]=0x746e6f6d ; "monthly" ; const char *s2
+│ ╎╎│╎╎╎╎   0x0000e6b0      5decffeb       bl sym.imp.strcmp           ; int strcmp(const char *s1, const char *s2)
+│ ╎╎│╎╎╎╎   0x0000e6b4      000050e3       cmp r0, 0
+│ ╎╎│╎╎╎╎   0x0000e6b8      0230a003       moveq r3, 2
+│ ────────< 0x0000e6bc      0b00000a       beq 0xe6f0
+│ ╎╎│╎╎╎╎   0x0000e6c0      0600a0e1       mov r0, r6                  ; const char *s1
+│ ╎╎│╎╎╎╎   0x0000e6c4      4c131fe5       ldr r1, str.weekly          ; [0x10bfc:4]=0x6b656577 ; "weekly" ; const char *s2
+│ ╎╎│╎╎╎╎   0x0000e6c8      57ecffeb       bl sym.imp.strcmp           ; int strcmp(const char *s1, const char *s2)
+│ ╎╎│╎╎╎╎   0x0000e6cc      000050e3       cmp r0, 0
+│ ╎╎│╎╎╎╎   0x0000e6d0      0130a003       moveq r3, 1
+│ ────────< 0x0000e6d4      0500000a       beq 0xe6f0
+│ ╎╎│╎╎╎╎   0x0000e6d8      0600a0e1       mov r0, r6                  ; const char *s1
+│ ╎╎│╎╎╎╎   0x0000e6dc      60131fe5       ldr r1, aav.0x00010c03      ; [0x10c03:4]=0x72616579 ; "yearly" ; const char *s2
+│ ╎╎│╎╎╎╎   0x0000e6e0      51ecffeb       bl sym.imp.strcmp           ; int strcmp(const char *s1, const char *s2)
+│ ╎╎│╎╎╎╎   0x0000e6e4      000050e3       cmp r0, 0
+│ ────────< 0x0000e6e8      4800001a       bne 0xe810
+│ ╎╎│╎╎╎╎   0x0000e6ec      0330a0e3       mov r3, 3
+│ ╎╎│╎╎╎╎   ; CODE XREFS from fcn.0000d274 @ 0xe6bc(x), 0xe6d4(x)
+│ ────────> 0x0000e6f0      103085e5       str r3, [r5, 0x10]
+│ ────────< 0x0000e6f4      f8fbffea       b 0xd6dc
+│ ╎╎│╎╎╎╎   ; CODE XREF from fcn.0000d274 @ 0xdae8(x)
+│ ────────> 0x0000e6f8      600095e5       ldr r0, [r5, 0x60]          ; 0x10c03 ; "yearly" ; void *ptr
+│ ╎╎│╎╎╎╎   0x0000e6fc      98ecffeb       bl sym.imp.free             ; void free(void *ptr)
+│ ╎╎│╎╎╎╎   0x0000e700      604085e5       str r4, [r5, 0x60]
+│ ╎╎│╎╎╎╎   0x0000e704      40004be2       sub r0, fp, 0x40
+│ ╎╎│╎╎╎╎   0x0000e708      44101be5       ldr r1, [addr]              ; 0x10c03 ; "yearly"
+│ ╎╎│╎╎╎╎   0x0000e70c      f0221be5       ldr r2, [length]            ; 0x10c03 ; "yearly"
+│ ╎╎│╎╎╎╎   0x0000e710      9fecffeb       bl fcn.00009994
+│ ╎╎│╎╎╎╎   0x0000e714      000050e3       cmp r0, 0
+│ ╎╎│╎╎╎╎   0x0000e718      600085e5       str r0, [r5, 0x60]
+│ ────────< 0x0000e71c      eefbff1a       bne 0xd6dc
+│ ────────< 0x0000e720      93fbffea       b 0xd574
+│ ╎╎│╎╎╎╎   ; CODE XREF from fcn.0000d274 @ 0xdc98(x)
+│ ────────> 0x0000e724      0600a0e1       mov r0, r6                  ; const char *s1
+│ ╎╎│╎╎╎╎   0x0000e728      a8131fe5       ldr r1, str.maxsize         ; [0x10b82:4]=0x7378616d ; "maxsize" ; const char *s2
+│ ╎╎│╎╎╎╎   0x0000e72c      0720a0e3       mov r2, 7
+│ ╎╎│╎╎╎╎   0x0000e730      2c330be5       str r3, [var_32ch]          ; 0x32c ; 812
+│ ╎╎│╎╎╎╎   0x0000e734      00ecffeb       bl sym.imp.strncmp          ; int strncmp(const char *s1, const char *s2, size_t n)
+│ ╎╎│╎╎╎╎   0x0000e738      2c331be5       ldr r3, [var_32ch]          ; 0x10b82 ; "maxsize"
+│ ╎╎│╎╎╎╎   0x0000e73c      000050e3       cmp r0, 0
+│ ╎╎│╎╎╎╎   0x0000e740      28308515       strne r3, [r5, 0x28]
+│ ╎╎│╎╎╎╎   0x0000e744      20308505       streq r3, [r5, 0x20]
+│ ╎╎│╎╎╎╎   0x0000e748      fc321b15       ldrne r3, [var_2fch]        ; 0x10b82 ; "maxsize"
+│ ╎╎│╎╎╎╎   0x0000e74c      24008505       streq r0, [r5, 0x24]
+│ ╎╎│╎╎╎╎   0x0000e750      2c308515       strne r3, [r5, 0x2c]
+│ ────────< 0x0000e754      54fdffea       b 0xdcac
+│ ╎╎│╎╎╎╎   ; CODE XREF from fcn.0000d274 @ 0xdc74(x)
+│ ────────> 0x0000e758      0500a0e3       mov r0, 5
+│ ╎╎│╎╎╎╎   0x0000e75c      d8131fe5       ldr r1, aav.0x00010ba3      ; [0x10ba3:4]=0x253a7325 ; "%s:%d bad size '%s'\n"
+│ ╎╎│╎╎╎╎   0x0000e760      0820a0e1       mov r2, r8
+│ ╎╎│╎╎╎╎   0x0000e764      0a30a0e1       mov r3, sl
+│ ╎╎│╎╎╎╎   0x0000e768      00408de5       str r4, [sp]
+│ ╎╎│╎╎╎╎   0x0000e76c      63f9ffeb       bl fcn.0000cd00
+│ ╎╎│╎╎╎╎   0x0000e770      0600a0e1       mov r0, r6                  ; void *ptr
+│ ╎╎│╎╎╎╎   0x0000e774      7aecffeb       bl sym.imp.free             ; void free(void *ptr)
+│ ────────< 0x0000e778      9effffea       b 0xe5f8
+│ ╎╎│╎╎╎╎   ; CODE XREF from fcn.0000d274 @ 0xd618(x)
+│ ────────> 0x0000e77c      f4031fe5       ldr r0, aav.0x000110fd      ; [0x110fd:4]=0x6c77656e ; "newlog != defConfig"
+│ ╎╎│╎╎╎╎   0x0000e780      de2500e3       movw r2, 0x5de
+│ ╎╎│╎╎╎╎   0x0000e784      f8131fe5       ldr r1, aav.0x00011111      ; [0x11111:4]=0x666e6f63 ; "config.c"
+│ ╎╎│╎╎╎╎   0x0000e788      f8331fe5       ldr r3, str.readConfigFile  ; [0x1077c:4]=0x64616572 ; "readConfigFile"
+│ ╎╎│╎╎╎╎   0x0000e78c      53ecffeb       bl sym.imp.__assert
+│ ╎╎│╎╎╎╎   ; CODE XREF from fcn.0000d274 @ 0xdea8(x)
+│ ────────> 0x0000e790      0500a0e3       mov r0, 5
+│ ╎╎│╎╎╎╎   0x0000e794      00141fe5       ldr r1, aav.0x00010f7f      ; [0x10f7f:4]=0x253a7325 ; "%s:%d { expected after log file name(s)\n"
+│ ────────< 0x0000e798      bdffffea       b 0xe694
+│ ╎╎│╎╎╎╎   ; CODE XREF from fcn.0000d274 @ 0xe664(x)
+│ ╎╎└─────> 0x0000e79c      70ecffeb       bl sym.imp.free             ; void free(void *ptr)
+│ ╎╎ ╎╎╎╎   0x0000e7a0      f0621be5       ldr r6, [length]            ; 0x10f7f ; "%s:%d { expected after log file name(s)\n"
+│ ╎╎ ╎╎╎╎   0x0000e7a4      44304be2       sub r3, fp, 0x44
+│ ╎╎ ╎╎╎╎   0x0000e7a8      0800a0e1       mov r0, r8
+│ ╎╎ ╎╎╎╎   0x0000e7ac      00308de5       str r3, [sp]
+│ ╎╎ ╎╎╎╎   0x0000e7b0      0a10a0e1       mov r1, sl
+│ ╎╎ ╎╎╎╎   0x0000e7b4      1c241fe5       ldr r2, str.shred_cycles    ; [0x10bc4:4]=0x65726873 ; "shred cycles"
+│ ╎╎ ╎╎╎╎   0x0000e7b8      40304be2       sub r3, fp, 0x40
+│ ╎╎ ╎╎╎╎   0x0000e7bc      04608de5       str r6, [var_4h]
+│ ╎╎ ╎╎╎╎   0x0000e7c0      95ecffeb       bl fcn.00009a1c
+│ ╎╎ ╎╎╎╎   0x0000e7c4      006050e2       subs r6, r0, 0
+│ ────────< 0x0000e7c8      69fbff0a       beq 0xd574
+│ ╎╎ ╎╎╎╎   0x0000e7cc      3c104be2       sub r1, fp, 0x3c            ; char * *endptr
+│ ╎╎ ╎╎╎╎   0x0000e7d0      0420a0e1       mov r2, r4
+│ ╎╎ ╎╎╎╎   0x0000e7d4      96ebffeb       bl sym.imp.strtoul          ; long strtoul(const char *str, char * *endptr, int base)
+│ ╎╎ ╎╎╎╎   0x0000e7d8      3c301be5       ldr r3, [endptr]            ; 0x10bc4 ; "shred cycles"
+│ ╎╎ ╎╎╎╎   0x0000e7dc      680085e5       str r0, [r5, 0x68]
+│ ╎╎ ╎╎╎╎   0x0000e7e0      0030d3e5       ldrb r3, [r3]               ; 0x10bc4 ; "shred cycles"
+│ ╎╎ ╎╎╎╎   0x0000e7e4      000053e3       cmp r3, 0
+│ ╎╎┌─────< 0x0000e7e8      0100001a       bne 0xe7f4
+│ ╎╎│╎╎╎╎   0x0000e7ec      000050e3       cmp r0, 0
+│ ────────< 0x0000e7f0      b9fbffaa       bge 0xd6dc
+│ ╎╎│╎╎╎╎   ; CODE XREF from fcn.0000d274 @ 0xe7e8(x)
+│ ╎╎└─────> 0x0000e7f4      0500a0e3       mov r0, 5
+│ ╎╎ ╎╎╎╎   0x0000e7f8      5c141fe5       ldr r1, aav.0x00010bd1      ; [0x10bd1:4]=0x253a7325 ; "%s:%d bad shred cycles '%s'\n"
+│ ╎╎ ╎╎╎╎   0x0000e7fc      0820a0e1       mov r2, r8
+│ ╎╎ ╎╎╎╎   0x0000e800      0a30a0e1       mov r3, sl
+│ ╎╎ ╎╎╎╎   0x0000e804      00608de5       str r6, [sp]
+│ ╎╎ ╎╎╎╎   0x0000e808      3cf9ffeb       bl fcn.0000cd00
+│ ────────< 0x0000e80c      23fcffea       b 0xd8a0
+│ ╎╎ ╎╎╎╎   ; CODE XREF from fcn.0000d274 @ 0xe6e8(x)
+│ ────────> 0x0000e810      0600a0e1       mov r0, r6                  ; const char *s1
+│ ╎╎ ╎╎╎╎   0x0000e814      74141fe5       ldr r1, aav.0x00010cf1      ; [0x10cf1:4]=0x61746f72 ; "rotate" ; const char *s2
+│ ╎╎ ╎╎╎╎   0x0000e818      03ecffeb       bl sym.imp.strcmp           ; int strcmp(const char *s1, const char *s2)
+│ ╎╎ ╎╎╎╎   0x0000e81c      004050e2       subs r4, r0, 0
+│ ╎╎ ╎╎╎╎   0x0000e820      0600a0e1       mov r0, r6
+│ ╎╎┌─────< 0x0000e824      4700000a       beq 0xe948
+│ ╎╎│╎╎╎╎   0x0000e828      84141fe5       ldr r1, str.start           ; [0x10c36:4]=0x72617473 ; "start" ; const char *s2
+│ ╎╎│╎╎╎╎   0x0000e82c      feebffeb       bl sym.imp.strcmp           ; int strcmp(const char *s1, const char *s2)
+│ ╎╎│╎╎╎╎   0x0000e830      004050e2       subs r4, r0, 0
+│ ╎╎│╎╎╎╎   0x0000e834      0600a0e1       mov r0, r6
+│ ────────< 0x0000e838      3002000a       beq 0xf100
+│ ╎╎│╎╎╎╎   0x0000e83c      94141fe5       ldr r1, str.maxage          ; [0x10c64:4]=0x6178616d ; "maxage" ; const char *s2
+│ ╎╎│╎╎╎╎   0x0000e840      f9ebffeb       bl sym.imp.strcmp           ; int strcmp(const char *s1, const char *s2)
+│ ╎╎│╎╎╎╎   0x0000e844      004050e2       subs r4, r0, 0
+│ ╎╎│╎╎╎╎   0x0000e848      0600a0e1       mov r0, r6
+│ ────────< 0x0000e84c      1002000a       beq 0xf094
+│ ╎╎│╎╎╎╎   0x0000e850      a4141fe5       ldr r1, str.errors          ; [0x10c94:4]=0x6f727265 ; "errors" ; const char *s2
+│ ╎╎│╎╎╎╎   0x0000e854      f4ebffeb       bl sym.imp.strcmp           ; int strcmp(const char *s1, const char *s2)
+│ ╎╎│╎╎╎╎   0x0000e858      000050e3       cmp r0, 0
+│ ────────< 0x0000e85c      fe01000a       beq 0xf05c
+│ ╎╎│╎╎╎╎   0x0000e860      0600a0e1       mov r0, r6                  ; const char *s1
+│ ╎╎│╎╎╎╎   0x0000e864      24141fe5       ldr r1, str.mail            ; [0x10762:4]=0x6c69616d ; "mail" ; const char *s2
+│ ╎╎│╎╎╎╎   0x0000e868      efebffeb       bl sym.imp.strcmp           ; int strcmp(const char *s1, const char *s2)
+│ ╎╎│╎╎╎╎   0x0000e86c      004050e2       subs r4, r0, 0
+│ ────────< 0x0000e870      d101000a       beq 0xefbc
+│ ╎╎│╎╎╎╎   0x0000e874      0600a0e1       mov r0, r6                  ; const char *s1
+│ ╎╎│╎╎╎╎   0x0000e878      c8141fe5       ldr r1, aav.0x00010cdb      ; [0x10cdb:4]=0x616d6f6e ; "nomail" ; const char *s2
+│ ╎╎│╎╎╎╎   0x0000e87c      eaebffeb       bl sym.imp.strcmp           ; int strcmp(const char *s1, const char *s2)
+│ ╎╎│╎╎╎╎   0x0000e880      004050e2       subs r4, r0, 0
+│ ────────< 0x0000e884      c801000a       beq 0xefac
+│ ╎╎│╎╎╎╎   0x0000e888      0600a0e1       mov r0, r6                  ; const char *s1
+│ ╎╎│╎╎╎╎   0x0000e88c      d8141fe5       ldr r1, str.missingok       ; [0x10ce4:4]=0x7373696d ; "missingok" ; const char *s2
+│ ╎╎│╎╎╎╎   0x0000e890      e5ebffeb       bl sym.imp.strcmp           ; int strcmp(const char *s1, const char *s2)
+│ ╎╎│╎╎╎╎   0x0000e894      000050e3       cmp r0, 0
+│ ╎╎│╎╎╎╎   0x0000e898      64309505       ldreq r3, [r5, 0x64]        ; 0x10ce4 ; "missingok"
+│ ╎╎│╎╎╎╎   0x0000e89c      20308303       orreq r3, r3, 0x20
+│ ────────< 0x0000e8a0      32fdff0a       beq 0xdd70
+│ ╎╎│╎╎╎╎   0x0000e8a4      0600a0e1       mov r0, r6                  ; const char *s1
+│ ╎╎│╎╎╎╎   0x0000e8a8      f0141fe5       ldr r1, str.nomissingok     ; [0x10ce2:4]=0x696d6f6e ; "nomissingok" ; const char *s2
+│ ╎╎│╎╎╎╎   0x0000e8ac      deebffeb       bl sym.imp.strcmp           ; int strcmp(const char *s1, const char *s2)
+│ ╎╎│╎╎╎╎   0x0000e8b0      000050e3       cmp r0, 0
+│ ╎╎│╎╎╎╎   0x0000e8b4      64309505       ldreq r3, [r5, 0x64]        ; 0x10ce2 ; "nomissingok"
+│ ╎╎│╎╎╎╎   0x0000e8b8      2030c303       biceq r3, r3, 0x20
+│ ────────< 0x0000e8bc      2bfdff0a       beq 0xdd70
+│ ╎╎│╎╎╎╎   0x0000e8c0      0600a0e1       mov r0, r6                  ; const char *s1
+│ ╎╎│╎╎╎╎   0x0000e8c4      08151fe5       ldr r1, str.prerotate       ; [0x10cee:4]=0x72657270 ; "prerotate" ; const char *s2
+│ ╎╎│╎╎╎╎   0x0000e8c8      d7ebffeb       bl sym.imp.strcmp           ; int strcmp(const char *s1, const char *s2)
+│ ╎╎│╎╎╎╎   0x0000e8cc      000050e3       cmp r0, 0
+│ ────────< 0x0000e8d0      af01000a       beq 0xef94
+│ ╎╎│╎╎╎╎   0x0000e8d4      0600a0e1       mov r0, r6                  ; const char *s1
+│ ╎╎│╎╎╎╎   0x0000e8d8      18151fe5       ldr r1, str.firstaction     ; [0x10cf8:4]=0x73726966 ; "firstaction" ; const char *s2
+│ ╎╎│╎╎╎╎   0x0000e8dc      d2ebffeb       bl sym.imp.strcmp           ; int strcmp(const char *s1, const char *s2)
+│ ╎╎│╎╎╎╎   0x0000e8e0      004050e2       subs r4, r0, 0
+│ ────────< 0x0000e8e4      a501000a       beq 0xef80
+│ ╎╎│╎╎╎╎   0x0000e8e8      0600a0e1       mov r0, r6                  ; const char *s1
+│ ╎╎│╎╎╎╎   0x0000e8ec      28151fe5       ldr r1, str.postrotate      ; [0x10d04:4]=0x74736f70 ; "postrotate" ; const char *s2
+│ ╎╎│╎╎╎╎   0x0000e8f0      cdebffeb       bl sym.imp.strcmp           ; int strcmp(const char *s1, const char *s2)
+│ ╎╎│╎╎╎╎   0x0000e8f4      004050e2       subs r4, r0, 0
+│ ────────< 0x0000e8f8      9b01000a       beq 0xef6c
+│ ╎╎│╎╎╎╎   0x0000e8fc      0600a0e1       mov r0, r6                  ; const char *s1
+│ ╎╎│╎╎╎╎   0x0000e900      38151fe5       ldr r1, aav.0x00010d0f      ; [0x10d0f:4]=0x7473616c ; "lastaction" ; const char *s2
+│ ╎╎│╎╎╎╎   0x0000e904      c8ebffeb       bl sym.imp.strcmp           ; int strcmp(const char *s1, const char *s2)
+│ ╎╎│╎╎╎╎   0x0000e908      004050e2       subs r4, r0, 0
+│ ────────< 0x0000e90c      2b01000a       beq 0xedc0
+│ ╎╎│╎╎╎╎   0x0000e910      0600a0e1       mov r0, r6                  ; const char *s1
+│ ╎╎│╎╎╎╎   0x0000e914      3c151fe5       ldr r1, str.tabooext        ; [0x10d1a:4]=0x6f626174 ; "tabooext" ; const char *s2
+│ ╎╎│╎╎╎╎   0x0000e918      c3ebffeb       bl sym.imp.strcmp           ; int strcmp(const char *s1, const char *s2)
+│ ╎╎│╎╎╎╎   0x0000e91c      000050e3       cmp r0, 0
+│ ╎╎│╎╎╎╎   0x0000e920      fc020be5       str r0, [var_2fch]          ; 0x2fc ; 764
+│ ────────< 0x0000e924      3f00001a       bne 0xea28
+│ ╎╎│╎╎╎╎   0x0000e928      090055e1       cmp r5, sb
+│ ────────< 0x0000e92c      1f00000a       beq 0xe9b0
+│ ╎╎│╎╎╎╎   0x0000e930      0500a0e3       mov r0, 5
+│ ╎╎│╎╎╎╎   0x0000e934      68151fe5       ldr r1, aav.0x00010d23      ; [0x10d23:4]=0x253a7325 ; "%s:%d tabooext may not appear inside of log file definition\n"
+│ ╎╎│╎╎╎╎   0x0000e938      0820a0e1       mov r2, r8
+│ ╎╎│╎╎╎╎   0x0000e93c      0a30a0e1       mov r3, sl
+│ ╎╎│╎╎╎╎   0x0000e940      eef8ffeb       bl fcn.0000cd00
+│ ────────< 0x0000e944      1effffea       b 0xe5c4
+│ ╎╎│╎╎╎╎   ; CODE XREF from fcn.0000d274 @ 0xe824(x)
+│ ╎╎└─────> 0x0000e948      05ecffeb       bl sym.imp.free             ; void free(void *ptr)
+│ ╎╎ ╎╎╎╎   0x0000e94c      f0621be5       ldr r6, [length]            ; 0x10d23 ; "%s:%d tabooext may not appear inside of log file definition\n"
+│ ╎╎ ╎╎╎╎   0x0000e950      44304be2       sub r3, fp, 0x44
+│ ╎╎ ╎╎╎╎   0x0000e954      0800a0e1       mov r0, r8
+│ ╎╎ ╎╎╎╎   0x0000e958      00308de5       str r3, [sp]
+│ ╎╎ ╎╎╎╎   0x0000e95c      0a10a0e1       mov r1, sl
+│ ╎╎ ╎╎╎╎   0x0000e960      90251fe5       ldr r2, str.rotate_count    ; [0x10c0a:4]=0x61746f72 ; "rotate count"
+│ ╎╎ ╎╎╎╎   0x0000e964      40304be2       sub r3, fp, 0x40
+│ ╎╎ ╎╎╎╎   0x0000e968      04608de5       str r6, [var_4h]
+│ ╎╎ ╎╎╎╎   0x0000e96c      2aecffeb       bl fcn.00009a1c
+│ ╎╎ ╎╎╎╎   0x0000e970      006050e2       subs r6, r0, 0
+│ ────────< 0x0000e974      fefaff0a       beq 0xd574
+│ ╎╎ ╎╎╎╎   0x0000e978      3c104be2       sub r1, fp, 0x3c            ; char * *endptr
+│ ╎╎ ╎╎╎╎   0x0000e97c      0420a0e1       mov r2, r4
+│ ╎╎ ╎╎╎╎   0x0000e980      2bebffeb       bl sym.imp.strtoul          ; long strtoul(const char *str, char * *endptr, int base)
+│ ╎╎ ╎╎╎╎   0x0000e984      3c301be5       ldr r3, [endptr]            ; 0x10c0a ; "rotate count"
+│ ╎╎ ╎╎╎╎   0x0000e988      300085e5       str r0, [r5, 0x30]
+│ ╎╎ ╎╎╎╎   0x0000e98c      0030d3e5       ldrb r3, [r3]               ; 0x10c0a ; "rotate count"
+│ ╎╎ ╎╎╎╎   0x0000e990      000053e3       cmp r3, 0
+│ ╎╎┌─────< 0x0000e994      0100001a       bne 0xe9a0
+│ ╎╎│╎╎╎╎   0x0000e998      000050e3       cmp r0, 0
+│ ────────< 0x0000e99c      4efbffaa       bge 0xd6dc
+│ ╎╎│╎╎╎╎   ; CODE XREF from fcn.0000d274 @ 0xe994(x)
+│ ╎╎└─────> 0x0000e9a0      00608de5       str r6, [sp]
+│ ╎╎ ╎╎╎╎   0x0000e9a4      0500a0e3       mov r0, 5
+│ ╎╎ ╎╎╎╎   0x0000e9a8      d4151fe5       ldr r1, aav.0x00010c17      ; [0x10c17:4]=0x253a7325 ; "%s:%d bad rotation count '%s'\n"
+│ ────────< 0x0000e9ac      1effffea       b 0xe62c
+│ ╎╎ ╎╎╎╎   ; CODE XREF from fcn.0000d274 @ 0xe92c(x)
+│ ────────> 0x0000e9b0      0600a0e1       mov r0, r6                  ; void *ptr
+│ ╎╎ ╎╎╎╎   0x0000e9b4      eaebffeb       bl sym.imp.free             ; void free(void *ptr)
+│ ╎╎ ╎╎╎╎   0x0000e9b8      f0621be5       ldr r6, [length]            ; 0x10c17 ; "%s:%d bad rotation count '%s'\n"
+│ ╎╎ ╎╎╎╎   0x0000e9bc      44304be2       sub r3, fp, 0x44
+│ ╎╎ ╎╎╎╎   0x0000e9c0      0800a0e1       mov r0, r8
+│ ╎╎ ╎╎╎╎   0x0000e9c4      00308de5       str r3, [sp]
+│ ╎╎ ╎╎╎╎   0x0000e9c8      0a10a0e1       mov r1, sl
+│ ╎╎ ╎╎╎╎   0x0000e9cc      f4251fe5       ldr r2, str.tabooext        ; [0x10d1a:4]=0x6f626174 ; "tabooext"
+│ ╎╎ ╎╎╎╎   0x0000e9d0      40304be2       sub r3, fp, 0x40
+│ ╎╎ ╎╎╎╎   0x0000e9d4      04608de5       str r6, [var_4h]
+│ ╎╎ ╎╎╎╎   0x0000e9d8      0fecffeb       bl fcn.00009a1c
+│ ╎╎ ╎╎╎╎   0x0000e9dc      006050e2       subs r6, r0, 0
+│ ────────< 0x0000e9e0      e3faff0a       beq 0xd574
+│ ╎╎ ╎╎╎╎   0x0000e9e4      0030d6e5       ldrb r3, [r6]               ; 0x10d1a ; "tabooext"
+│ ╎╎ ╎╎╎╎   0x0000e9e8      2b0053e3       cmp r3, 0x2b                ; '+'
+│ ╎╎┌─────< 0x0000e9ec      0501001a       bne 0xee08
+│ ╎╎│╎╎╎╎   0x0000e9f0      b4051fe5       ldr r0, obj.__ctype_b       ; [0x195e0:4]=0
+│ ╎╎│╎╎╎╎                                                              ; loc._edata
+│ ╎╎│╎╎╎╎   0x0000e9f4      0620a0e1       mov r2, r6
+│ ╎╎│╎╎╎╎   0x0000e9f8      00c090e5       ldr ip, [r0]                ; 0x195e0
+│ ╎╎│╎╎╎╎                                                              ; loc._edata
+│ ╎╎│╎╎╎╎   ; CODE XREF from fcn.0000d274 @ 0xea24(x)
+│ ────────> 0x0000e9fc      011082e2       add r1, r2, 1
+│ ╎╎│╎╎╎╎   0x0000ea00      0120d2e5       ldrb r2, [r2, 1]
+│ ╎╎│╎╎╎╎   0x0000ea04      0130a0e1       mov r3, r1
+│ ╎╎│╎╎╎╎   0x0000ea08      8200a0e1       lsl r0, r2, 1
+│ ╎╎│╎╎╎╎   0x0000ea0c      b0009ce1       ldrh r0, [ip, r0]
+│ ╎╎│╎╎╎╎   0x0000ea10      200010e3       tst r0, 0x20
+│ ────────< 0x0000ea14      0401000a       beq 0xee2c
+│ ╎╎│╎╎╎╎   0x0000ea18      000052e3       cmp r2, 0
+│ ────────< 0x0000ea1c      0201000a       beq 0xee2c
+│ ╎╎│╎╎╎╎   0x0000ea20      0120a0e1       mov r2, r1
+│ ────────< 0x0000ea24      f4ffffea       b 0xe9fc
+│ ╎╎│╎╎╎╎   ; CODE XREF from fcn.0000d274 @ 0xe924(x)
+│ ────────> 0x0000ea28      0600a0e1       mov r0, r6                  ; const char *s1
+│ ╎╎│╎╎╎╎   0x0000ea2c      00161fe5       ldr r1, str.include         ; [0x10d60:4]=0x6c636e69 ; "include" ; const char *s2
+│ ╎╎│╎╎╎╎   0x0000ea30      7debffeb       bl sym.imp.strcmp           ; int strcmp(const char *s1, const char *s2)
+│ ╎╎│╎╎╎╎   0x0000ea34      000050e3       cmp r0, 0
+│ ╎╎│╎╎╎╎   0x0000ea38      0600a0e1       mov r0, r6
+│ ────────< 0x0000ea3c      c000000a       beq 0xed44
+│ ╎╎│╎╎╎╎   0x0000ea40      1c161fe5       ldr r1, str.olddir          ; [0x10ad0:4]=0x64646c6f ; "olddir" ; const char *s2
+│ ╎╎│╎╎╎╎   0x0000ea44      78ebffeb       bl sym.imp.strcmp           ; int strcmp(const char *s1, const char *s2)
+│ ╎╎│╎╎╎╎   0x0000ea48      004050e2       subs r4, r0, 0
+│ ────────< 0x0000ea4c      a900000a       beq 0xecf8
+│ ╎╎│╎╎╎╎   0x0000ea50      0600a0e1       mov r0, r6                  ; const char *s1
+│ ╎╎│╎╎╎╎   0x0000ea54      78161fe5       ldr r1, str.extension       ; [0x10da8:4]=0x65747865 ; "extension" ; const char *s2
+│ ╎╎│╎╎╎╎   0x0000ea58      73ebffeb       bl sym.imp.strcmp           ; int strcmp(const char *s1, const char *s2)
+│ ╎╎│╎╎╎╎   0x0000ea5c      004050e2       subs r4, r0, 0
+│ ────────< 0x0000ea60      9100000a       beq 0xecac
+│ ╎╎│╎╎╎╎   0x0000ea64      0600a0e1       mov r0, r6                  ; const char *s1
+│ ╎╎│╎╎╎╎   0x0000ea68      88161fe5       ldr r1, str.compresscmd     ; [0x10e10:4]=0x706d6f63 ; "compresscmd" ; const char *s2
+│ ╎╎│╎╎╎╎   0x0000ea6c      6eebffeb       bl sym.imp.strcmp           ; int strcmp(const char *s1, const char *s2)
+│ ╎╎│╎╎╎╎   0x0000ea70      004050e2       subs r4, r0, 0
+│ ────────< 0x0000ea74      6c00000a       beq 0xec2c
+│ ╎╎│╎╎╎╎   0x0000ea78      0600a0e1       mov r0, r6                  ; const char *s1
+│ ╎╎│╎╎╎╎   0x0000ea7c      98161fe5       ldr r1, str.uncompresscmd   ; [0x10e0e:4]=0x6f636e75 ; "uncompresscmd" ; const char *s2
+│ ╎╎│╎╎╎╎   0x0000ea80      69ebffeb       bl sym.imp.strcmp           ; int strcmp(const char *s1, const char *s2)
+│ ╎╎│╎╎╎╎   0x0000ea84      004050e2       subs r4, r0, 0
+│ ────────< 0x0000ea88      4f00000a       beq 0xebcc
+│ ╎╎│╎╎╎╎   0x0000ea8c      0600a0e1       mov r0, r6                  ; const char *s1
+│ ╎╎│╎╎╎╎   0x0000ea90      a8161fe5       ldr r1, str.compressoptions ; [0x10e7c:4]=0x706d6f63 ; "compressoptions" ; const char *s2
+│ ╎╎│╎╎╎╎   0x0000ea94      64ebffeb       bl sym.imp.strcmp           ; int strcmp(const char *s1, const char *s2)
+│ ╎╎│╎╎╎╎   0x0000ea98      000050e3       cmp r0, 0
+│ ────────< 0x0000ea9c      1e00001a       bne 0xeb1c
+│ ╎╎│╎╎╎╎   0x0000eaa0      800095e5       ldr r0, [r5, 0x80]          ; 0x10e7c ; "compressoptions"
+│ ╎╎│╎╎╎╎   0x0000eaa4      000050e3       cmp r0, 0
+│ ────────< 0x0000eaa8      0300000a       beq 0xeabc
+│ ╎╎│╎╎╎╎   0x0000eaac      acebffeb       bl sym.imp.free             ; void free(void *ptr)
+│ ╎╎│╎╎╎╎   0x0000eab0      0030a0e3       mov r3, 0
+│ ╎╎│╎╎╎╎   0x0000eab4      803085e5       str r3, [r5, 0x80]
+│ ╎╎│╎╎╎╎   0x0000eab8      843085e5       str r3, [r5, 0x84]
+│ ╎╎│╎╎╎╎   ; CODE XREF from fcn.0000d274 @ 0xeaa8(x)
+│ ────────> 0x0000eabc      f0221be5       ldr r2, [length]            ; 0x10e7c ; "compressoptions"
+│ ╎╎│╎╎╎╎   0x0000eac0      44304be2       sub r3, fp, 0x44
+│ ╎╎│╎╎╎╎   0x0000eac4      0800a0e1       mov r0, r8
+│ ╎╎│╎╎╎╎   0x0000eac8      00308de5       str r3, [sp]
+│ ╎╎│╎╎╎╎   0x0000eacc      0a10a0e1       mov r1, sl
+│ ╎╎│╎╎╎╎   0x0000ead0      40304be2       sub r3, fp, 0x40
+│ ╎╎│╎╎╎╎   0x0000ead4      04208de5       str r2, [var_4h]
+│ ╎╎│╎╎╎╎   0x0000ead8      f0261fe5       ldr r2, str.compressoptions ; [0x10e7c:4]=0x706d6f63 ; "compressoptions"
+│ ╎╎│╎╎╎╎   0x0000eadc      09ecffeb       bl fcn.00009b08
+│ ╎╎│╎╎╎╎   0x0000eae0      004050e2       subs r4, r0, 0
+│ ────────< 0x0000eae4      b4feff0a       beq 0xe5bc
+│ ╎╎│╎╎╎╎   0x0000eae8      841085e2       add r1, r5, 0x84
+│ ╎╎│╎╎╎╎   0x0000eaec      802085e2       add r2, r5, 0x80
+│ ╎╎│╎╎╎╎   0x0000eaf0      cceaffeb       bl sym.imp.poptParseArgvString
+│ ╎╎│╎╎╎╎   0x0000eaf4      000050e3       cmp r0, 0
+│ ────────< 0x0000eaf8      2000000a       beq 0xeb80
+│ ╎╎│╎╎╎╎   0x0000eafc      0500a0e3       mov r0, 5
+│ ╎╎│╎╎╎╎   0x0000eb00      14171fe5       ldr r1, str._s:_d_invalid_compression_options ; [0x10e8c:4]=0x253a7325 ; "%s:%d invalid compression options │ ╎╎│╎╎╎╎   ; "
+│ ╎╎│╎╎╎╎   0x0000eb04      0820a0e1       mov r2, r8
+│ ╎╎│╎╎╎╎   0x0000eb08      0a30a0e1       mov r3, sl
+│ ╎╎│╎╎╎╎   0x0000eb0c      7bf8ffeb       bl fcn.0000cd00
+│ ╎╎│╎╎╎╎   0x0000eb10      0400a0e1       mov r0, r4                  ; void *ptr
+│ ╎╎│╎╎╎╎   0x0000eb14      92ebffeb       bl sym.imp.free             ; void free(void *ptr)
+│ ────────< 0x0000eb18      a7feffea       b 0xe5bc
+│ ╎╎│╎╎╎╎   ; CODE XREF from fcn.0000d274 @ 0xea9c(x)
+│ ────────> 0x0000eb1c      0600a0e1       mov r0, r6                  ; const char *s1
+│ ╎╎│╎╎╎╎   0x0000eb20      30171fe5       ldr r1, aav.0x00010ecb      ; [0x10ecb:4]=0x706d6f63 ; "compressext" ; const char *s2
+│ ╎╎│╎╎╎╎   0x0000eb24      40ebffeb       bl sym.imp.strcmp           ; int strcmp(const char *s1, const char *s2)
+│ ╎╎│╎╎╎╎   0x0000eb28      004050e2       subs r4, r0, 0
+│ ────────< 0x0000eb2c      1a00001a       bne 0xeb9c
+│ ╎╎│╎╎╎╎   0x0000eb30      5c0095e5       ldr r0, [r5, 0x5c]          ; 0x10ecb ; "compressext" ; void *ptr
+│ ╎╎│╎╎╎╎   0x0000eb34      8aebffeb       bl sym.imp.free             ; void free(void *ptr)
+│ ╎╎│╎╎╎╎   0x0000eb38      5c4085e5       str r4, [r5, 0x5c]
+│ ╎╎│╎╎╎╎   0x0000eb3c      44304be2       sub r3, fp, 0x44
+│ ╎╎│╎╎╎╎   0x0000eb40      00308de5       str r3, [sp]
+│ ╎╎│╎╎╎╎   0x0000eb44      f0321be5       ldr r3, [length]            ; 0x10ecb ; "compressext"
+│ ╎╎│╎╎╎╎   0x0000eb48      0a10a0e1       mov r1, sl
+│ ╎╎│╎╎╎╎   0x0000eb4c      58271fe5       ldr r2, aav.0x00010ed7      ; [0x10ed7:4]=0x706d6f63 ; "compress-ext"
+│ ╎╎│╎╎╎╎   0x0000eb50      0800a0e1       mov r0, r8
+│ ╎╎│╎╎╎╎   0x0000eb54      04308de5       str r3, [var_4h]
+│ ╎╎│╎╎╎╎   0x0000eb58      40304be2       sub r3, fp, 0x40
+│ ╎╎│╎╎╎╎   0x0000eb5c      e9ebffeb       bl fcn.00009b08
+│ ╎╎│╎╎╎╎   0x0000eb60      000050e3       cmp r0, 0
+│ ╎╎│╎╎╎╎   0x0000eb64      0020a0e1       mov r2, r0
+│ ╎╎│╎╎╎╎   0x0000eb68      5c0085e5       str r0, [r5, 0x5c]
+│ ╎╎│╎╎╎╎   0x0000eb6c      74171f15       ldrne r1, str.compress_ext_is_now__s ; [0x10ee4:4]=0x706d6f63 ; "compress_ext is now %s │ ╎╎│╎╎╎╎   ; "
+│ ╎╎│╎╎╎╎   0x0000eb70      0200a013       movne r0, 2
+│ ────────< 0x0000eb74      90feff0a       beq 0xe5bc
+│ ╎╎│╎╎╎╎   ; CODE XREFS from fcn.0000d274 @ 0xec98(x), 0xeca8(x), 0xed3c(x)
+│ ────────> 0x0000eb78      60f8ffeb       bl fcn.0000cd00
+│ ────────< 0x0000eb7c      d6faffea       b 0xd6dc
+│ ╎╎│╎╎╎╎   ; CODE XREF from fcn.0000d274 @ 0xeaf8(x)
+│ ────────> 0x0000eb80      0200a0e3       mov r0, 2
+│ ╎╎│╎╎╎╎   0x0000eb84      88171fe5       ldr r1, aav.0x00010eaf      ; [0x10eaf:4]=0x706d6f63 ; "compress_options is now %s\n"
+│ ╎╎│╎╎╎╎   0x0000eb88      0420a0e1       mov r2, r4
+│ ╎╎│╎╎╎╎   0x0000eb8c      5bf8ffeb       bl fcn.0000cd00
+│ ╎╎│╎╎╎╎   0x0000eb90      0400a0e1       mov r0, r4                  ; void *ptr
+│ ╎╎│╎╎╎╎   0x0000eb94      72ebffeb       bl sym.imp.free             ; void free(void *ptr)
+│ ────────< 0x0000eb98      cffaffea       b 0xd6dc
+│ ╎╎│╎╎╎╎   ; CODE XREF from fcn.0000d274 @ 0xeb2c(x)
+│ ────────> 0x0000eb9c      0a30a0e1       mov r3, sl
+│ ╎╎│╎╎╎╎   0x0000eba0      0500a0e3       mov r0, 5
+│ ╎╎│╎╎╎╎   0x0000eba4      a4171fe5       ldr r1, str._s:_d_unknown_option__s____ignoring_line ; [0x10efc:4]=0x253a7325 ; "%s:%d unknown option '%s' -- ignoring line │ ╎╎│╎╎╎╎   ; "
+│ ╎╎│╎╎╎╎   0x0000eba8      0820a0e1       mov r2, r8
+│ ╎╎│╎╎╎╎   0x0000ebac      00608de5       str r6, [sp]
+│ ╎╎│╎╎╎╎   0x0000ebb0      52f8ffeb       bl fcn.0000cd00
+│ ╎╎│╎╎╎╎   0x0000ebb4      40301be5       ldr r3, [var_40h]           ; 0x10efc ; "%s:%d unknown option '%s' -- ignoring line │ ╎╎│╎╎╎╎   ; "
+│ ╎╎│╎╎╎╎   0x0000ebb8      0070d3e5       ldrb r7, [r3]               ; 0x10efc ; "%s:%d unknown option '%s' -- ignoring line │ ╎╎│╎╎╎╎   ; "
+│ ╎╎│╎╎╎╎   0x0000ebbc      0a0057e3       cmp r7, 0xa
+│ ╎╎│╎╎╎╎   0x0000ebc0      0270a003       moveq r7, 2
+│ ╎╎│╎╎╎╎   0x0000ebc4      0470a013       movne r7, 4
+│ ────────< 0x0000ebc8      c3faffea       b 0xd6dc
+│ ╎╎│╎╎╎╎   ; CODE XREF from fcn.0000d274 @ 0xea88(x)
+│ ────────> 0x0000ebcc      580095e5       ldr r0, [r5, 0x58]          ; 0x10efc ; "%s:%d unknown option '%s' -- ignoring line │ ────────> ; "                                                        ; void *ptr
+│ ╎╎│╎╎╎╎   0x0000ebd0      63ebffeb       bl sym.imp.free             ; void free(void *ptr)
+│ ╎╎│╎╎╎╎   0x0000ebd4      f0121be5       ldr r1, [length]            ; 0x10efc ; "%s:%d unknown option '%s' -- ignoring line │ ╎╎│╎╎╎╎   ; "
+│ ╎╎│╎╎╎╎   0x0000ebd8      584085e5       str r4, [r5, 0x58]
+│ ╎╎│╎╎╎╎   0x0000ebdc      44304be2       sub r3, fp, 0x44
+│ ╎╎│╎╎╎╎   0x0000ebe0      0800a0e1       mov r0, r8
+│ ╎╎│╎╎╎╎   0x0000ebe4      00308de5       str r3, [sp]
+│ ╎╎│╎╎╎╎   0x0000ebe8      04108de5       str r1, [var_4h]
+│ ╎╎│╎╎╎╎   0x0000ebec      40304be2       sub r3, fp, 0x40
+│ ╎╎│╎╎╎╎   0x0000ebf0      0a10a0e1       mov r1, sl
+│ ╎╎│╎╎╎╎   0x0000ebf4      f0271fe5       ldr r2, str.uncompress      ; [0x10e1c:4]=0x6f636e75 ; "uncompress"
+│ ╎╎│╎╎╎╎   0x0000ebf8      c2ebffeb       bl fcn.00009b08
+│ ╎╎│╎╎╎╎   0x0000ebfc      000050e3       cmp r0, 0
+│ ╎╎│╎╎╎╎   0x0000ec00      580085e5       str r0, [r5, 0x58]
+│ └───────< 0x0000ec04      6cfeff0a       beq 0xe5bc
+│  ╎│╎╎╎╎   0x0000ec08      0110a0e3       mov r1, 1                   ; int mode
+│  ╎│╎╎╎╎   0x0000ec0c      21ebffeb       bl sym.imp.access           ; int access(const char *path, int mode)
+│  ╎│╎╎╎╎   0x0000ec10      000050e3       cmp r0, 0
+│ ┌───────< 0x0000ec14      1c00000a       beq 0xec8c
+│ │╎│╎╎╎╎   0x0000ec18      583095e5       ldr r3, [r5, 0x58]          ; 0x10e1c ; "uncompress"
+│ │╎│╎╎╎╎   0x0000ec1c      0500a0e3       mov r0, 5
+│ │╎│╎╎╎╎   0x0000ec20      18181fe5       ldr r1, aav.0x00010e27      ; [0x10e27:4]=0x253a7325 ; "%s:%d uncompression program %s is not an executable file\n"
+│ │╎│╎╎╎╎   0x0000ec24      00308de5       str r3, [sp]
+│ ────────< 0x0000ec28      7ffeffea       b 0xe62c
+│ │╎│╎╎╎╎   ; CODE XREF from fcn.0000d274 @ 0xea74(x)
+│ ────────> 0x0000ec2c      540095e5       ldr r0, [r5, 0x54]          ; 0x10e27 ; "%s:%d uncompression program %s is not an executable file\n" ; void *ptr
+│ │╎│╎╎╎╎   0x0000ec30      4bebffeb       bl sym.imp.free             ; void free(void *ptr)
+│ │╎│╎╎╎╎   0x0000ec34      f0021be5       ldr r0, [length]            ; 0x10e27 ; "%s:%d uncompression program %s is not an executable file\n"
+│ │╎│╎╎╎╎   0x0000ec38      544085e5       str r4, [r5, 0x54]
+│ │╎│╎╎╎╎   0x0000ec3c      44304be2       sub r3, fp, 0x44
+│ │╎│╎╎╎╎   0x0000ec40      0a10a0e1       mov r1, sl
+│ │╎│╎╎╎╎   0x0000ec44      00308de5       str r3, [sp]
+│ │╎│╎╎╎╎   0x0000ec48      04008de5       str r0, [var_4h]
+│ │╎│╎╎╎╎   0x0000ec4c      40304be2       sub r3, fp, 0x40
+│ │╎│╎╎╎╎   0x0000ec50      0800a0e1       mov r0, r8
+│ │╎│╎╎╎╎   0x0000ec54      48281fe5       ldr r2, str.compress        ; [0x10e1e:4]=0x706d6f63 ; "compress"
+│ │╎│╎╎╎╎   0x0000ec58      aaebffeb       bl fcn.00009b08
+│ │╎│╎╎╎╎   0x0000ec5c      000050e3       cmp r0, 0
+│ │╎│╎╎╎╎   0x0000ec60      540085e5       str r0, [r5, 0x54]
+│ │╎│╎└───< 0x0000ec64      54feff0a       beq 0xe5bc
+│ │╎│╎ ╎╎   0x0000ec68      0110a0e3       mov r1, 1                   ; int mode
+│ │╎│╎ ╎╎   0x0000ec6c      09ebffeb       bl sym.imp.access           ; int access(const char *path, int mode)
+│ │╎│╎ ╎╎   0x0000ec70      000050e3       cmp r0, 0
+│ │╎│╎┌───< 0x0000ec74      0800000a       beq 0xec9c
+│ │╎│╎│╎╎   0x0000ec78      543095e5       ldr r3, [r5, 0x54]          ; 0x10e1e ; "compress"
+│ │╎│╎│╎╎   0x0000ec7c      0500a0e3       mov r0, 5
+│ │╎│╎│╎╎   0x0000ec80      70181fe5       ldr r1, str._s:_d_compression_program__s_is_not_an_executable_file ; [0x10dd6:4]=0x253a7325 ; "%s:%d compression program %s is not an executable file │ │╎│╎│╎╎   ; "
+│ │╎│╎│╎╎   0x0000ec84      00308de5       str r3, [sp]
+│ ────────< 0x0000ec88      67feffea       b 0xe62c
+│ │╎│╎│╎╎   ; CODE XREF from fcn.0000d274 @ 0xec14(x)
+│ └───────> 0x0000ec8c      0200a0e3       mov r0, 2
+│  ╎│╎│╎╎   0x0000ec90      7c181fe5       ldr r1, aav.0x00010e61      ; [0x10e61:4]=0x6f636e75 ; "uncompress_prog is now %s\n"
+│  ╎│╎│╎╎   0x0000ec94      582095e5       ldr r2, [r5, 0x58]          ; 0x10e61 ; "uncompress_prog is now %s\n"
+│ ────────< 0x0000ec98      b6ffffea       b 0xeb78
+│  ╎│╎│╎╎   ; CODE XREF from fcn.0000d274 @ 0xec74(x)
+│  ╎│╎└───> 0x0000ec9c      0200a0e3       mov r0, 2
+│  ╎│╎ ╎╎   0x0000eca0      88181fe5       ldr r1, aav.0x00010e63      ; [0x10e63:4]=0x706d6f63 ; "compress_prog is now %s\n"
+│  ╎│╎ ╎╎   0x0000eca4      542095e5       ldr r2, [r5, 0x54]          ; 0x10e63 ; "compress_prog is now %s\n"
+│ ────────< 0x0000eca8      b2ffffea       b 0xeb78
+│  ╎│╎ ╎╎   ; CODE XREF from fcn.0000d274 @ 0xea60(x)
+│ ────────> 0x0000ecac      f0621be5       ldr r6, [length]            ; 0x10e63 ; "compress_prog is now %s\n"
+│  ╎│╎ ╎╎   0x0000ecb0      44304be2       sub r3, fp, 0x44
+│  ╎│╎ ╎╎   0x0000ecb4      0800a0e1       mov r0, r8
+│  ╎│╎ ╎╎   0x0000ecb8      00308de5       str r3, [sp]
+│  ╎│╎ ╎╎   0x0000ecbc      0a10a0e1       mov r1, sl
+│  ╎│╎ ╎╎   0x0000ecc0      a4281fe5       ldr r2, str.extension_name  ; [0x10db2:4]=0x65747865 ; "extension name"
+│  ╎│╎ ╎╎   0x0000ecc4      40304be2       sub r3, fp, 0x40
+│  ╎│╎ ╎╎   0x0000ecc8      04608de5       str r6, [var_4h]
+│  ╎│╎ ╎╎   0x0000eccc      52ebffeb       bl fcn.00009a1c
+│  ╎│╎ ╎╎   0x0000ecd0      006050e2       subs r6, r0, 0
+│ ────────< 0x0000ecd4      26faff0a       beq 0xd574
+│  ╎│╎ ╎╎   0x0000ecd8      500095e5       ldr r0, [r5, 0x50]          ; 0x10db2 ; "extension name" ; void *ptr
+│  ╎│╎ ╎╎   0x0000ecdc      20ebffeb       bl sym.imp.free             ; void free(void *ptr)
+│  ╎│╎ ╎╎   0x0000ece0      506085e5       str r6, [r5, 0x50]
+│  ╎│╎ ╎╎   0x0000ece4      0200a0e3       mov r0, 2
+│  ╎│╎ ╎╎   0x0000ece8      c8181fe5       ldr r1, aav.0x00010dc1      ; [0x10dc1:4]=0x65747865 ; "extension is now %s\n"
+│  ╎│╎ ╎╎   0x0000ecec      0620a0e1       mov r2, r6
+│  ╎│╎ ╎╎   0x0000ecf0      02f8ffeb       bl fcn.0000cd00
+│ ────────< 0x0000ecf4      eefbffea       b 0xdcb4
+│  ╎│╎ ╎╎   ; CODE XREF from fcn.0000d274 @ 0xea4c(x)
+│ ────────> 0x0000ecf8      0c0095e5       ldr r0, [r5, 0xc]           ; 0x10dc1 ; "extension is now %s\n" ; void *ptr
+│  ╎│╎ ╎╎   0x0000ecfc      18ebffeb       bl sym.imp.free             ; void free(void *ptr)
+│  ╎│╎ ╎╎   0x0000ed00      f0021be5       ldr r0, [length]            ; 0x10dc1 ; "extension is now %s\n"
+│  ╎│╎ ╎╎   0x0000ed04      0c4085e5       str r4, [r5, 0xc]
+│  ╎│╎ ╎╎   0x0000ed08      44304be2       sub r3, fp, 0x44
+│  ╎│╎ ╎╎   0x0000ed0c      0a10a0e1       mov r1, sl
+│  ╎│╎ ╎╎   0x0000ed10      00308de5       str r3, [sp]
+│  ╎│╎ ╎╎   0x0000ed14      04008de5       str r0, [var_4h]
+│  ╎│╎ ╎╎   0x0000ed18      40304be2       sub r3, fp, 0x40
+│  ╎│╎ ╎╎   0x0000ed1c      f8281fe5       ldr r2, str.olddir          ; [0x10ad0:4]=0x64646c6f ; "olddir"
+│  ╎│╎ ╎╎   0x0000ed20      0800a0e1       mov r0, r8
+│  ╎│╎ ╎╎   0x0000ed24      77ebffeb       bl fcn.00009b08
+│  ╎│╎ ╎╎   0x0000ed28      000050e3       cmp r0, 0
+│  ╎│╎ ╎╎   0x0000ed2c      0020a0e1       mov r2, r0
+│  ╎│╎ ╎╎   0x0000ed30      0c0085e5       str r0, [r5, 0xc]
+│  ╎│╎ ╎╎   0x0000ed34      0c191f15       ldrne r1, str.olddir_is_now__s ; [0x10d96:4]=0x64646c6f ; "olddir is now %s │  ╎│╎ ╎╎   ; "
+│  ╎│╎ ╎╎   0x0000ed38      0200a013       movne r0, 2
+│ ────────< 0x0000ed3c      8dffff1a       bne 0xeb78
+│  ╎│╎ └──< 0x0000ed40      1dfeffea       b 0xe5bc
+│  ╎│╎  ╎   ; CODE XREF from fcn.0000d274 @ 0xea3c(x)
+│ ────────> 0x0000ed44      06ebffeb       bl sym.imp.free             ; void free(void *ptr)
+│  ╎│╎  ╎   0x0000ed48      f0621be5       ldr r6, [length]            ; 0x10d96 ; "olddir is now %s │  ╎│╎  ╎   ; "
+│  ╎│╎  ╎   0x0000ed4c      44304be2       sub r3, fp, 0x44
+│  ╎│╎  ╎   0x0000ed50      0800a0e1       mov r0, r8
+│  ╎│╎  ╎   0x0000ed54      00308de5       str r3, [sp]
+│  ╎│╎  ╎   0x0000ed58      0a10a0e1       mov r1, sl
+│  ╎│╎  ╎   0x0000ed5c      30291fe5       ldr r2, str.include         ; [0x10d60:4]=0x6c636e69 ; "include"
+│  ╎│╎  ╎   0x0000ed60      40304be2       sub r3, fp, 0x40
+│  ╎│╎  ╎   0x0000ed64      04608de5       str r6, [var_4h]
+│  ╎│╎  ╎   0x0000ed68      2bebffeb       bl fcn.00009a1c
+│  ╎│╎  ╎   0x0000ed6c      006050e2       subs r6, r0, 0
+│ ────────< 0x0000ed70      fff9ff0a       beq 0xd574
+│  ╎│╎  ╎   0x0000ed74      3c491fe5       ldr r4, [0x0000e440]        ; [0xe440:4]=0x1967c
+│  ╎│╎  ╎   0x0000ed78      0200a0e3       mov r0, 2
+│  ╎│╎  ╎   0x0000ed7c      4c191fe5       ldr r1, str.including__s    ; [0x10d68:4]=0x6c636e69 ; "including %s │  ╎│╎  ╎   ; "
+│  ╎│╎  ╎   0x0000ed80      0620a0e1       mov r2, r6
+│  ╎│╎  ╎   0x0000ed84      ddf7ffeb       bl fcn.0000cd00
+│  ╎│╎  ╎   0x0000ed88      0c3094e5       ldr r3, [r4, 0xc]
+│  ╎│╎  ╎   0x0000ed8c      013083e2       add r3, r3, 1
+│  ╎│╎  ╎   0x0000ed90      0c3084e5       str r3, [r4, 0xc]
+│  ╎│╎  ╎   0x0000ed94      100053e3       cmp r3, 0x10
+│  ╎│╎ ┌──< 0x0000ed98      1100008a       bhi 0xede4
+│  ╎│╎ │╎   0x0000ed9c      0600a0e1       mov r0, r6
+│  ╎│╎ │╎   0x0000eda0      0510a0e1       mov r1, r5
+│  ╎│╎ │╎   0x0000eda4      ef0000eb       bl fcn.0000f168
+│  ╎│╎ │╎   0x0000eda8      0c3094e5       ldr r3, [r4, 0xc]
+│  ╎│╎ │╎   0x0000edac      013043e2       sub r3, r3, 1
+│  ╎│╎ │╎   0x0000edb0      0c3084e5       str r3, [r4, 0xc]
+│  ╎│╎ │╎   0x0000edb4      000050e3       cmp r0, 0
+│ ────────< 0x0000edb8      47faff0a       beq 0xd6dc
+│ ────────< 0x0000edbc      b7faffea       b 0xd8a0
+│  ╎│╎ │╎   ; CODE XREF from fcn.0000d274 @ 0xe90c(x)
+│ ────────> 0x0000edc0      480095e5       ldr r0, [r5, 0x48]          ; void *ptr
+│  ╎│╎ │╎   0x0000edc4      0570a0e1       mov r7, r5
+│  ╎│╎ │╎   0x0000edc8      e5eaffeb       bl sym.imp.free             ; void free(void *ptr)
+│  ╎│╎ │╎   0x0000edcc      4840a7e5       str r4, [r7, 0x48]!
+│  ╎│╎ │╎   ; CODE XREFS from fcn.0000d274 @ 0xef7c(x), 0xef90(x), 0xefa8(x)
+│ ┌───┌───> 0x0000edd0      f4720be5       str r7, [var_2f4h]          ; 0x2f4 ; 756
+│ ╎╎│╎╎│╎   0x0000edd4      40701be5       ldr r7, [var_40h]           ; 0x40 ; 64
+│ ╎╎│╎╎│╎   0x0000edd8      04730be5       str r7, [src]               ; 0x304 ; 772
+│ ╎╎│╎╎│╎   0x0000eddc      2070a0e3       mov r7, 0x20
+│ ────────< 0x0000ede0      3dfaffea       b 0xd6dc
+│ ╎╎│╎╎│╎   ; CODE XREF from fcn.0000d274 @ 0xed98(x)
+│ ╎╎│╎╎└──> 0x0000ede4      0a30a0e1       mov r3, sl
+│ ╎╎│╎╎ ╎   0x0000ede8      0500a0e3       mov r0, 5
+│ ╎╎│╎╎ ╎   0x0000edec      b8191fe5       ldr r1, str._s:_d_include_nesting_too_deep ; [0x10d76:4]=0x253a7325 ; "%s:%d include nesting too deep │ ╎╎│╎╎ ╎   ; "
+│ ╎╎│╎╎ ╎   0x0000edf0      0820a0e1       mov r2, r8
+│ ╎╎│╎╎ ╎   0x0000edf4      c1f7ffeb       bl fcn.0000cd00
+│ ╎╎│╎╎ ╎   0x0000edf8      0c3094e5       ldr r3, [r4, 0xc]
+│ ╎╎│╎╎ ╎   0x0000edfc      013043e2       sub r3, r3, 1
+│ ╎╎│╎╎ ╎   0x0000ee00      0c3084e5       str r3, [r4, 0xc]
+│ ────────< 0x0000ee04      a5faffea       b 0xd8a0
+│ ╎╎│╎╎ ╎   ; CODE XREF from fcn.0000d274 @ 0xe9ec(x)
+│ ╎╎└─────> 0x0000ee08      d0491fe5       ldr r4, [0x0000e440]        ; [0xe440:4]=0x1967c
+│ ╎╎ ╎╎ ╎   0x0000ee0c      030094e9       ldmib r4, {r0, r1}
+│ ╎╎ ╎╎ ╎   0x0000ee10      09f8ffeb       bl fcn.0000ce3c
+│ ╎╎ ╎╎ ╎   0x0000ee14      fc121be5       ldr r1, [var_2fch]          ; 0x2fc ; 764
+│ ╎╎ ╎╎ ╎   0x0000ee18      0100a0e3       mov r0, 1                   ; size_t size
+│ ╎╎ ╎╎ ╎   0x0000ee1c      081084e5       str r1, [r4, 8]
+│ ╎╎ ╎╎ ╎   0x0000ee20      f1e9ffeb       bl sym.imp.malloc           ;  void *malloc(size_t size)
+│ ╎╎ ╎╎ ╎   0x0000ee24      0630a0e1       mov r3, r6
+│ ╎╎ ╎╎ ╎   0x0000ee28      040084e5       str r0, [r4, 4]
+│ ╎╎ ╎╎ ╎   ; CODE XREFS from fcn.0000d274 @ 0xea14(x), 0xea1c(x)
+│ ────────> 0x0000ee2c      f4491fe5       ldr r4, [0x0000e440]        ; [0xe440:4]=0x1967c
+│ ╎╎ ╎╎ ╎   0x0000ee30      0320a0e1       mov r2, r3
+│ ╎╎ ╎╎ ╎   0x0000ee34      06c0a0e1       mov ip, r6
+│ ╎╎ ╎╎ ╎   0x0000ee38      0a30a0e1       mov r3, sl
+│ ╎╎ ╎╎ ╎   0x0000ee3c      05a0a0e1       mov sl, r5
+│ ╎╎ ╎╎ ╎   0x0000ee40      0250a0e1       mov r5, r2
+│ ╎╎ ╎╎ ╎   ; CODE XREFS from fcn.0000d274 @ 0xef4c(x), 0xef58(x)
+│ ╎╎┌──┌──> 0x0000ee44      0020d5e5       ldrb r2, [r5]
+│ ╎╎╎╎╎╎╎   0x0000ee48      000052e3       cmp r2, 0
+│ ────────< 0x0000ee4c      4200000a       beq 0xef5c
+│ ╎╎╎╎╎╎╎   0x0000ee50      142a1fe5       ldr r2, obj.__ctype_b       ; [0x195e0:4]=0
+│ ╎╎╎╎╎╎╎                                                              ; loc._edata
+│ ╎╎╎╎╎╎╎   0x0000ee54      3c500be5       str r5, [endptr]            ; 0x3c ; 60
+│ ╎╎╎╎╎╎╎   0x0000ee58      00e092e5       ldr lr, [r2]                ; 0x195e0
+│ ╎╎╎╎╎╎╎                                                              ; loc._edata
+│ ╎╎╎╎╎╎╎   ; CODE XREF from fcn.0000d274 @ 0xee8c(x)
+│ ────────> 0x0000ee5c      3c001be5       ldr r0, [endptr]            ; 0x3c ; 60
+│ ╎╎╎╎╎╎╎   0x0000ee60      0020d0e5       ldrb r2, [r0]
+│ ╎╎╎╎╎╎╎   0x0000ee64      8210a0e1       lsl r1, r2, 1
+│ ╎╎╎╎╎╎╎   0x0000ee68      b1109ee1       ldrh r1, [lr, r1]
+│ ╎╎╎╎╎╎╎   0x0000ee6c      200011e3       tst r1, 0x20
+│ ────────< 0x0000ee70      0600001a       bne 0xee90
+│ ╎╎╎╎╎╎╎   0x0000ee74      2c0052e3       cmp r2, 0x2c                ; ','
+│ ────────< 0x0000ee78      0400000a       beq 0xee90
+│ ╎╎╎╎╎╎╎   0x0000ee7c      000052e3       cmp r2, 0
+│ ────────< 0x0000ee80      0200000a       beq 0xee90
+│ ╎╎╎╎╎╎╎   0x0000ee84      010080e2       add r0, r0, 1
+│ ╎╎╎╎╎╎╎   0x0000ee88      3c000be5       str r0, [endptr]            ; 0x3c ; 60
+│ ────────< 0x0000ee8c      f2ffffea       b 0xee5c
+│ ╎╎╎╎╎╎╎   ; CODE XREFS from fcn.0000d274 @ 0xee70(x), 0xee78(x), 0xee80(x)
+│ ────────> 0x0000ee90      081094e5       ldr r1, [r4, 8]
+│ ╎╎╎╎╎╎╎   0x0000ee94      040094e5       ldr r0, [r4, 4]             ; void *ptr
+│ ╎╎╎╎╎╎╎   0x0000ee98      011081e2       add r1, r1, 1
+│ ╎╎╎╎╎╎╎   0x0000ee9c      2c330be5       str r3, [var_32ch]          ; 0x32c ; 812
+│ ╎╎╎╎╎╎╎   0x0000eea0      28c30be5       str ip, [var_328h]          ; 0x328 ; 808
+│ ╎╎╎╎╎╎╎   0x0000eea4      0111a0e1       lsl r1, r1, 2               ; size_t size
+│ ╎╎╎╎╎╎╎   0x0000eea8      2ceaffeb       bl sym.imp.realloc          ; void *realloc(void *ptr, size_t size)
+│ ╎╎╎╎╎╎╎   0x0000eeac      082094e5       ldr r2, [r4, 8]
+│ ╎╎╎╎╎╎╎   0x0000eeb0      0060a0e1       mov r6, r0
+│ ╎╎╎╎╎╎╎   0x0000eeb4      040084e5       str r0, [r4, 4]
+│ ╎╎╎╎╎╎╎   0x0000eeb8      3c001be5       ldr r0, [endptr]            ; 0x3c ; 60
+│ ╎╎╎╎╎╎╎   0x0000eebc      24230be5       str r2, [var_324h]          ; 0x324 ; 804
+│ ╎╎╎╎╎╎╎   0x0000eec0      000065e0       rsb r0, r5, r0
+│ ╎╎╎╎╎╎╎   0x0000eec4      010080e2       add r0, r0, 1               ; size_t size
+│ ╎╎╎╎╎╎╎   0x0000eec8      c7e9ffeb       bl sym.imp.malloc           ;  void *malloc(size_t size)
+│ ╎╎╎╎╎╎╎   0x0000eecc      24231be5       ldr r2, [var_324h]          ; 0x324 ; 804
+│ ╎╎╎╎╎╎╎   0x0000eed0      0510a0e1       mov r1, r5                  ; const char *src
+│ ╎╎╎╎╎╎╎   0x0000eed4      020186e7       str r0, [r6, r2, lsl 2]
+│ ╎╎╎╎╎╎╎   0x0000eed8      082094e5       ldr r2, [r4, 8]
+│ ╎╎╎╎╎╎╎   0x0000eedc      020196e7       ldr r0, [r6, r2, lsl 2]     ; char *dest
+│ ╎╎╎╎╎╎╎   0x0000eee0      3c201be5       ldr r2, [endptr]            ; 0x3c ; 60
+│ ╎╎╎╎╎╎╎   0x0000eee4      022065e0       rsb r2, r5, r2
+│ ╎╎╎╎╎╎╎   0x0000eee8      16eaffeb       bl sym.imp.strncpy          ; char *strncpy(char *dest, const char *src, size_t  n)
+│ ╎╎╎╎╎╎╎   0x0000eeec      082094e5       ldr r2, [r4, 8]
+│ ╎╎╎╎╎╎╎   0x0000eef0      3c101be5       ldr r1, [endptr]            ; 0x3c ; 60
+│ ╎╎╎╎╎╎╎   0x0000eef4      b80a1fe5       ldr r0, obj.__ctype_b       ; [0x195e0:4]=0
+│ ╎╎╎╎╎╎╎                                                              ; loc._edata
+│ ╎╎╎╎╎╎╎   0x0000eef8      022196e7       ldr r2, [r6, r2, lsl 2]     ; 0x195e0
+│ ╎╎╎╎╎╎╎                                                              ; loc._edata
+│ ╎╎╎╎╎╎╎   0x0000eefc      015065e0       rsb r5, r5, r1
+│ ╎╎╎╎╎╎╎   0x0000ef00      0060a0e3       mov r6, 0
+│ ╎╎╎╎╎╎╎   0x0000ef04      0560c2e7       strb r6, [r2, r5]
+│ ╎╎╎╎╎╎╎   0x0000ef08      082094e5       ldr r2, [r4, 8]
+│ ╎╎╎╎╎╎╎   0x0000ef0c      00e090e5       ldr lr, [r0]                ; 0x195e0
+│ ╎╎╎╎╎╎╎                                                              ; loc._edata
+│ ╎╎╎╎╎╎╎   0x0000ef10      012082e2       add r2, r2, 1
+│ ╎╎╎╎╎╎╎   0x0000ef14      082084e5       str r2, [r4, 8]
+│ ╎╎╎╎╎╎╎   0x0000ef18      3c201be5       ldr r2, [endptr]            ; 0x3c ; 60
+│ ╎╎╎╎╎╎╎   0x0000ef1c      2c331be5       ldr r3, [var_32ch]          ; 0x32c ; 812
+│ ╎╎╎╎╎╎╎   0x0000ef20      28c31be5       ldr ip, [var_328h]          ; 0x328 ; 808
+│ ╎╎╎╎╎╎╎   0x0000ef24      0010d2e5       ldrb r1, [r2]
+│ ╎╎╎╎╎╎╎   0x0000ef28      2c0051e3       cmp r1, 0x2c                ; ','
+│ ╎╎╎╎╎╎╎   0x0000ef2c      40101b05       ldreq r1, [var_40h]         ; 0x40 ; 64
+│ ╎╎╎╎╎╎╎   0x0000ef30      01108102       addeq r1, r1, 1
+│ ╎╎╎╎╎╎╎   0x0000ef34      40100b05       streq r1, [var_40h]         ; 0x40 ; 64
+│ ╎╎╎╎╎╎╎   ; CODE XREF from fcn.0000d274 @ 0xef54(x)
+│ ────────> 0x0000ef38      0250a0e1       mov r5, r2
+│ ╎╎╎╎╎╎╎   0x0000ef3c      0100d2e4       ldrb r0, [r2], 1
+│ ╎╎╎╎╎╎╎   0x0000ef40      8010a0e1       lsl r1, r0, 1
+│ ╎╎╎╎╎╎╎   0x0000ef44      b1109ee1       ldrh r1, [lr, r1]
+│ ╎╎╎╎╎╎╎   0x0000ef48      200011e3       tst r1, 0x20
+│ ╎╎└─────< 0x0000ef4c      bcffff0a       beq 0xee44
+│ ╎╎ ╎╎╎╎   0x0000ef50      000050e3       cmp r0, 0
+│ ────────< 0x0000ef54      f7ffff1a       bne 0xef38
+│ ╎╎ ╎╎└──< 0x0000ef58      b9ffffea       b 0xee44
+│ ╎╎ ╎╎ ╎   ; CODE XREF from fcn.0000d274 @ 0xee4c(x)
+│ ────────> 0x0000ef5c      0a50a0e1       mov r5, sl
+│ ╎╎ ╎╎ ╎   0x0000ef60      0c60a0e1       mov r6, ip
+│ ╎╎ ╎╎ ╎   0x0000ef64      03a0a0e1       mov sl, r3
+│ ────────< 0x0000ef68      dbf9ffea       b 0xd6dc
+│ ╎╎ ╎╎ ╎   ; CODE XREF from fcn.0000d274 @ 0xe8f8(x)
+│ ────────> 0x0000ef6c      400095e5       ldr r0, [r5, 0x40]          ; void *ptr
+│ ╎╎ ╎╎ ╎   0x0000ef70      0570a0e1       mov r7, r5
+│ ╎╎ ╎╎ ╎   0x0000ef74      7aeaffeb       bl sym.imp.free             ; void free(void *ptr)
+│ ╎╎ ╎╎ ╎   0x0000ef78      4040a7e5       str r4, [r7, 0x40]!
+│ ────────< 0x0000ef7c      93ffffea       b 0xedd0
+│ ╎╎ ╎╎ ╎   ; CODE XREF from fcn.0000d274 @ 0xe8e4(x)
+│ ────────> 0x0000ef80      440095e5       ldr r0, [r5, 0x44]          ; void *ptr
+│ ╎╎ ╎╎ ╎   0x0000ef84      0570a0e1       mov r7, r5
+│ ╎╎ ╎╎ ╎   0x0000ef88      75eaffeb       bl sym.imp.free             ; void free(void *ptr)
+│ ╎╎ ╎╎ ╎   0x0000ef8c      4440a7e5       str r4, [r7, 0x44]!
+│ └───────< 0x0000ef90      8effffea       b 0xedd0
+│  ╎ ╎╎ ╎   ; CODE XREF from fcn.0000d274 @ 0xe8d0(x)
+│ ────────> 0x0000ef94      3c0095e5       ldr r0, [r5, 0x3c]          ; void *ptr
+│  ╎ ╎╎ ╎   0x0000ef98      0570a0e1       mov r7, r5
+│  ╎ ╎╎ ╎   0x0000ef9c      70eaffeb       bl sym.imp.free             ; void free(void *ptr)
+│  ╎ ╎╎ ╎   0x0000efa0      0030a0e3       mov r3, 0
+│  ╎ ╎╎ ╎   0x0000efa4      3c30a7e5       str r3, [r7, 0x3c]!
+│  ╎ ╎└───< 0x0000efa8      88ffffea       b 0xedd0
+│  ╎ ╎  ╎   ; CODE XREF from fcn.0000d274 @ 0xe884(x)
+│ ────────> 0x0000efac      4c0095e5       ldr r0, [r5, 0x4c]          ; void *ptr
+│  ╎ ╎  ╎   0x0000efb0      6beaffeb       bl sym.imp.free             ; void free(void *ptr)
+│  ╎ ╎  ╎   0x0000efb4      4c4085e5       str r4, [r5, 0x4c]
+│ ────────< 0x0000efb8      c7f9ffea       b 0xd6dc
+│  ╎ ╎  ╎   ; CODE XREF from fcn.0000d274 @ 0xe870(x)
+│ ────────> 0x0000efbc      4c0095e5       ldr r0, [r5, 0x4c]          ; void *ptr
+│  ╎ ╎  ╎   0x0000efc0      67eaffeb       bl sym.imp.free             ; void free(void *ptr)
+│  ╎ ╎  ╎   0x0000efc4      f0021be5       ldr r0, [length]            ; 0x2f0 ; 752
+│  ╎ ╎  ╎   0x0000efc8      24304be2       sub r3, fp, 0x24
+│  ╎ ╎  ╎   0x0000efcc      4c4085e5       str r4, [r5, 0x4c]
+│  ╎ ╎  ╎   0x0000efd0      44204be2       sub r2, fp, 0x44
+│  ╎ ╎  ╎   0x0000efd4      0a10a0e1       mov r1, sl
+│  ╎ ╎  ╎   0x0000efd8      1c4033e5       ldr r4, [r3, -0x1c]!
+│  ╎ ╎  ╎   0x0000efdc      00208de5       str r2, [sp]
+│  ╎ ╎  ╎   0x0000efe0      04008de5       str r0, [var_4h]
+│  ╎ ╎  ╎   0x0000efe4      0800a0e1       mov r0, r8
+│  ╎ ╎  ╎   0x0000efe8      a82b1fe5       ldr r2, str.mail            ; [0x10762:4]=0x6c69616d ; "mail"
+│  ╎ ╎  ╎   0x0000efec      8aeaffeb       bl fcn.00009a1c
+│  ╎ ╎  ╎   0x0000eff0      003050e2       subs r3, r0, 0
+│  ╎ ╎  ╎   0x0000eff4      0340a001       moveq r4, r3
+│  ╎ ╎ ┌──< 0x0000eff8      1300000a       beq 0xf04c
+│  ╎ ╎ │╎   0x0000effc      c01b1fe5       ldr r1, obj.__ctype_b       ; [0x195e0:4]=0
+│  ╎ ╎ │╎                                                              ; loc._edata
+│  ╎ ╎ │╎   ; XREFS(104)
+│  ╎ ╎ │╎   0x0000f000      00c091e5       ldr ip, [r1]                ; 0x195e0
+│  ╎ ╎ │╎                                                              ; loc._edata
+│  ╎ ╎ │╎   0x0000f004      0310a0e1       mov r1, r3
+│  ╎ ╎ │╎   ; CODE XREF from fcn.0000d274 @ 0xf028(x)
+│  ╎ ╎┌───> 0x0000f008      0120d1e4       ldrb r2, [r1], 1
+│  ╎ ╎╎│╎   0x0000f00c      000052e3       cmp r2, 0
+│  ╎┌─────< 0x0000f010      1700000a       beq 0xf074
+│  ╎│╎╎│╎   0x0000f014      8200a0e1       lsl r0, r2, 1
+│  ╎│╎╎│╎   0x0000f018      b0009ce1       ldrh r0, [ip, r0]
+│  ╎│╎╎│╎   0x0000f01c      400010e3       tst r0, 0x40                ; '@'
+│ ┌───────< 0x0000f020      0100000a       beq 0xf02c
+│ │╎│╎╎│╎   0x0000f024      200052e3       cmp r2, 0x20
+│ │╎│╎└───< 0x0000f028      f6ffff1a       bne 0xf008
+│ │╎│╎ │╎   ; CODE XREF from fcn.0000d274 @ 0xf020(x)
+│ └───────> 0x0000f02c      ec3b1fe5       ldr r3, str.mail            ; [0x10762:4]=0x6c69616d ; "mail"
+│  ╎│╎ │╎   0x0000f030      0500a0e3       mov r0, 5
+│  ╎│╎ │╎   0x0000f034      f01b1fe5       ldr r1, str._s:_d_bad__s_address__s ; [0x11186:4]=0x253a7325 ; "%s:%d bad %s address %s │  ╎│╎ │╎   ; "
+│  ╎│╎ │╎   0x0000f038      0820a0e1       mov r2, r8
+│  ╎│╎ │╎   0x0000f03c      18008de8       stm sp, {r3, r4}
+│  ╎│╎ │╎   0x0000f040      0a30a0e1       mov r3, sl
+│  ╎│╎ │╎   0x0000f044      2df7ffeb       bl fcn.0000cd00
+│  ╎│╎ │╎   0x0000f048      0040a0e3       mov r4, 0
+│  ╎│╎ │╎   ; CODE XREFS from fcn.0000d274 @ 0xeff8(x), 0xf090(x)
+│  ╎│╎┌└──> 0x0000f04c      000054e3       cmp r4, 0
+│  ╎│╎╎ ╎   0x0000f050      4c4085e5       str r4, [r5, 0x4c]
+│ ────────< 0x0000f054      46f9ff1a       bne 0xd574
+│  ╎│╎╎ └─< 0x0000f058      57fdffea       b 0xe5bc
+│  ╎│╎╎     ; CODE XREF from fcn.0000d274 @ 0xe85c(x)
+│ ────────> 0x0000f05c      0200a0e3       mov r0, 2
+│  ╎│╎╎     0x0000f060      181c1fe5       ldr r1, aav.0x00010c9b      ; [0x10c9b:4]=0x203a7325 ; "%s: %d: the errors directive is deprecated and no longer used.\n"
+│  ╎│╎╎     0x0000f064      0820a0e1       mov r2, r8
+│  ╎│╎╎     0x0000f068      0a30a0e1       mov r3, sl
+│  ╎│╎╎     0x0000f06c      23f7ffeb       bl fcn.0000cd00
+│ ────────< 0x0000f070      99f9ffea       b 0xd6dc
+│  ╎│╎╎     ; CODE XREF from fcn.0000d274 @ 0xf010(x)
+│  ╎└─────> 0x0000f074      0300a0e1       mov r0, r3                  ; const char *src
+│  ╎ ╎╎     0x0000f078      2c330be5       str r3, [var_32ch]          ; 0x32c ; 812
+│  ╎ ╎╎     0x0000f07c      cfe9ffeb       bl sym.imp.strdup           ; char *strdup(const char *src)
+│  ╎ ╎╎     0x0000f080      2c331be5       ldr r3, [var_32ch]          ; 0x10c9b ; "%s: %d: the errors directive is deprecated and no longer used.\n"
+│  ╎ ╎╎     0x0000f084      0040a0e1       mov r4, r0
+│  ╎ ╎╎     0x0000f088      0300a0e1       mov r0, r3                  ; void *ptr
+│  ╎ ╎╎     0x0000f08c      34eaffeb       bl sym.imp.free             ; void free(void *ptr)
+│  ╎ ╎└───< 0x0000f090      edffffea       b 0xf04c
+│  ╎ ╎      ; CODE XREF from fcn.0000d274 @ 0xe84c(x)
+│ ────────> 0x0000f094      32eaffeb       bl sym.imp.free             ; void free(void *ptr)
+│  ╎ ╎      0x0000f098      f0621be5       ldr r6, [length]            ; 0x10c9b ; "%s: %d: the errors directive is deprecated and no longer used.\n"
+│  ╎ ╎      0x0000f09c      44304be2       sub r3, fp, 0x44
+│  ╎ ╎      0x0000f0a0      0800a0e1       mov r0, r8
+│  ╎ ╎      0x0000f0a4      00308de5       str r3, [sp]
+│  ╎ ╎      0x0000f0a8      0a10a0e1       mov r1, sl
+│  ╎ ╎      0x0000f0ac      602c1fe5       ldr r2, aav.0x00010c6b      ; [0x10c6b:4]=0x6178616d ; "maxage count"
+│  ╎ ╎      0x0000f0b0      40304be2       sub r3, fp, 0x40
+│  ╎ ╎      0x0000f0b4      04608de5       str r6, [var_4h]
+│  ╎ ╎      0x0000f0b8      57eaffeb       bl fcn.00009a1c
+│  ╎ ╎      0x0000f0bc      006050e2       subs r6, r0, 0
+│ ────────< 0x0000f0c0      2bf9ff0a       beq 0xd574
+│  ╎ ╎      0x0000f0c4      3c104be2       sub r1, fp, 0x3c            ; char * *endptr
+│  ╎ ╎      0x0000f0c8      0420a0e1       mov r2, r4
+│  ╎ ╎      0x0000f0cc      58e9ffeb       bl sym.imp.strtoul          ; long strtoul(const char *str, char * *endptr, int base)
+│  ╎ ╎      0x0000f0d0      3c301be5       ldr r3, [endptr]            ; 0x10c6b ; "maxage count"
+│  ╎ ╎      0x0000f0d4      340085e5       str r0, [r5, 0x34]
+│  ╎ ╎      0x0000f0d8      0030d3e5       ldrb r3, [r3]               ; 0x10c6b ; "maxage count"
+│  ╎ ╎      0x0000f0dc      000053e3       cmp r3, 0
+│  ╎ ╎  ┌─< 0x0000f0e0      0100001a       bne 0xf0ec
+│  ╎ ╎  │   0x0000f0e4      000050e3       cmp r0, 0
+│ ────────< 0x0000f0e8      7bf9ffaa       bge 0xd6dc
+│  ╎ ╎  │   ; CODE XREF from fcn.0000d274 @ 0xf0e0(x)
+│  ╎ ╎  └─> 0x0000f0ec      40301be5       ldr r3, [var_40h]           ; 0x10c6b ; "maxage count"
+│  ╎ ╎      0x0000f0f0      0500a0e3       mov r0, 5
+│  ╎ ╎      0x0000f0f4      a41c1fe5       ldr r1, str._s:_d_bad_maximum_age__s ; [0x10c78:4]=0x253a7325 ; "%s:%d bad maximum age '%s' │  ╎ ╎      ; "
+│  ╎ ╎      0x0000f0f8      00308de5       str r3, [sp]
+│  └──────< 0x0000f0fc      4afdffea       b 0xe62c
+│    ╎      ; CODE XREF from fcn.0000d274 @ 0xe838(x)
+│ ────────> 0x0000f100      17eaffeb       bl sym.imp.free             ; void free(void *ptr)
+│    ╎      0x0000f104      f0621be5       ldr r6, [length]            ; 0x10c78 ; "%s:%d bad maximum age '%s' │    ╎      ; "
+│    ╎      0x0000f108      44304be2       sub r3, fp, 0x44
+│    ╎      0x0000f10c      0800a0e1       mov r0, r8
+│    ╎      0x0000f110      00308de5       str r3, [sp]
+│    ╎      0x0000f114      0a10a0e1       mov r1, sl
+│    ╎      0x0000f118      c42c1fe5       ldr r2, str.start_count     ; [0x10c3c:4]=0x72617473 ; "start count"
+│    ╎      0x0000f11c      40304be2       sub r3, fp, 0x40
+│    ╎      0x0000f120      04608de5       str r6, [var_4h]
+│    ╎      0x0000f124      3ceaffeb       bl fcn.00009a1c
+│    ╎      0x0000f128      006050e2       subs r6, r0, 0
+│ ────────< 0x0000f12c      10f9ff0a       beq 0xd574
+│    ╎      0x0000f130      3c104be2       sub r1, fp, 0x3c            ; char * *endptr
+│    ╎      0x0000f134      0420a0e1       mov r2, r4
+│    ╎      0x0000f138      3de9ffeb       bl sym.imp.strtoul          ; long strtoul(const char *str, char * *endptr, int base)
+│    ╎      0x0000f13c      3c301be5       ldr r3, [endptr]            ; 0x10c3c ; "start count"
+│    ╎      0x0000f140      380085e5       str r0, [r5, 0x38]
+│    ╎      0x0000f144      0030d3e5       ldrb r3, [r3]               ; 0x10c3c ; "start count"
+│    ╎      0x0000f148      000053e3       cmp r3, 0
+│    ╎  ┌─< 0x0000f14c      0100001a       bne 0xf158
+│    ╎  │   0x0000f150      000050e3       cmp r0, 0
+│ ────────< 0x0000f154      60f9ffaa       bge 0xd6dc
+│    ╎  │   ; CODE XREF from fcn.0000d274 @ 0xf14c(x)
+│    ╎  └─> 0x0000f158      00608de5       str r6, [sp]
+│    ╎      0x0000f15c      0500a0e3       mov r0, 5
+│    ╎      0x0000f160      081d1fe5       ldr r1, str._s:_d_bad_start_count__s ; [0x10c48:4]=0x253a7325 ; "%s:%d bad start count '%s' │    ╎      ; "
+└    └────< 0x0000f164      30fdffea       b 0xe62c

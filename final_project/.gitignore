@@ -1,0 +1,7 @@
+.env
+.env.*
+tmp/
+__pycache__/
+*.pyc
+output/evidence/ghidra_project/
+output/evidence/*.log

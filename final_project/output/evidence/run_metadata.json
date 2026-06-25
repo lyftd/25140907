@@ -1,0 +1,47 @@
+{
+  "mode": "llm",
+  "model": "gpt-5.5",
+  "tool_calls": [
+    {
+      "name": "r2_overview",
+      "ok": true
+    },
+    {
+      "name": "r2_dangerous_calls",
+      "ok": true
+    },
+    {
+      "name": "ghidra_analyze",
+      "ok": true
+    },
+    {
+      "name": "r2_disassemble_function",
+      "ok": true
+    },
+    {
+      "name": "r2_dangerous_calls",
+      "ok": true
+    },
+    {
+      "name": "r2_dangerous_calls",
+      "ok": true
+    },
+    {
+      "name": "r2_disassemble_function",
+      "ok": true
+    },
+    {
+      "name": "r2_disassemble_function",
+      "ok": true
+    },
+    {
+      "name": "r2_disassemble_function",
+      "ok": true
+    }
+  ],
+  "binary": "/Users/lyf/bj_master/semester_2/open_source_software/practice/final_project/logrotate",
+  "vuln_json": "/Users/lyf/bj_master/semester_2/open_source_software/practice/final_project/output/vuln.json",
+  "log_path": "/Users/lyf/bj_master/semester_2/open_source_software/practice/final_project/logs/run.txt",
+  "evidence_dir": "/Users/lyf/bj_master/semester_2/open_source_software/practice/final_project/output/evidence",
+  "report_path": "/Users/lyf/bj_master/semester_2/open_source_software/practice/final_project/output/25140907-李彦霏-考核2-二进制分析.pdf"
+}

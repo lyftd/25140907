@@ -1,0 +1,5 @@
+{
+  "vuln_type": "stack-based buffer overflow",
+  "location": "FUN_0000b674 dateformat handling, especially strncat calls at 0x0000b8f0, 0x0000b90c, and 0x0000b96c into the 128-byte stack buffer at sp+0x28",
+  "cause": "The untrusted logrotate configuration directive dateformat is read from the log structure at offset 0x60 and converted into a glob pattern in a fixed 128-byte stack buffer. The code appends fixed digit-regex strings with strncat using n = 0x80 - strlen(dest), which fails to reserve space for the terminating NUL, and the length check against 0x7e occurs after the append. A crafted dateformat with length near the buffer limit can therefore write past the 128-byte stack buffer."
+}

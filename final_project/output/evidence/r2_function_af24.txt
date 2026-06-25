@@ -1,0 +1,130 @@
+            ; CALL XREFS from fcn.0000b674 @ 0xc0e8(x), 0xc16c(x)
+            ; CALL XREF from fcn.0000c490 @ 0xc520(x)
+┌ 464: fcn.0000af24 (char *arg1, int32_t arg2);
+│ `- args(r0, r1) vars(9:sp[0x4..0x38])
+│           0x0000af24      f04f2de9       push {r4, r5, r6, r7, r8, sb, sl, fp, lr}
+│           0x0000af28      20b08de2       add fp, sp, 0x20
+│           0x0000af2c      14d04de2       sub sp, sp, 0x14
+│           0x0000af30      0140a0e1       mov r4, r1                  ; arg2
+│           0x0000af34      0050a0e1       mov r5, r0                  ; arg1
+│           0x0000af38      0270a0e1       mov r7, r2
+│           0x0000af3c      0200a0e3       mov r0, 2
+│           0x0000af40      ac119fe5       ldr r1, aav.0x0000fb81      ; [0xfb81:4]=0x706d6f63 ; "compressing log with: %s\n"
+│           0x0000af44      542094e5       ldr r2, [r4, 0x54]          ; 0xfb81 ; "compressing log with: %s\n"
+│           0x0000af48      6c0700eb       bl fcn.0000cd00
+│           0x0000af4c      a4319fe5       ldr r3, [0x0000b0f8]        ; [0xb0f8:4]=0x1965c
+│           0x0000af50      043093e5       ldr r3, [r3, 4]
+│           0x0000af54      000053e3       cmp r3, 0
+│           0x0000af58      0000a013       movne r0, 0
+│       ┌─< 0x0000af5c      0100000a       beq 0xaf68
+│       │   ; CODE XREFS from fcn.0000af24 @ 0xb070(x), 0xb0ac(x)
+│     ┌┌──> 0x0000af60      20d04be2       sub sp, fp, 0x20
+│     ╎╎│   0x0000af64      f08fbde8       pop {r4, r5, r6, r7, r8, sb, sl, fp, pc}
+│     ╎╎│   ; CODE XREF from fcn.0000af24 @ 0xaf5c(x)
+│     ╎╎└─> 0x0000af68      842094e5       ldr r2, [r4, 0x84]
+│     ╎╎    0x0000af6c      0221a0e1       lsl r2, r2, 2
+│     ╎╎    0x0000af70      162082e2       add r2, r2, 0x16
+│     ╎╎    0x0000af74      0720c2e3       bic r2, r2, 7
+│     ╎╎    0x0000af78      02d04de0       sub sp, sp, r2
+│     ╎╎    0x0000af7c      542094e5       ldr r2, [r4, 0x54]
+│     ╎╎    0x0000af80      0d60a0e1       mov r6, sp
+│     ╎╎    0x0000af84      0d10a0e1       mov r1, sp
+│     ╎╎    0x0000af88      00208de5       str r2, [sp]
+│     ╎╎┌─< 0x0000af8c      030000ea       b 0xafa0
+│     ╎╎│   ; CODE XREF from fcn.0000af24 @ 0xafa8(x)
+│    ┌────> 0x0000af90      802094e5       ldr r2, [r4, 0x80]
+│    ╎╎╎│   0x0000af94      032192e7       ldr r2, [r2, r3, lsl 2]
+│    ╎╎╎│   0x0000af98      013083e2       add r3, r3, 1
+│    ╎╎╎│   0x0000af9c      0420a1e5       str r2, [r1, 4]!
+│    ╎╎╎│   ; CODE XREF from fcn.0000af24 @ 0xaf8c(x)
+│    ╎╎╎└─> 0x0000afa0      842094e5       ldr r2, [r4, 0x84]
+│    ╎╎╎    0x0000afa4      020053e1       cmp r3, r2
+│    └────< 0x0000afa8      f8ffffba       blt 0xaf90
+│     ╎╎    0x0000afac      012082e2       add r2, r2, 1
+│     ╎╎    0x0000afb0      0030a0e3       mov r3, 0
+│     ╎╎    0x0000afb4      0500a0e1       mov r0, r5                  ; const char *s
+│     ╎╎    0x0000afb8      023186e7       str r3, [r6, r2, lsl 2]
+│     ╎╎    0x0000afbc      44faffeb       bl sym.imp.strlen           ; size_t strlen(const char *s)
+│     ╎╎    0x0000afc0      0080a0e1       mov r8, r0
+│     ╎╎    0x0000afc4      5c0094e5       ldr r0, [r4, 0x5c]          ; const char *s
+│     ╎╎    0x0000afc8      41faffeb       bl sym.imp.strlen           ; size_t strlen(const char *s)
+│     ╎╎    0x0000afcc      28119fe5       ldr r1, aav.0x0000ff85      ; [0xff85:4]=0x73257325 ; "%s%s" ; const char *format
+│     ╎╎    0x0000afd0      0520a0e1       mov r2, r5
+│     ╎╎    0x0000afd4      5c3094e5       ldr r3, [r4, 0x5c]          ; 0xff85 ; "%s%s"
+│     ╎╎    0x0000afd8      008088e0       add r8, r8, r0
+│     ╎╎    0x0000afdc      108088e2       add r8, r8, 0x10
+│     ╎╎    0x0000afe0      0780c8e3       bic r8, r8, 7
+│     ╎╎    0x0000afe4      08d04de0       sub sp, sp, r8
+│     ╎╎    0x0000afe8      0d00a0e1       mov r0, sp                  ; char *s
+│     ╎╎    0x0000afec      0da0a0e1       mov sl, sp
+│     ╎╎    0x0000aff0      16faffeb       bl sym.imp.sprintf          ; int sprintf(char *s, const char *format, ...)
+│     ╎╎    0x0000aff4      0210a0e3       mov r1, 2
+│     ╎╎    0x0000aff8      0500a0e1       mov r0, r5
+│     ╎╎    0x0000affc      fef9ffeb       bl sym.imp.open64
+│     ╎╎    0x0000b000      008050e2       subs r8, r0, 0
+│     ╎╎    0x0000b004      0500a0b3       movlt r0, 5
+│     ╎╎    0x0000b008      f0109fb5       ldrlt r1, aav.0x0000fb9b    ; [0xff85:4]=0x73257325 ; "%s%s"
+│     ╎╎┌─< 0x0000b00c      140000ba       blt 0xb064
+│     ╎╎│   0x0000b010      0d00a0e1       mov r0, sp
+│     ╎╎│   0x0000b014      4210a0e3       mov r1, 0x42                ; 'B'
+│     ╎╎│   0x0000b018      0720a0e1       mov r2, r7
+│     ╎╎│   0x0000b01c      85ffffeb       bl fcn.0000ae38
+│     ╎╎│   0x0000b020      009050e2       subs sb, r0, 0
+│    ┌────< 0x0000b024      210000ba       blt 0xb0b0
+│    │╎╎│   0x0000b028      d2f9ffeb       bl sym.imp.fork
+│    │╎╎│   0x0000b02c      001050e2       subs r1, r0, 0
+│   ┌─────< 0x0000b030      2100000a       beq 0xb0bc
+│   ││╎╎│   0x0000b034      0900a0e1       mov r0, sb                  ; int fildes
+│   ││╎╎│   0x0000b038      3dfaffeb       bl sym.imp.close            ; int close(int fildes)
+│   ││╎╎│   0x0000b03c      28004be2       sub r0, fp, 0x28            ; int *wstatus
+│   ││╎╎│   0x0000b040      abf9ffeb       bl sym.imp.wait             ; pid_t wait(int *wstatus)
+│   ││╎╎│   0x0000b044      28601be5       ldr r6, [wstatus]           ; 0xff85 ; "%s%s"
+│   ││╎╎│   0x0000b048      7f0016e3       tst r6, 0x7f                ; '\x7f'
+│  ┌──────< 0x0000b04c      0200001a       bne 0xb05c
+│  │││╎╎│   0x0000b050      5664e7e7       ubfx r6, r6, 8, 8
+│  │││╎╎│   0x0000b054      000056e3       cmp r6, 0
+│ ┌───────< 0x0000b058      0500000a       beq 0xb074
+│ ││││╎╎│   ; CODE XREF from fcn.0000af24 @ 0xb04c(x)
+│ │└──────> 0x0000b05c      a0109fe5       ldr r1, str.failed_to_compress_log__s ; [0xfbbe:4]=0x6c696166 ; "failed to compress log %s │ │└──────> ; "
+│ │ ││╎╎│   0x0000b060      0500a0e3       mov r0, 5
+│ │ ││╎╎│   ; CODE XREF from fcn.0000af24 @ 0xb00c(x)
+│ │ ││╎╎└─> 0x0000b064      0520a0e1       mov r2, r5
+│ │ ││╎╎    0x0000b068      240700eb       bl fcn.0000cd00
+│ │ ││╎╎    ; CODE XREF from fcn.0000af24 @ 0xb0b8(x)
+│ │ ││╎╎┌─> 0x0000b06c      0100a0e3       mov r0, 1
+│ │ ││└───< 0x0000b070      baffffea       b 0xaf60
+│ │ ││ ╎╎   ; CODE XREF from fcn.0000af24 @ 0xb058(x)
+│ └───────> 0x0000b074      483097e5       ldr r3, [r7, 0x48]          ; 0xfbbe ; "failed to compress log %s │ └───────> ; "
+│   ││ ╎╎   0x0000b078      30104be2       sub r1, fp, 0x30
+│   ││ ╎╎   0x0000b07c      0d00a0e1       mov r0, sp
+│   ││ ╎╎   0x0000b080      30300be5       str r3, [var_30h]           ; 0x30 ; 48
+│   ││ ╎╎   0x0000b084      503097e5       ldr r3, [r7, 0x50]          ; 0xfbbe ; "failed to compress log %s │   ││ ╎╎   ; "
+│   ││ ╎╎   0x0000b088      2c300be5       str r3, [var_2ch]           ; 0x2c ; 44
+│   ││ ╎╎   0x0000b08c      14f9ffeb       bl sym.imp.utime
+│   ││ ╎╎   0x0000b090      0510a0e1       mov r1, r5
+│   ││ ╎╎   0x0000b094      0420a0e1       mov r2, r4
+│   ││ ╎╎   0x0000b098      0800a0e1       mov r0, r8
+│   ││ ╎╎   0x0000b09c      00feffeb       bl fcn.0000a8a4
+│   ││ ╎╎   0x0000b0a0      0800a0e1       mov r0, r8                  ; int fildes
+│   ││ ╎╎   0x0000b0a4      22faffeb       bl sym.imp.close            ; int close(int fildes)
+│   ││ ╎╎   0x0000b0a8      0600a0e1       mov r0, r6
+│   ││ └──< 0x0000b0ac      abffffea       b 0xaf60
+│   ││  ╎   ; CODE XREF from fcn.0000af24 @ 0xb024(x)
+│   │└────> 0x0000b0b0      0800a0e1       mov r0, r8                  ; int fildes
+│   │   ╎   0x0000b0b4      1efaffeb       bl sym.imp.close            ; int close(int fildes)
+│   │   └─< 0x0000b0b8      ebffffea       b 0xb06c
+│   │       ; CODE XREF from fcn.0000af24 @ 0xb030(x)
+│   └─────> 0x0000b0bc      0800a0e1       mov r0, r8
+│           0x0000b0c0      40f9ffeb       bl sym.imp.dup2
+│           0x0000b0c4      0800a0e1       mov r0, r8                  ; int fildes
+│           0x0000b0c8      19faffeb       bl sym.imp.close            ; int close(int fildes)
+│           0x0000b0cc      0110a0e3       mov r1, 1
+│           0x0000b0d0      0900a0e1       mov r0, sb
+│           0x0000b0d4      3bf9ffeb       bl sym.imp.dup2
+│           0x0000b0d8      0900a0e1       mov r0, sb                  ; int fildes
+│           0x0000b0dc      14faffeb       bl sym.imp.close            ; int close(int fildes)
+│           0x0000b0e0      000096e5       ldr r0, [r6]                ; 0xfbbe ; "failed to compress log %s │           ; "
+│           0x0000b0e4      0610a0e1       mov r1, r6
+│           0x0000b0e8      08faffeb       bl sym.imp.execvp
+│           0x0000b0ec      0100a0e3       mov r0, 1                   ; int status
+└           0x0000b0f0      eef9ffeb       bl sym.imp.exit             ; void exit(int status)
