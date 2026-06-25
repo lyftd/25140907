@@ -1,0 +1,53 @@
+rules:
+  - id: python-sqli-string-format-execute
+    languages: [python]
+    severity: ERROR
+    message: >-
+      SQL query is built via string formatting (%, f-string, or .format())
+      and then passed to a DB-API execute()/executemany(). This is SQL
+      injection. Use parameterized queries: cursor.execute(sql, (param,)).
+    metadata:
+      category: security
+      cwe: "CWE-89: Improper Neutralization of Special Elements used in an SQL Command"
+      owasp: "A03:2021 - Injection"
+      technology: [python, sql, sqlite, psycopg2, mysql]
+      author: "25140907"
+      references:
+        - https://cwe.mitre.org/data/definitions/89.html
+        - https://bandit.readthedocs.io/en/latest/plugins/b608_hardcoded_sql_expressions.html
+    pattern-either:
+      # ---- Inline forms: query built in the same expression as the call ----
+      - pattern: $CUR.execute(f"...{$X}...", ...)
+      - pattern: $CUR.executemany(f"...{$X}...", ...)
+      - pattern: $CUR.execute("..." % $X, ...)
+      - pattern: $CUR.executemany("..." % $X, ...)
+      - pattern: $CUR.execute("...".format(...), ...)
+      - pattern: $CUR.executemany("...".format(...), ...)
+      # ---- Variable forms: query assigned then executed in the same scope ----
+      - pattern: |
+          $Q = f"...{$X}..."
+          ...
+          $CUR.execute($Q, ...)
+      - pattern: |
+          $Q = "..." % $X
+          ...
+          $CUR.execute($Q, ...)
+      - pattern: |
+          $Q = "...".format(...)
+          ...
+          $CUR.execute($Q, ...)
+      - pattern: |
+          $Q = f"...{$X}..."
+          ...
+          $CUR.executemany($Q, ...)
+      - pattern: |
+          $Q = "..." % $X
+          ...
+          $CUR.executemany($Q, ...)
+      - pattern: |
+          $Q = "...".format(...)
+          ...
+          $CUR.executemany($Q, ...)
+    fix: |
+      # Replace string formatting with parameterized query, e.g.:
+      #   cursor.execute("SELECT * FROM users WHERE username = ?", (username,))
