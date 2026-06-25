@@ -1,0 +1,33 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "thought": {
+      "type": "string"
+    },
+    "action": {
+      "type": "string",
+      "enum": [
+        "r2_overview",
+        "r2_disassemble",
+        "ghidra_decompile"
+      ]
+    },
+    "action_input": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "address": {
+          "type": ["string", "null"]
+        }
+      },
+      "required": ["address"]
+    },
+    "final": {
+      "type": "null"
+    }
+  },
+  "required": ["thought", "action", "action_input", "final"]
+}
+

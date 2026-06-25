@@ -1,0 +1,5 @@
+{
+  "vuln_type": "stack_buffer_overflow",
+  "location": "0x401382",
+  "cause": "An attacker-controlled line from `fgets` is accepted when `strlen(buf) - 1 <= 99`, then copied with `__strcpy_chk` into a 16-byte stack destination, so inputs longer than 15 bytes overflow the destination despite the checked wrapper."
+}

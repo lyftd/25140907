@@ -1,0 +1,63 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "thought": {
+      "type": "string",
+      "description": "A brief, evidence-oriented decision summary."
+    },
+    "action": {
+      "type": ["string", "null"],
+      "enum": [
+        "r2_overview",
+        "r2_disassemble",
+        "ghidra_decompile",
+        null
+      ]
+    },
+    "action_input": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "address": {
+          "type": ["string", "null"]
+        }
+      },
+      "required": ["address"]
+    },
+    "final": {
+      "anyOf": [
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "vuln_type": {
+              "type": "string",
+              "enum": [
+                "stack_buffer_overflow",
+                "heap_buffer_overflow",
+                "format_string",
+                "use_after_free",
+                "integer_overflow",
+                "command_injection",
+                "no_vulnerability_found"
+              ]
+            },
+            "location": {
+              "type": "string"
+            },
+            "cause": {
+              "type": "string"
+            }
+          },
+          "required": ["vuln_type", "location", "cause"]
+        },
+        {
+          "type": "null"
+        }
+      ]
+    }
+  },
+  "required": ["thought", "action", "action_input", "final"]
+}
